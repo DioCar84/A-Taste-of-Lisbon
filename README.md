@@ -19,7 +19,7 @@ Using the principles of UX design and the agile development methodology, this pr
     - [Scope](#scope)
     - [Structure](#structure)
     - [Skeleton](#skeleton)
-    - [Design](#design)
+    - [Surface](#surface)
   - [Features](#features)
     - [Implemented features](#implemented-features)
     - [Features left to implement](#features-left-to-implement)
@@ -49,7 +49,7 @@ Using the principles of UX design and the agile development methodology, this pr
     - Interact with current/potential customers
     - Create a recipes blog
     - Creat an online reservation mechanism
-    - Showcase their menu
+    - Display key information
 
   ### Site Objectives:
 
@@ -68,6 +68,8 @@ Using the principles of UX design and the agile development methodology, this pr
   ### Site user:
 
     - As a site user I can register an account so that I can comment and like posts
+    - As a site user I can view the menu so that I can determine if I want to eat at this restaurant
+    - As a site user I can view key information so that I know when the restaurant is open, or where it is located
     - As a site user I can view a paginated list of posts so that I can easily select a post to view
     - As a site user I can make, edit and delete comments so that I have control over how I interact with the blog community
     - As a site user I can like a post so that the author knows I enjoyed the content
@@ -96,7 +98,7 @@ Using the principles of UX design and the agile development methodology, this pr
 
 - ## **Skeleton**
 
-- ## **Design**
+- ## **Surface**
 
 # **FEATURES**
 
