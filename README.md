@@ -94,7 +94,28 @@ Using the principles of UX design and the agile development methodology, this pr
 
 - ## **Scope**
 
+  - ### Features
+    ![Features](documentation/scope/Features.png)
+
+    This website will released as a minimal viable product with the above features implemented in this release. 
+    There will be room for improvement and new features may be added in future releases.
+
+  - ### Functionality and Content
+    ![Functions and Content](documentation/scope/Function-Content.png)
+
+    The above functionality and content have been identified as mandatory for this release.
+
 - ## **Structure**
+
+  - ### Information Architecture
+  ![Information Architecture](documentation/structure/Information%20Architecture.png)
+
+  The navigation for this website was designed to be user-friendly and intuitive. Grouping pages according to relationships and functionality. As can be seen in the mapping image, the user never has to traverse more than 3 layers deep from the home page.
+
+  - ### Entity Relationship Model
+  ![Entity Relationship Model](documentation/structure/ERM.png)
+
+  The ERM design demonstrates how the information will be stored while the data is at rest. Here we can see one-to-many relationships between the User model and the Comment and/or Post model. The same relationship is established between the Post model and the Comment. The Reservation model does not establish any direct relationship, this allows for greater flexibility and doesn't limit the reservation functionality to only Users that are already in the database. 
 
 - ## **Skeleton**
 
