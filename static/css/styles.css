@@ -1,3 +1,15 @@
-body {
-    background-color: blue;
+/* ---------- NAVBAR ---------- */
+
+.logo {
+    position: relative;
+    left: 5%;
+}
+
+.center-nav {
+    margin: auto;
+}
+
+.right-nav {
+    position: relative;
+    right: 5%;
 }
