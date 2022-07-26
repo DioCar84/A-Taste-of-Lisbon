@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Quicksand:wght@300;400;700&family=Roboto+Slab:wght@200;400;700&display=swap');
 
 /* font-family: 'Quicksand', 'Arial', sans-serif; */
-/* font-family: 'Roboto Slab', 'Times New Roman', serif; */
+
+/* ---------- GLOBAL ---------- */
+
+.page-title {
+    font-family: 'Roboto Slab', 'Times New Roman', serif;
+    text-align: center;
+    padding: 5% 0 2%;
+    margin: 2% 0 0px;
+    font-size: 350%;
+}
 
 /* ---------- NAVBAR ---------- */
 
@@ -85,4 +94,20 @@ footer {
 
 .twitter {
     background-color: #55acee;
+}
+
+/* ---------- HOME PAGE ---------- */
+
+.home-description {
+    text-align: center;
+    font-family: 'Quicksand', 'Arial', sans-serif;
+    font-size: 200%;
+    margin-bottom: 5%;
+}
+
+.hero-image {
+    width: 60%;
+    position: relative;
+    left: 20%;
+    margin-bottom: 10%;
 }
