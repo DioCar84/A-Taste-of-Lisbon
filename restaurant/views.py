@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from .models import Reservation
+from .models import Reservation, Photo
 
 # Create your views here.
 def home(request):
-    return render(request, 'restaurant/home.html')
+    hero_image = Photo.objects.get(title='Lisbon Tram');
+    context = {'hero_image': hero_image, }
+    return render(request, 'restaurant/home.html', context)

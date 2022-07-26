@@ -19,6 +19,9 @@ class Reservation(models.Model):
         ordering = ['-date']
 
 
-class Photo(models.model):
+class Photo(models.Model):
     title = models.CharField(max_length=100)
     image = CloudinaryField('image')
+
+    def __str__(self):
+        return self.title
