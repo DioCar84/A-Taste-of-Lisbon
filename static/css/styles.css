@@ -111,3 +111,57 @@ footer {
     left: 20%;
     margin-bottom: 10%;
 }
+
+/* ---------- MENU PAGE ---------- */
+
+.menu-card {
+    border-radius: 10%;
+    margin: 4%;
+    text-align: center;
+    color: white;
+    background-color: #f18e84;
+}
+
+.image-block {
+    height: 70%;
+    border-radius: 10%;
+}
+
+.menu-image {
+    width: 90%;
+    height: 80%;
+    padding-top: 20%;
+}
+
+.info-item {
+    width: 80%;
+    position: relative;
+    left: 10%;
+    padding: 2%;
+}
+
+.info-block {
+    height: 25%;
+}
+
+.menu-buttons {
+    position: relative;
+    bottom: 2%;
+}
+
+.menu-button {
+    width: 25%;
+}
+
+.page-links {
+    margin: 5%;
+    justify-content: center;
+}
+
+.fa-circle-chevron-left {
+    color: #ffb570;
+}
+
+.fa-circle-chevron-right {
+    color: #ffb570;
+}
