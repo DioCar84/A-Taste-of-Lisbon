@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -16,3 +17,8 @@ class Reservation(models.Model):
 
     class Meta:
         ordering = ['-date']
+
+
+class Photo(models.model):
+    title = models.CharField(max_length=100)
+    image = CloudinaryField('image')

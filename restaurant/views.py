@@ -3,4 +3,4 @@ from .models import Reservation
 
 # Create your views here.
 def home(request):
-    return render(request, 'base.html')
+    return render(request, 'restaurant/home.html')
