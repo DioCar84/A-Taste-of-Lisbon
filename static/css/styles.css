@@ -183,7 +183,12 @@ footer {
 /* ---------- MEDIA QUERIES ---------- */
 
 /* For large screens size from 1700px wide and down */
-@media screen and (max-width: 1700px) {}
+@media screen and (max-width: 1700px) {
+
+    .login-tablet {
+        visibility: hidden;
+    }
+}
 
 /* For large to medium screens size from 1300px wide and down */
 @media screen and (max-width: 1300px) {
@@ -208,13 +213,18 @@ footer {
 /* For medium screens size from 990px wide and down */
 @media screen and (max-width: 990px) {
 
-    .center-nav {
-        right: 0;
+    .center-nav a {
+        margin: 0;
+        position: relative;
+        left: 20%;
     }
 
-    .right-nav {
-        right: 0;
-        left: 2%;
+    .login-pc {
+        visibility: hidden;
+    }
+
+    .login-tablet {
+        visibility: visible;
     }
 
     #social-media {
@@ -222,14 +232,36 @@ footer {
     }
 }
 
-/* For medium screens size from 768px wide and down */
-@media screen and (max-width: 768px) {
+/* For medium screens size from 767px wide and down */
+@media screen and (max-width: 767px) {
+
+    .center-nav {
+        right: 0;
+    }
+
+    .center-nav a {
+        left: 5%;
+    }
+
+    .right-nav {
+        right: 0;
+        left: 5%;
+    }
+
+    .login-pc {
+        visibility: visible;
+    }
+
+    .login-tablet {
+        visibility: hidden;
+    }
+
     #social-media {
         width: 40%;
     }
 
     .menu-card {
-        width: 50%
+        width: 45%;
     }
 
     .menu-button {
