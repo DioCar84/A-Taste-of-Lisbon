@@ -205,8 +205,18 @@ footer {
     }
 }
 
-/* For medium screens size from 950px wide and down */
-@media screen and (max-width: 950px) {
+/* For medium screens size from 990px wide and down */
+@media screen and (max-width: 990px) {
+
+    .center-nav {
+        right: 0;
+    }
+
+    .right-nav {
+        right: 0;
+        left: 2%;
+    }
+
     #social-media {
         width: 30%;
     }
@@ -220,6 +230,10 @@ footer {
 
     .menu-card {
         width: 50%
+    }
+
+    .menu-button {
+        width: 30%;
     }
 }
 
