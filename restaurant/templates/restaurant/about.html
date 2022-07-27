@@ -1,1 +1,37 @@
 {% extends 'base.html' %}
+{% block content %}
+
+<h1 class="page-title">A Taste of Lisbon</h1>
+<p class="home-description">A traditional Portuguese restaurant in the heart of London.</p>
+<p class="about-description">Our menus at A Taste of Lisbon display the delicious cuisine of Portugal and celebrate its
+    international influence from its naviagation history. We cook Portuguese traditional dishes as well as some modern
+    twists on classic recipes. We want to celebrate the diversity and interconnection of Portuguese food and culture. A
+    Taste of Lisbon is the culmination of lifelong experimentation and discovery. Our
+    heritage dates back to before the 16th century and the passion for cooking has been predominant in our family for
+    many generations. What we discovered is delicous and beautiful cuisine and the art of fine dining. Come join us and
+    share with us a taste of home.
+</p>
+
+<div class="row about-container">
+    <div class="col-md-6">
+        <div class="about-item"><i class="fa-solid fa-location-dot col-3"></i><span class="about-details col-9">18
+                Portugal Street,
+                London, WC2A
+                2AT</span>
+        </div>
+        <div class="about-item"><i class="fa-solid fa-phone col-3"></i><span class="about-details col-9">+44 07 123
+                4567</span>
+        </div>
+        <div class="about-item"><i class="fa-solid fa-envelope col-3"></i><span
+                class="about-details col-9">atol@gmail.com</span>
+        </div>
+    </div>
+    <div class="col-md-6 map-container">
+        <img src="{{ map.image.url }}" alt="map of the Holborn area of London">
+    </div>
+</div>
+
+
+
+
+{% endblock %}

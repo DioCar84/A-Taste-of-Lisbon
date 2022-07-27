@@ -52,6 +52,10 @@ body {
     right: 5%;
 }
 
+.login-tablet {
+    visibility: hidden;
+}
+
 /* ---------- FOOTER ---------- */
 
 footer {
@@ -180,15 +184,47 @@ footer {
     color: #ffb570;
 }
 
+/* ---------- ABOUT PAGE ---------- */
+
+.about-description {
+    width: 50%;
+    margin: 2% 27%;
+    font-size: 120%;
+}
+
+.about-container {
+    width: 50%;
+    position: relative;
+    left: 25%;
+    height: 500px;
+    overflow: hidden;
+    margin: 10% 0;
+}
+
+.about-item {
+    font-size: 200%;
+    margin: 13% 10%;
+    display: flex;
+}
+
+.about-item i {
+    color: #ffb570;
+    padding: 3% 4%;
+}
+
+.about-details {
+    padding: 0 3%;
+}
+
+.map-container {
+    overflow: hidden;
+}
+
+
 /* ---------- MEDIA QUERIES ---------- */
 
 /* For large screens size from 1700px wide and down */
-@media screen and (max-width: 1700px) {
-
-    .login-tablet {
-        visibility: hidden;
-    }
-}
+@media screen and (max-width: 1700px) {}
 
 /* For large to medium screens size from 1300px wide and down */
 @media screen and (max-width: 1300px) {

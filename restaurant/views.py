@@ -22,4 +22,6 @@ def reservations(request):
     return render(request, 'restaurant/reservations.html')
 
 def about(request):
-    return render(request, 'restaurant/about.html')
+    map_image = Photo.objects.get(title='Map of London')
+    context = {'map' : map_image, }
+    return render(request, 'restaurant/about.html', context)
