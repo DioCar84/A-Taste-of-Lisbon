@@ -126,7 +126,7 @@ footer {
     text-align: center;
     color: white;
     background-color: #f18e84;
-    max-height: 450px;
+    height: 450px;
     padding: 0;
 }
 
@@ -137,8 +137,10 @@ footer {
 }
 
 .menu-image {
-    width: 50%;
+    position: relative;
+    width: auto;
     height: 100%;
+    border-radius: 10% 10% 0;
 }
 
 .info-block {
@@ -177,3 +179,70 @@ footer {
 .fa-circle-chevron-right {
     color: #ffb570;
 }
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* For large screens size from 1700px wide and down */
+@media screen and (max-width: 1700px) {}
+
+/* For large to medium screens size from 1300px wide and down */
+@media screen and (max-width: 1300px) {
+    .center-nav a {
+        margin: 0 2%;
+    }
+
+    .info-item {
+        font-size: 110%;
+    }
+
+    .info-p {
+        font-size: 100%;
+    }
+
+    .menu-buttons {
+        position: relative;
+        top: 2%;
+    }
+}
+
+/* For medium screens size from 950px wide and down */
+@media screen and (max-width: 950px) {
+    #social-media {
+        width: 30%;
+    }
+}
+
+/* For medium screens size from 768px wide and down */
+@media screen and (max-width: 768px) {
+    #social-media {
+        width: 40%;
+    }
+
+    .menu-card {
+        width: 50%
+    }
+}
+
+/* For small screens size from 500px wide and down */
+@media screen and (max-width: 500px) {
+    footer {
+        text-align: center;
+        display: flow-root;
+    }
+
+    #copyright {
+        left: 0;
+    }
+
+    #social-media {
+        width: 100%;
+        margin: 5%;
+    }
+
+    .menu-card {
+        width: 75%
+    }
+}
+
+/* For small screens size from 320px wide and down */
+@media screen and (max-width: 320px) {}
