@@ -4,28 +4,28 @@
 <h1 class="page-title">Our Menu</h1>
 <p class="home-description">The simple pleasures of Portuguese cuisine.</p>
 
-<div class="container">
-    <div class="row">
-        {% for item in page_obj %}
 
-        <div class="col-sm-10 col-md-5 col-lg-3 menu-card">
-            <div class="image-block">
-                <img src="{{ item.image.url }}" class="menu-image" alt="...">
-            </div>
+<div class="row menu-row">
+    {% for item in page_obj %}
 
-            <div class="info-block">
-                <h5 class="info-item">{{ item.title }}</h5>
-                <p class="info-item">{{ item.description }}</p>
-            </div>
-            <div class="menu-buttons">
-                <a href="#" class="btn btn-success menu-button">Edit</a>
-                <a href="#" class="btn btn-danger menu-button">Delete</a>
-            </div>
+    <div class="col-sm-10 col-md-5 col-lg-3 menu-card">
+        <div class="image-block">
+            <img src="{{ item.image.url }}" class="menu-image" alt="...">
         </div>
 
-        {% endfor %}
+        <div class="info-block">
+            <h5 class="info-item">{{ item.title }} - £{{ item.price }}</h5>
+            <p class="info-item info-p">{{ item.description }}</p>
+        </div>
+        <div class="menu-buttons">
+            <a href="#" class="btn btn-success menu-button">Edit</a>
+            <a href="#" class="btn btn-danger menu-button">Delete</a>
+        </div>
     </div>
+
+    {% endfor %}
 </div>
+
 
 
 <div class="pagination page-links">
