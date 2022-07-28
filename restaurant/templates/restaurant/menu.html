@@ -18,7 +18,7 @@
             <p class="info-item info-p">{{ item.description }}</p>
         </div>
         <div class="menu-buttons">
-            <a href="#" class="btn btn-success menu-button">Edit</a>
+            <a href="{% url 'editMenu' item.id %}" class="btn btn-success menu-button">Edit</a>
             <a href="#" class="btn btn-danger menu-button">Delete</a>
         </div>
     </div>
