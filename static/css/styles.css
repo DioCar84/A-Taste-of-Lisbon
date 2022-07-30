@@ -184,6 +184,20 @@ footer {
     color: #ffb570;
 }
 
+/* ---------- MENU FORM PAGE ---------- */
+
+.menu-form {
+    text-align: center;
+    margin: 5%;
+}
+
+.mb-3 {
+    margin: 2% 0;
+    position: relative;
+    left: 33.5%;
+    width: 33%;
+}
+
 /* ---------- ABOUT PAGE ---------- */
 
 .about-description {
