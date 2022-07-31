@@ -120,6 +120,21 @@ footer {
 
 /* ---------- MENU PAGE ---------- */
 
+.menu-add-button {
+    position: relative;
+    left: 40%;
+    width: 20%;
+    margin-bottom: 5%;
+    border-color: #f18e84;
+    color: #f18e84;
+}
+
+.menu-add-button:hover {
+    background-color: #f18e84;
+    border-color: #fff6e9;
+    color: #fff6e9;
+}
+
 .menu-row {
     justify-content: center;
 }

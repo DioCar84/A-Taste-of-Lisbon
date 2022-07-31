@@ -21,7 +21,7 @@ class Reservation(models.Model):
 
 class Photo(models.Model):
     title = models.CharField(max_length=100)
-    image = CloudinaryField('image')
+    image = CloudinaryField('image', default='yleipz1gqfmdwpnbtx0v.jpg')
 
     def __str__(self):
         return self.title

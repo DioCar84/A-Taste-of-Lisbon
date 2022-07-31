@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Reservation, Photo, Menu
 from .forms import MenuForm
+from cloudinary.forms import cl_init_js_callbacks
 
 # Create your views here.
 def home(request):
@@ -19,7 +20,20 @@ def menu(request):
 
     return render(request, 'restaurant/menu.html', context)
 
-def editMenu(request, pk):
+def createMenuItem(request):
+    form = MenuForm()
+
+    if request.method == 'POST':
+        form = MenuForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('menu')
+
+    context = {'form': form}
+    return render(request, 'restaurant/menu_form.html', context)
+
+
+def editMenuItem(request, pk):
     menuItem = Menu.objects.get(id=pk)
     form = MenuForm(instance=menuItem)
 
