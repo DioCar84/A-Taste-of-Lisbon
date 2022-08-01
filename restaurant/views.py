@@ -11,7 +11,7 @@ def home(request):
     return render(request, 'restaurant/home.html', context)
 
 def menu(request):
-    menu = Menu.objects.all().order_by('created_on')
+    menu = Menu.objects.all().order_by('dish_type', 'created_on')
     paginator = Paginator(menu, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

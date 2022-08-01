@@ -30,6 +30,11 @@ class Photo(models.Model):
 class Menu(Photo):
     description = models.TextField()
     price = models.FloatField()
+    dish_type = models.PositiveSmallIntegerField(choices=(
+        (1, 'starter'),
+        (2, 'main'),
+        (3, 'dessert'),
+    ), null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 

@@ -213,6 +213,53 @@ footer {
     width: 33%;
 }
 
+.back-link {
+    text-decoration: none;
+}
+
+/* https://getcssscan.com/css-buttons-examples button 21*/
+
+.form-button {
+    align-items: center;
+    appearance: none;
+    background-color: #ffb570;
+    background-image: linear-gradient(to right, #ffb570, #ffad73, #fea576, #fb9d7a, #f8967e, #f39182, #ee8c86, #e88789, #e1828c, #d97e8f, #d07a92, #c67794);
+    background-size: calc(100% + 20px) calc(100% + 20px);
+    border-radius: 100px;
+    border-width: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: CircularStd, sans-serif;
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5;
+    margin-top: 2%;
+    padding: 6px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .2s, background-position .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 5%;
+}
+
+.form-button:active,
+.form-button:focus {
+    outline: none;
+}
+
+.form-button:hover {
+    background-position: -20px -20px;
+}
+
 /* ---------- ABOUT PAGE ---------- */
 
 .about-description {
