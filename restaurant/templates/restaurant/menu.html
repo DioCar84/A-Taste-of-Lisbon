@@ -20,7 +20,7 @@
         </div>
         <div class="menu-buttons">
             <a href="{% url 'editMenu' item.id %}" class="btn btn-success menu-button">Edit</a>
-            <a href="#" class="btn btn-danger menu-button">Delete</a>
+            <a href="{% url 'deleteMenu' item.id %}" class="btn btn-danger menu-button">Delete</a>
         </div>
     </div>
 

@@ -260,6 +260,16 @@ footer {
     background-position: -20px -20px;
 }
 
+/* ---------- DELETE ITEM PAGE ---------- */
+
+.delete-form {
+    margin: 10% 0;
+}
+
+.delete-info {
+    text-align: center;
+}
+
 /* ---------- ABOUT PAGE ---------- */
 
 .about-description {

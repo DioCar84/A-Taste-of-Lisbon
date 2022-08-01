@@ -46,6 +46,16 @@ def editMenuItem(request, pk):
     context = { 'form': form }
     return render(request, 'restaurant/menu_form.html', context)
 
+def deleteMenuItem(request, pk):
+    menuItem = Menu.objects.get(id=pk)
+
+    if request.method == 'POST':
+        menuItem.delete()
+        return redirect('menu')
+
+    context = {'plate': menuItem}
+    return render(request, 'restaurant/delete_item.html', context)
+
 def reservations(request):
     return render(request, 'restaurant/reservations.html')
 
