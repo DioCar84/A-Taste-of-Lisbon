@@ -270,6 +270,81 @@ footer {
     text-align: center;
 }
 
+/* ---------- RESERVATIONS PAGE ---------- */
+
+.reservation-form {
+    width: 75%;
+    display: inline-block;
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form-element {
+    margin: 5% 0;
+}
+
+.button-row {
+    margin: 3% 7%;
+}
+
+.button-row a {
+    text-decoration: none;
+    position: relative;
+    left: 10%;
+}
+
+.reserve-button {
+    align-items: center;
+    appearance: none;
+    background-color: #ffb570;
+    background-image: linear-gradient(to right, #ffb570, #ffad73, #fea576, #fb9d7a, #f8967e, #f39182, #ee8c86, #e88789, #e1828c, #d97e8f, #d07a92, #c67794);
+    background-size: calc(100% + 20px) calc(100% + 20px);
+    border-radius: 100px;
+    border-width: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: CircularStd, sans-serif;
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5;
+    margin-top: 2%;
+    padding: 6px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .2s, background-position .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.reserve-button:active,
+.reserve-button:focus {
+    outline: none;
+}
+
+.reserve-button:hover {
+    opacity: 0.5;
+}
+
+/* https://www.postermywall.com/index.php/posterbuilder/copy/679efb3c48c0f2dbcfb9a07d337bd562#.YulrW3bMJhE */
+#open-times-image {
+    width: 15%;
+    margin: 10% 0;
+    position: relative;
+    top: -170px;
+}
+
 /* ---------- ABOUT PAGE ---------- */
 
 .about-description {

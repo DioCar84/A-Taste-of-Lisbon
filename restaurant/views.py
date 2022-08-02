@@ -61,7 +61,9 @@ def deleteMenuItem(request, pk):
     return render(request, 'restaurant/delete_item.html', context)
 
 def reservations(request):
-    return render(request, 'restaurant/reservations.html')
+    open_image = Photo.objects.get(title='Open Times')
+    context = {'open_image': open_image, }
+    return render(request, 'restaurant/reservations.html', context)
 
 def about(request):
     map_image = Photo.objects.get(title='Map of London')
