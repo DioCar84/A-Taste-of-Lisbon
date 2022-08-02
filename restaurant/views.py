@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Reservation, Photo, Menu
 from .forms import MenuForm
+from django.contrib import messages
 from cloudinary.forms import cl_init_js_callbacks
 
 # Create your views here.
@@ -27,6 +28,7 @@ def createMenuItem(request):
         form = MenuForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Item created.')
             return redirect('menu')
 
     context = {'form': form}
@@ -41,6 +43,7 @@ def editMenuItem(request, pk):
         form = MenuForm(request.POST, request.FILES, instance=menuItem)
         if form.is_valid():
             form.save()
+            messages.success(request, f'{menuItem.title} updated.')
             return redirect('menu')
 
     context = { 'form': form }
@@ -51,6 +54,7 @@ def deleteMenuItem(request, pk):
 
     if request.method == 'POST':
         menuItem.delete()
+        messages.success(request, f'{menuItem.title} deleted.')
         return redirect('menu')
 
     context = {'plate': menuItem}
