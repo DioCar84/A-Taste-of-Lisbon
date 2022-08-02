@@ -38,7 +38,7 @@ def editMenuItem(request, pk):
     form = MenuForm(instance=menuItem)
 
     if request.method == 'POST':
-        form = MenuForm(request.POST, instance=menuItem)
+        form = MenuForm(request.POST, request.FILES, instance=menuItem)
         if form.is_valid():
             form.save()
             return redirect('menu')

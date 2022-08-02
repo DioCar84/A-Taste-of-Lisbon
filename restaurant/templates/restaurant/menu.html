@@ -4,7 +4,8 @@
 <h1 class="page-title">Our Menu</h1>
 <p class="home-description">The simple pleasures of Portuguese cuisine.</p>
 
-<a href="{% url 'createMenu' %}" class="btn btn-outline-primary btn-lg menu-add-button">Add Menu Item</a>
+<a href="{% url 'createMenu' %}" class="btn btn-outline-primary btn-lg menu-add-button">Add Menu
+    Item</a>
 
 <div class="row menu-row">
     {% for item in page_obj %}
