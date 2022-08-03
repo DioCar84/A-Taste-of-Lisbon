@@ -7,14 +7,24 @@ class Reservation(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
-    total_people = models.IntegerField()
+    total_people = models.PositiveSmallIntegerField(choices=(
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+    ), null=True)
     date = models.DateField()
-    time = models.TimeField()
+    time = models.PositiveSmallIntegerField(choices=(
+        (1, '11:00-12:00'),
+        (2, '12:00-13:00'),
+        (3, '13:00-14:00'),
+        (4, '14:00-15:00'),
+    ), null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.last_name + " " + self.date
+        return self.last_name + " " + str(self.date)
 
     class Meta:
         ordering = ['-date']
