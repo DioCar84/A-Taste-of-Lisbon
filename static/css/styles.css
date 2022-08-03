@@ -278,17 +278,17 @@ footer {
     text-align: center;
 }
 
-.form-row {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.form-element {
-    margin: 5% 0;
+.reservation-form .mb-3 {
+    display: inline-block;
+    left: 2%;
+    width: 25%;
+    margin: 4% 2%;
 }
 
 .button-row {
     margin: 3% 7%;
+    position: relative;
+    left: 1.5%;
 }
 
 .button-row a {
@@ -342,7 +342,7 @@ footer {
     width: 15%;
     margin: 10% 0;
     position: relative;
-    top: -170px;
+    top: -100px;
 }
 
 /* ---------- ABOUT PAGE ---------- */

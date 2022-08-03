@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Reservation, Photo, Menu
-from .forms import MenuForm
+from .forms import MenuForm, ReservationForm
 from django.contrib import messages
 from cloudinary.forms import cl_init_js_callbacks
 
@@ -28,7 +28,7 @@ def createMenuItem(request):
         form = MenuForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Item created.')
+            messages.success(request, 'Item Created.')
             return redirect('menu')
 
     context = {'form': form}
@@ -43,7 +43,7 @@ def editMenuItem(request, pk):
         form = MenuForm(request.POST, request.FILES, instance=menuItem)
         if form.is_valid():
             form.save()
-            messages.success(request, f'{menuItem.title} updated.')
+            messages.success(request, f'{menuItem.title} Updated.')
             return redirect('menu')
 
     context = { 'form': form }
@@ -54,7 +54,7 @@ def deleteMenuItem(request, pk):
 
     if request.method == 'POST':
         menuItem.delete()
-        messages.success(request, f'{menuItem.title} deleted.')
+        messages.success(request, f'{menuItem.title} Deleted.')
         return redirect('menu')
 
     context = {'plate': menuItem}
@@ -62,7 +62,16 @@ def deleteMenuItem(request, pk):
 
 def reservations(request):
     open_image = Photo.objects.get(title='Open Times')
-    context = {'open_image': open_image, }
+    form = ReservationForm()
+
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reservation Created.')
+            return redirect('reservations')
+
+    context = {'open_image': open_image, 'form': form}
     return render(request, 'restaurant/reservations.html', context)
 
 def about(request):

@@ -8,7 +8,8 @@ class Reservation(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
     total_people = models.IntegerField()
-    date = models.DateTimeField()
+    date = models.DateField()
+    time = models.TimeField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
