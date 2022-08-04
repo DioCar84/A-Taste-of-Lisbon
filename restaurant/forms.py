@@ -15,4 +15,4 @@ class ReservationForm(ModelForm):
     
     class Meta:
         model = Reservation
-        fields = ['first_name', 'last_name', 'email', 'total_people', 'date', 'time', ]
+        fields = ['first_name', 'last_name', 'email', 'number_of_clients', 'date', 'time', ]

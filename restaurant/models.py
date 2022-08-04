@@ -7,7 +7,7 @@ class Reservation(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
-    total_people = models.PositiveSmallIntegerField(choices=(
+    number_of_clients = models.PositiveSmallIntegerField(choices=(
         (1, '1'),
         (2, '2'),
         (3, '3'),
