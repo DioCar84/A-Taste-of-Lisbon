@@ -9,5 +9,6 @@ urlpatterns = [
     path('delete_menu/<int:pk>/', views.deleteMenuItem, name='deleteMenu'),
     path('reservations/', views.reservations, name='reservations'),
     path('reservations/user/', views.userReservations, name='userReservations'),
+    path('reservations/user/<int:pk>', views.editUserReservation, name='editReservations'),
     path('about/', views.about, name='about'),
 ]

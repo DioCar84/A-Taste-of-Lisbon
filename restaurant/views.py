@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Reservation, Photo, Menu
 from .forms import MenuForm, ReservationForm
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from cloudinary.forms import cl_init_js_callbacks
 
@@ -87,10 +88,24 @@ def userReservations(request):
                 return render(request, 'restaurant/user_reservations.html')
             context = {'reservations': user_reservations}
             messages.success(request, 'Reservations Found.')
-            return render(request, 'restaurant/user_reservations.html', context)
-        
+            return render(request, 'restaurant/user_reservations.html', context)    
 
     return render(request, 'restaurant/user_reservations.html')
+
+def editUserReservation(request, pk):
+    reservation = Reservation.objects.get(id=pk)
+    form = ReservationForm(instance=reservation)
+
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, request.FILES, instance=reservation)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reservation Updated.')
+            next = request.POST.get('next', '/')
+            return HttpResponseRedirect(next)
+
+    context = { 'form': form }
+    return render(request, 'restaurant/edit_reservation.html', context)
 
 def about(request):
     map_image = Photo.objects.get(title='Map of London')
