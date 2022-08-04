@@ -23,6 +23,8 @@
             <th>Date</th>
             <th>Time</th>
             <th>Number of Seats</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody class="table-group-divider table-body">
@@ -33,6 +35,8 @@
             <td>{{ reservation.date }}</td>
             <td>{{ reservation.get_time_display }}</td>
             <td>{{ reservation.number_of_clients }}</td>
+            <td><a href=""><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td><a href=""><i class="fa-solid fa-trash-can"></i></a></td>
         </tr>
         {% endfor %}
     </tbody>

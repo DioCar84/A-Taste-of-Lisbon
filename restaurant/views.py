@@ -81,9 +81,14 @@ def userReservations(request):
     if request.method == 'POST':
         user_email = request.POST.get('user_email')
         if user_email != '' and user_email is not None:
-            user_reservations = reservations.filter(email = user_email)
+            user_reservations = reservations.filter(email = user_email).order_by('date')
+            if not user_reservations:
+                messages.warning(request, 'No Reservations Found For This Email.')
+                return render(request, 'restaurant/user_reservations.html')
             context = {'reservations': user_reservations}
+            messages.success(request, 'Reservations Found.')
             return render(request, 'restaurant/user_reservations.html', context)
+        
 
     return render(request, 'restaurant/user_reservations.html')
 

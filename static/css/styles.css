@@ -354,18 +354,38 @@ footer {
 /* ---------- USER RESERVATIONS PAGE ---------- */
 
 #reservation-search {
-    margin: 5%;
+    margin: 10%;
 }
 
 #button-addon2 {
     background-color: #ffb570;
-    background-image: linear-gradient(to right, #ffb570, #ffad73, #fea576, #fb9d7a, #f8967e, #f39182, #ee8c86, #e88789, #e1828c, #d97e8f, #d07a92, #c67794);
     width: 25%;
     color: white;
 }
 
 #button-addon2:hover {
     opacity: 0.5;
+}
+
+#reservations-table {
+    margin: 5%;
+    width: 70%;
+    text-align: center;
+    position: relative;
+    left: 10%;
+}
+
+.table-head {
+    color: white;
+    background-color: #ffb570;
+}
+
+.table-body i {
+    color: #f18e84;
+}
+
+.table-body i:hover {
+    color: #535b7d;
 }
 
 /* ---------- ABOUT PAGE ---------- */
