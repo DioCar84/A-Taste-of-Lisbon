@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="page-title">Your Reservations</h1>
+<p class="home-description">You can view and edit your reservations below!</p>
+
+<form action="" method="POST" id="reservation-search">
+    {% csrf_token %}
+
+    <div class="input-group mb-3">
+        <input type="search" name="user_email" class="form-control" placeholder="Email Used for Reservations"
+            aria-label="Email Used for Reservations" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+    </div>
+</form>
+
+
+{% if reservations %}
+<table class="table table-hover table-bordered" id="reservations-table">
+    <thead class="table-head">
+        <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Number of Seats</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider table-body">
+        {% for reservation in reservations %}
+
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ reservation.date }}</td>
+            <td>{{ reservation.get_time_display }}</td>
+            <td>{{ reservation.number_of_clients }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+{% endblock %}

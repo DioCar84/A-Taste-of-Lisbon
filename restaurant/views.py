@@ -75,6 +75,18 @@ def reservations(request):
     context = {'open_image': open_image, 'open_banner': open_banner, 'form': form}
     return render(request, 'restaurant/reservations.html', context)
 
+def userReservations(request):
+    reservations = Reservation.objects.all()
+
+    if request.method == 'POST':
+        user_email = request.POST.get('user_email')
+        if user_email != '' and user_email is not None:
+            user_reservations = reservations.filter(email = user_email)
+            context = {'reservations': user_reservations}
+            return render(request, 'restaurant/user_reservations.html', context)
+
+    return render(request, 'restaurant/user_reservations.html')
+
 def about(request):
     map_image = Photo.objects.get(title='Map of London')
     context = {'map': map_image, }

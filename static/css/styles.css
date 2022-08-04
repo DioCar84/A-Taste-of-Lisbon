@@ -351,6 +351,23 @@ footer {
     height: 0;
 }
 
+/* ---------- USER RESERVATIONS PAGE ---------- */
+
+#reservation-search {
+    margin: 5%;
+}
+
+#button-addon2 {
+    background-color: #ffb570;
+    background-image: linear-gradient(to right, #ffb570, #ffad73, #fea576, #fb9d7a, #f8967e, #f39182, #ee8c86, #e88789, #e1828c, #d97e8f, #d07a92, #c67794);
+    width: 25%;
+    color: white;
+}
+
+#button-addon2:hover {
+    opacity: 0.5;
+}
+
 /* ---------- ABOUT PAGE ---------- */
 
 .about-description {
