@@ -288,7 +288,7 @@ footer {
 .button-row {
     margin: 3% 7%;
     position: relative;
-    left: 1.5%;
+    right: 2%;
 }
 
 .button-row a {
@@ -337,12 +337,18 @@ footer {
     opacity: 0.5;
 }
 
-/* https://www.postermywall.com/index.php/posterbuilder/copy/679efb3c48c0f2dbcfb9a07d337bd562#.YulrW3bMJhE */
+/* https://www.postermywall.com/index.php/posterbuilder/copy/679efb3c48c0f2dbcfb9a07d337bd562#.YuuNY3bMJhF */
 #open-times-image {
     width: 15%;
     margin: 10% 0;
     position: relative;
     top: -100px;
+}
+
+#open-times-banner {
+    visibility: hidden;
+    position: absolute;
+    height: 0;
 }
 
 /* ---------- ABOUT PAGE ---------- */
@@ -390,6 +396,8 @@ footer {
 /* For large screens size from 1700px wide and down */
 @media screen and (max-width: 1700px) {
 
+    /* ---------- ABOUT PAGE ---------- */
+
     .about-container {
         width: 70%;
         left: 15%;
@@ -402,9 +410,14 @@ footer {
 
 /* For large to medium screens size from 1300px wide and down */
 @media screen and (max-width: 1300px) {
+
+    /* ---------- NAVBAR ---------- */
+
     .center-nav a {
         margin: 0 2%;
     }
+
+    /* ---------- MENU PAGE ---------- */
 
     .info-item {
         font-size: 110%;
@@ -419,6 +432,18 @@ footer {
         top: 2%;
     }
 
+    /* ---------- RESERVATIONS PAGE ---------- */
+
+    .reserve-button {
+        width: 25%;
+    }
+
+    #open-times-image {
+        width: 20%;
+    }
+
+    /* ---------- ABOUT PAGE ---------- */
+
     .info-container {
         width: 45%;
     }
@@ -431,10 +456,13 @@ footer {
     .map-container {
         width: 55%;
     }
+
 }
 
 /* For medium screens size from 990px wide and down */
 @media screen and (max-width: 990px) {
+
+    /* ---------- NAVBAR ---------- */
 
     .center-nav a {
         margin: 0;
@@ -450,13 +478,47 @@ footer {
         visibility: visible;
     }
 
+    /* ---------- FOOTER ---------- */
+
     #social-media {
         width: 30%;
     }
 
+    /* ---------- HOME PAGE ---------- */
+
     .home-description {
         margin: 5%;
     }
+
+    /* ---------- RESERVATIONS PAGE ---------- */
+
+    .reservation-form {
+        width: 100%;
+    }
+
+    .reserve-button {
+        width: 30%;
+    }
+
+    #open-times-image {
+        visibility: hidden;
+        position: absolute;
+        height: 0;
+    }
+
+    #banner-container {
+        height: 300px;
+        margin-top: 5%;
+    }
+
+    #open-times-banner {
+        visibility: visible;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    /* ---------- ABOUT PAGE ---------- */
 
     .about-description {
         margin: 5% 20%;
@@ -482,6 +544,8 @@ footer {
 /* For medium screens size from 767px wide and down */
 @media screen and (max-width: 767px) {
 
+    /* ---------- NAVBAR ---------- */
+
     .center-nav {
         right: 0;
     }
@@ -503,9 +567,13 @@ footer {
         visibility: hidden;
     }
 
+    /* ---------- FOOTER ---------- */
+
     #social-media {
         width: 40%;
     }
+
+    /* ---------- MENU PAGE ---------- */
 
     .menu-card {
         width: 45%;
@@ -514,6 +582,23 @@ footer {
     .menu-button {
         width: 30%;
     }
+
+    /* ---------- RESERVATIONS PAGE ---------- */
+
+    .reservation-form .mb-3 {
+        width: 35%;
+        margin: 4% 5%;
+    }
+
+    .reserve-button {
+        width: 45%;
+    }
+
+    #banner-container {
+        height: 250px;
+    }
+
+    /* ---------- ABOUT PAGE ---------- */
 
     .about-container {
         width: 80%;
@@ -543,6 +628,9 @@ footer {
 
 /* For small screens size from 500px wide and down */
 @media screen and (max-width: 500px) {
+
+    /* ---------- FOOTER ---------- */
+
     footer {
         text-align: center;
         display: flow-root;
@@ -557,9 +645,37 @@ footer {
         margin: 5%;
     }
 
+    /* ---------- MENU PAGE ---------- */
+
     .menu-card {
         width: 75%
     }
+
+    /* ---------- RESERVATIONS PAGE ---------- */
+
+    .reservation-form {
+        width: 100%;
+    }
+
+    .reservation-form .mb-3 {
+        width: 50%;
+    }
+
+    .reserve-button {
+        width: 75%;
+        display: block;
+        left: 20%;
+    }
+
+    .button-row a {
+        left: 0%;
+    }
+
+    #banner-container {
+        height: 200px;
+    }
+
+    /* ---------- ABOUT PAGE ---------- */
 
     .about-description {
         margin: 10% 20%;
@@ -581,6 +697,22 @@ footer {
 
 /* For small screens size from 320px wide and down */
 @media screen and (max-width: 320px) {
+
+    /* ---------- RESERVATIONS PAGE ---------- */
+
+    .reservation-form .mb-3 {
+        width: 75%;
+    }
+
+    .reserve-button {
+        margin: 10% 0;
+        width: 100%;
+        display: block;
+        left: 2%;
+    }
+
+    /* ---------- ABOUT PAGE ---------- */
+
     .info-container {
         width: 100%;
     }

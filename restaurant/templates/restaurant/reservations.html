@@ -11,8 +11,8 @@
         {{ form | crispy }}
 
         <div class="button-row">
-            <button type="submit" class="col-md-2 reserve-button">Reserve Now</button>
-            <a href="#"><button type="button" class="col-md-4 reserve-button">Login/Register to Edit
+            <button type="submit" class="col-sm-6 col-md-2 reserve-button">Reserve Now</button>
+            <a href="#"><button type="button" class="col-sm-4 col-md-2 reserve-button">Edit
                     Reservations</button></a>
         </div>
 
@@ -21,5 +21,11 @@
 
     <img src="{{ open_image.image.url }}" id="open-times-image"
         alt="an image displaying the open times for the restaurant">
+
+    <div id="banner-container">
+        <img src="{{ open_banner.image.url }}" id="open-times-banner"
+            alt="an image displaying the open times for the restaurant">
+    </div>
+
 </div>
 {% endblock %}

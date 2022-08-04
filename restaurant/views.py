@@ -62,6 +62,7 @@ def deleteMenuItem(request, pk):
 
 def reservations(request):
     open_image = Photo.objects.get(title='Open Times')
+    open_banner = Photo.objects.get(title='Open Times Banner')
     form = ReservationForm()
 
     if request.method == 'POST':
@@ -71,10 +72,10 @@ def reservations(request):
             messages.success(request, 'Reservation Created.')
             return redirect('reservations')
 
-    context = {'open_image': open_image, 'form': form}
+    context = {'open_image': open_image, 'open_banner': open_banner, 'form': form}
     return render(request, 'restaurant/reservations.html', context)
 
 def about(request):
     map_image = Photo.objects.get(title='Map of London')
-    context = {'map' : map_image, }
+    context = {'map': map_image, }
     return render(request, 'restaurant/about.html', context)
