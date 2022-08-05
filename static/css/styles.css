@@ -398,6 +398,7 @@ a.post-title-sm:hover {
 
 .post-meta {
     padding-left: 0;
+    display: inline-block;
 }
 
 .post-meta li {
@@ -409,8 +410,8 @@ a.post-title-sm:hover {
 
 .post-meta li a {
     display: inline-block;
-    background-color: rgba(19, 19, 19, 0.05);
-    color: black;
+    background-color: #ffb570;
+    color: #fff;
     text-transform: capitalize;
     padding: 2px 8px;
     margin-bottom: 8px;
@@ -421,6 +422,11 @@ a.post-title-sm:hover {
 
 .post-meta li a:hover {
     background-color: #f18e84;
+}
+
+.meta-wrap {
+    display: inline-block;
+    float: right;
 }
 
 .content * {
@@ -473,7 +479,7 @@ a.post-title-sm:hover {
 .categories li,
 .sidelink li {
     position: relative;
-    margin-bottom: 10px;
+    margin: 10%;
     padding-bottom: 10px;
     border-bottom: 1px solid #dee2e6;
     list-style: none;
@@ -504,6 +510,83 @@ a.post-title-sm:hover {
 .sidelink li.active a {
     color: #000000;
     font-style: italic;
+}
+
+.sidebar-box {
+    margin: 30% 0%;
+    padding: 0 25px;
+    font-size: 15px;
+    width: 100%;
+}
+
+.sidebar-box h3.sidebar-heading {
+    font-size: 20px;
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.sidebar-box .mb-4 {
+    margin-top: 20%
+}
+
+.block-21 .blog-img {
+    margin-right: 5%;
+}
+
+.block-21 .blog-img img {
+    display: block;
+    height: 80px;
+    width: 80px;
+}
+
+.block-21 .text {
+    width: calc(100% - 100px);
+}
+
+.block-21 .text .heading {
+    font-size: 16px;
+}
+
+.block-21 .text .heading a {
+    color: #000000;
+}
+
+.block-21 .text .heading a:hover,
+.block-21 .text .heading a:active,
+.block-21 .text .heading a:focus {
+    color: #1eafed;
+}
+
+.block-21 .text .meta>div {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.block-21 .text .meta>div a {
+    color: gray;
+}
+
+.tagcloud {
+    padding: 0;
+}
+
+.tagcloud a {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 10%;
+    margin-right: 5%;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #ffb570;
+    border: 1px solid #ccc;
+    font-size: 11px;
+}
+
+.tagcloud a:hover {
+    border: 1px solid #000;
 }
 
 /* ---------- RESERVATIONS PAGE ---------- */
