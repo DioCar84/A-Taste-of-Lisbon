@@ -101,11 +101,21 @@ def editUserReservation(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation Updated.')
-            next = request.POST.get('next', '/')
-            return HttpResponseRedirect(next)
+            return redirect('userReservations')
 
     context = { 'form': form }
     return render(request, 'restaurant/edit_reservation.html', context)
+
+def deleteUserReservation(request, pk):
+    reservation = Reservation.objects.get(id=pk)
+
+    if request.method == 'POST':
+        reservation.delete()
+        messages.success(request, 'Reservation Deleted.')
+        return redirect('userReservations')
+
+    context = {'reservation': reservation}
+    return render(request, 'restaurant/delete_reservation.html', context)
 
 def about(request):
     map_image = Photo.objects.get(title='Map of London')
