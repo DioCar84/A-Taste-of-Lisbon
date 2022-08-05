@@ -1,8 +1,16 @@
-from django.shortcuts import render
-from restaurant.models import Photo 
+from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
+from .models import Post, Comment
+from .forms import PostForm
 
 # Create your views here.
 def blog(request):
-    blog_image = Photo.objects.get(title='Blog Test')
-    context = {'blog_image': blog_image, }
+    posts = Post.objects.all()
+    dish_type = PostForm
+
+    paginator = Paginator(posts, 4)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {'posts': posts, 'page_obj': page_obj, 'dishes': dish_type, }
     return render(request, 'blog/blog_home.html', context)

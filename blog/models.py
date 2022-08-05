@@ -24,7 +24,8 @@ class Post(models.Model):
         (4, 'meat'),
         (5, 'fish'),
         (6, 'seafood'),
-        (7, 'dessert'),
+        (7, 'sweet'),
+        (8, 'tangy'),
     ), null=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -37,6 +38,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def datepublished(self):
+        return self.created_on.strftime('%b %d')
 
     def number_of_likes(self):
         return self.likes.count()

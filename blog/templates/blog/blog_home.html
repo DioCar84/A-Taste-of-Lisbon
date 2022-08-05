@@ -9,79 +9,40 @@
                 </div>
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="row">
+                        {% for item in page_obj %}
                         <div class="col-12 mb-4">
                             <article class="card article-card">
-                                <a href="article.html">
+                                <a href="#">
                                     <div class="card-image">
-                                        <div class="post-info"> <span class="text-uppercase">04 Jun 2021</span>
+                                        <div class="post-info"> <span
+                                                class="text-uppercase">{{ item.datepublished }}</span>
                                         </div>
-                                        <img loading="lazy" decoding="async" src="{{ blog_image.image.url }}"
+                                        <img loading="lazy" decoding="async" src="{{ item.featured_image.url }}"
                                             alt="Post Thumbnail" class="w-100">
                                     </div>
                                 </a>
                                 <div class="card-body px-0 pb-1">
                                     <ul class="post-meta mb-2">
-                                        <li> <a href="#!">travel</a>
-                                            <a href="#!">news</a>
+                                        <li> <a href="#!">{{ item.get_meal_type_display }}</a>
+                                            <a href="#!">{{ item.get_dish_type_display }}</a>
                                         </li>
                                     </ul>
                                     <div class="meta-wrap">
                                         <p class="meta">
-                                            <span><i class="fa-solid fa-calendar-days"></i>June 28, 2019</span>
-                                            <span><a href="single.html"><i class="fa-solid fa-user-pen"></i>John
-                                                    Doe</a></span>
-                                            <span><i class="fa-solid fa-comment-dots"></i>5 Comment</span>
+                                            <span><i class="fa-solid fa-calendar-days"></i>{{ item.created_on }}</span>
+                                            <span><i class="fa-solid fa-user-pen"></i>{{ item.author }}</span>
+                                            <span><i class="fa-solid fa-thumbs-up"></i>{{ item.number_of_likes }}</span>
                                         </p>
                                     </div>
-                                    <h2 class="h1"><a class="post-title" href="article.html">Is it Ethical to Travel
-                                            Now?
-                                            With that Freedom Comes Responsibility.</a></h2>
-                                    <p class="card-text">Heading Here is example of hedings. You can use this heading by
-                                        following markdownify rules. For example: use # for heading 1 and use ###### for
-                                        heading 6.</p>
-                                    <div class="content"> <a class="read-more-btn" href="article.html">Read Full
+                                    <h2 class="h1"><a class="post-title" href="#">{{ item.title }}</a></h2>
+                                    <p class="card-text">{{ item.excerpt }}</p>
+                                    <div class="content"> <a class="read-more-btn" href="#">Read Full
                                             Article</a>
                                     </div>
                                 </div>
                             </article>
                         </div>
-                        <div class="col-12 mb-4">
-                            <article class="card article-card">
-                                <a href="article.html">
-                                    <div class="card-image">
-                                        <div class="post-info"> <span class="text-uppercase">04 Jun 2021</span>
-                                        </div>
-                                        <img loading="lazy" decoding="async" src="{{ blog_image.image.url }}"
-                                            alt="Post Thumbnail" class="w-100">
-                                    </div>
-                                </a>
-                                <div class="card-body px-0 pb-1">
-                                    <ul class="post-meta mb-2">
-                                        <li> <a href="#!">travel</a>
-                                            <a href="#!">news</a>
-                                        </li>
-                                    </ul>
-                                    <div class="meta-wrap">
-                                        <p class="meta">
-                                            <span><i class="fa-solid fa-calendar-days"></i>June 28, 2019</span>
-                                            <span><a href="single.html"><i class="fa-solid fa-user-pen"></i>John
-                                                    Doe</a></span>
-                                            <span><i class="fa-solid fa-comment-dots"></i>5 Comment</span>
-                                        </p>
-                                    </div>
-                                    <h2 class="h1"><a class="post-title" href="article.html">Is it Ethical to Travel
-                                            Now?
-                                            With that Freedom Comes Responsibility.</a></h2>
-                                    <p class="card-text">Heading Here is example of hedings. You can use this heading by
-                                        following markdownify rules. For example: use # for heading 1 and use ###### for
-                                        heading 6.</p>
-                                    <div class="content"> <a class="read-more-btn" href="article.html">Read Full
-                                            Article</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-xl-4 sidebar ftco-animate pt-5">
@@ -103,11 +64,11 @@
                     <div class="sidebar-box ftco-animate">
                         <h3 class="sidebar-heading">Categories</h3>
                         <ul class="categories">
-                            <li><a href="#">Fashion <span>(6)</span></a></li>
-                            <li><a href="#">Technology <span>(8)</span></a></li>
-                            <li><a href="#">Travel <span>(2)</span></a></li>
-                            <li><a href="#">Food <span>(2)</span></a></li>
-                            <li><a href="#">Photography <span>(7)</span></a></li>
+                            {% for value, text in dishes.dish_type.field.choices %}
+                            {% if not forloop.first %}
+                            <li><a href="#">{{ text }} <span>(6)</span></a></li>
+                            {% endif%}
+                            {% endfor %}
                         </ul>
                     </div>
 
@@ -175,6 +136,22 @@
                     </div>
 
                 </div><!-- END COL -->
+            </div>
+            <div class="pagination page-links">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}"><i
+                            class="fa-solid fa-circle-chevron-left"></i></a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-circle-chevron-right"></i></a>
+                    {% endif %}
+                </span>
             </div>
         </div>
     </section>

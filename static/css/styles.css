@@ -427,6 +427,15 @@ a.post-title-sm:hover {
 .meta-wrap {
     display: inline-block;
     float: right;
+    width: 55%;
+}
+
+.meta-wrap span {
+    margin: 0 5%;
+}
+
+.meta-wrap span i {
+    margin-right: 2%;
 }
 
 .content * {
