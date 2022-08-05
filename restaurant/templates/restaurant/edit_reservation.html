@@ -5,7 +5,7 @@
 
 <h1 class="menu-form">Reservation Form</h1>
 
-<form class="menu-form" action="" method="post" enctype="multipart/form-data">
+<form class="menu-form" id="edit-reserve-form" action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
     {{ form | crispy }}
