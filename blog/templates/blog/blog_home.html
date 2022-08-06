@@ -66,7 +66,7 @@
                         <ul class="categories">
                             {% for value, text in dishes.dish_type.field.choices %}
                             {% if not forloop.first %}
-                            <li><a href="#">{{ text }} <span>(6)</span></a></li>
+                            <li><a href="#">{{ text }} </a></li>
                             {% endif%}
                             {% endfor %}
                         </ul>
@@ -74,64 +74,41 @@
 
                     <div class="sidebar-box ftco-animate">
                         <h3 class="sidebar-heading">Popular Articles</h3>
+                        {% for item in page_obj %}
+                        {% if forloop.counter < 4 %}
                         <div class="block-21 mb-4 d-flex">
-                            <a href="#" class="blog-img mr-4"><img src="{{ blog_image.image.url }}" alt=""></a>
+                            <a href="#" class="blog-img mr-4"><img src="{{ item.featured_image.url }}" alt=""></a>
                             <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control</a></h3>
+                                <h3 class="heading"><a href="#">{{ item.title }}</a></h3>
                                 <div class="meta">
                                     <div><a href="#"><span class="icon-calendar"><i
-                                                    class="fa-solid fa-calendar-days"></i></span> June 28, 2019</a>
+                                                    class="fa-solid fa-calendar-days"></i></span>{{ item.datepublished }}</a>
                                     </div>
                                     <div><a href="#"><span class="icon-person"><i
-                                                    class="fa-solid fa-user-pen"></i></span> Dave Lewis</a></div>
+                                                    class="fa-solid fa-user-pen"></i></span>{{ item.author }}</a></div>
                                     <div><a href="#"><span class="icon-chat"><i
-                                                    class="fa-solid fa-comment-dots"></i></span> 19</a></div>
+                                                    class="fa-solid fa-comment-dots"></i></span>{{ item.comments.count }}</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="block-21 mb-4 d-flex">
-                            <a href="#" class="blog-img mr-4"><img src="{{ blog_image.image.url }}" alt=""></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control</a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"><i
-                                                    class="fa-solid fa-calendar-days"></i></span> June 28, 2019</a>
-                                    </div>
-                                    <div><a href="#"><span class="icon-person"><i
-                                                    class="fa-solid fa-user-pen"></i></span> Dave Lewis</a></div>
-                                    <div><a href="#"><span class="icon-chat"><i
-                                                    class="fa-solid fa-comment-dots"></i></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block-21 mb-4 d-flex">
-                            <a href="#" class="blog-img mr-4"><img src="{{ blog_image.image.url }}" alt=""></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control</a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"><i
-                                                    class="fa-solid fa-calendar-days"></i></span> June 28, 2019</a>
-                                    </div>
-                                    <div><a href="#"><span class="icon-person"><i
-                                                    class="fa-solid fa-user-pen"></i></span> Dave Lewis</a></div>
-                                    <div><a href="#"><span class="icon-chat"><i
-                                                    class="fa-solid fa-comment-dots"></i></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
 
                     <div class="sidebar-box ftco-animate">
                         <h3 class="sidebar-heading">Tag Cloud</h3>
                         <ul class="tagcloud">
-                            <a href="#" class="tag-cloud-link">animals</a>
-                            <a href="#" class="tag-cloud-link">human</a>
-                            <a href="#" class="tag-cloud-link">people</a>
-                            <a href="#" class="tag-cloud-link">cat</a>
-                            <a href="#" class="tag-cloud-link">dog</a>
-                            <a href="#" class="tag-cloud-link">nature</a>
-                            <a href="#" class="tag-cloud-link">leaves</a>
-                            <a href="#" class="tag-cloud-link">food</a>
+                            {% for value, text in dishes.meal_type.field.choices %}
+                            {% if not forloop.first %}
+                            <a href="#" class="tag-cloud-link">{{ text }}</a>
+                            {% endif%}
+                            {% endfor %}
+                            {% for value, text in dishes.dish_type.field.choices %}
+                            {% if not forloop.first %}
+                            <a href="#" class="tag-cloud-link">{{ text }}</a>
+                            {% endif%}
+                            {% endfor %}
                         </ul>
                     </div>
 
