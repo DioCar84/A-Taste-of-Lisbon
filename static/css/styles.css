@@ -275,7 +275,7 @@ footer {
     text-align: center;
 }
 
-/* ---------- BLOG PAGE ---------- */
+/* ---------- BLOG HOME PAGE ---------- */
 
 .no-gutters-lg {
     margin: 10%;
@@ -606,6 +606,34 @@ a.post-title-sm:hover {
 
 .tagcloud a:hover {
     border: 1px solid #000;
+}
+
+/* ---------- BLOG POST PAGE ---------- */
+
+#div_id_body {
+    width: 50%;
+    left: 0;
+}
+
+.comment-wrap {
+    padding-top: 2%;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.card-header {
+    background-color: #f18e84;
+}
+
+.comment-author {
+    letter-spacing: 0.1em;
+}
+
+.comment-body {
+    padding: 2% 0;
+}
+
+.comment-input {
+    margin: 5% 0;
 }
 
 /* ---------- RESERVATIONS PAGE ---------- */

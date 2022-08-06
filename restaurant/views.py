@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Reservation, Photo, Menu
 from .forms import MenuForm, ReservationForm
-from django.http import HttpResponseRedirect
 from django.contrib import messages
 from cloudinary.forms import cl_init_js_callbacks
 

@@ -1,52 +1,87 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
+
 <main>
     <section class="section">
         <div class="container">
             <div class="row no-gutters-lg">
                 <div class="col-12">
-                    <h1 class="page-title">Our Recipes</h1>
-                    <p class="home-description">The simple pleasures of Portuguese cuisine in your home.</p>
+                    <h1 class="page-title">{{ post.title }}</h1>
+                    <p class="home-description">{{ post.excerpt }}</p>
                 </div>
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="row">
-                        {% for item in page_obj %}
                         <div class="col-12 mb-4">
                             <article class="card article-card">
-                                <a href="{% url 'blog_post' item.id %}">
+                                <a href="#">
                                     <div class="card-image">
                                         <div class="post-info"> <span
-                                                class="text-uppercase">{{ item.datepublished }}</span>
+                                                class="text-uppercase">{{ post.datepublished }}</span>
                                         </div>
-                                        <img loading="lazy" decoding="async" src="{{ item.featured_image.url }}"
+                                        <img loading="lazy" decoding="async" src="{{ post.featured_image.url }}"
                                             alt="Post Thumbnail" class="w-100">
                                     </div>
                                 </a>
                                 <div class="card-body px-0 pb-1">
                                     <ul class="post-meta mb-2">
-                                        <li> <a href="#!">{{ item.get_meal_type_display }}</a>
-                                            <a href="#!">{{ item.get_dish_type_display }}</a>
+                                        <li> <a href="#!">{{ post.get_meal_type_display }}</a>
+                                            <a href="#!">{{ post.get_dish_type_display }}</a>
                                         </li>
                                     </ul>
                                     <div class="meta-wrap">
                                         <p class="meta">
-                                            <span><i class="fa-solid fa-calendar-days"></i>{{ item.created_on }}</span>
+                                            <span><i class="fa-solid fa-calendar-days"></i>{{ post.created_on }}</span>
                                             <span><i
-                                                    class="fa-solid fa-user-pen"></i>{{ item.author | capfirst }}</span>
-                                            <span><i class="fa-solid fa-thumbs-up"></i>{{ item.number_of_likes }}</span>
+                                                    class="fa-solid fa-user-pen"></i>{{ post.author | capfirst }}</span>
+                                            <span><i class="fa-solid fa-thumbs-up"></i>{{ post.number_of_likes }}</span>
                                         </p>
                                     </div>
-                                    <h2 class="h1"><a class="post-title"
-                                            href="{% url 'blog_post' item.id %}">{{ item.title }}</a></h2>
-                                    <p class="card-text">{{ item.excerpt }}</p>
-                                    <div class="content"> <a class="read-more-btn"
-                                            href="{% url 'blog_post' item.id %}">Read Full
-                                            Article</a>
-                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    {{ post.content|safe }}
                                 </div>
                             </article>
+                            <div class="comments-section">
+                                <div>
+                                    <h3>Comments:</h3>
+                                    {% if not post_comments %}
+                                    <p>No comments, be the first to spark this conversation!</p>
+                                    {% else %}
+                                    {% for comment in post_comments %}
+                                    <div class="card">
+                                        <div class="comment-wrap">
+                                            <div class="card-header">
+                                                <div class="comment-author">
+                                                    <h5>{{ comment.author | capfirst}} wrote: <span><a
+                                                                href=""><button>Edit</button></a><a
+                                                                href=""><button>Delete</button></a></span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="comment-body">
+                                                    <p>{{ comment.body }}</p>
+                                                </div>
+                                            </div>
+                                            <p class="card-text"><small
+                                                    class="text-muted">{{ comment.created_on }}</small></p>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <div class="comment-input">
+                                    <h3>Leave a comment: </h3>
+                                    <form action="" method="post" class="comments-form">
+                                        {% csrf_token %}
+                                        {{ comments|crispy }}
+                                        <input type="hidden" name="next" value="{{ request.path }}">
+                                        <button type="submit" class="reserve-button">Submit Comment</button>
+                                </div>
+
+                                </form>
+                            </div>
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-xl-4 sidebar ftco-animate pt-5">
@@ -78,21 +113,21 @@
 
                     <div class="sidebar-box ftco-animate">
                         <h3 class="sidebar-heading">Popular Articles</h3>
-                        {% for item in page_obj %}
+                        {% for post in posts %}
                         {% if forloop.counter < 4 %}
                         <div class="block-21 mb-4 d-flex">
-                            <a href="#" class="blog-img mr-4"><img src="{{ item.featured_image.url }}" alt=""></a>
+                            <a href="#" class="blog-img mr-4"><img src="{{ post.featured_image.url }}" alt=""></a>
                             <div class="text">
-                                <h3 class="heading"><a href="#">{{ item.title }}</a></h3>
+                                <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
                                 <div class="meta">
                                     <div><a href="#"><span class="icon-calendar"><i
-                                                    class="fa-solid fa-calendar-days"></i></span>{{ item.datepublished }}</a>
+                                                    class="fa-solid fa-calendar-days"></i></span>{{ post.datepublished }}</a>
                                     </div>
                                     <div><a href="#"><span class="icon-person"><i
-                                                    class="fa-solid fa-user-pen"></i></span>{{ item.author | capfirst }}</a>
+                                                    class="fa-solid fa-user-pen"></i></span>{{ post.author | capfirst }}</a>
                                     </div>
                                     <div><a href="#"><span class="icon-chat"><i
-                                                    class="fa-solid fa-comment-dots"></i></span>{{ item.comments.count }}</a>
+                                                    class="fa-solid fa-comment-dots"></i></span>{{ post.comments.count }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -119,23 +154,8 @@
 
                 </div><!-- END COL -->
             </div>
-            <div class="pagination page-links">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                    <a href="?page={{ page_obj.previous_page_number }}"><i
-                            class="fa-solid fa-circle-chevron-left"></i></a>
-                    {% endif %}
-
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-
-                    {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-circle-chevron-right"></i></a>
-                    {% endif %}
-                </span>
-            </div>
         </div>
     </section>
 </main>
+
 {% endblock %}
