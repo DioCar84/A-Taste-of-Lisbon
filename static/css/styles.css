@@ -436,6 +436,11 @@ a.post-title-sm:hover {
 
 .meta-wrap span i {
     margin-right: 2%;
+    color: #ffb570;
+}
+
+.meta-wrap span i:hover {
+    color: #f18e84;
 }
 
 .content * {
@@ -571,10 +576,15 @@ a.post-title-sm:hover {
     display: inline-block;
     font-size: 12px;
     margin-right: 5px;
+    width: 25%;
 }
 
 .block-21 .text .meta>div a {
-    color: gray;
+    color: #af8969;
+}
+
+.block-21 .text .meta>div a span {
+    margin-right: 10%;
 }
 
 .tagcloud {
