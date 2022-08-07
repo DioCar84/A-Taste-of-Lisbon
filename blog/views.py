@@ -41,3 +41,29 @@ def blog_post(request, pk):
 
     context = {'posts': posts, 'post': post, 'dishes': dish_type, 'comments': CommentForm(), 'post_comments': comments, }
     return render(request, 'blog/blog_post.html', context)
+
+def blog_meal_tag(request, tag):
+    Post.objects.annotate(Count('comments'))
+    posts = Post.objects.filter(meal_type=tag)
+    comments = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
+    dish_type = PostForm
+
+    paginator = Paginator(posts, 4)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {'posts': posts, 'comments': comments, 'page_obj': page_obj, 'dishes': dish_type, }
+    return render(request, 'blog/blog_home.html', context)
+
+def blog_dish_tag(request, tag):
+    Post.objects.annotate(Count('comments'))
+    posts = Post.objects.filter(dish_type=tag)
+    comments = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
+    dish_type = PostForm
+
+    paginator = Paginator(posts, 4)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {'posts': posts, 'comments': comments, 'page_obj': page_obj, 'dishes': dish_type, }
+    return render(request, 'blog/blog_home.html', context)

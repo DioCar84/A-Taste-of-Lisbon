@@ -25,8 +25,10 @@
                                 </a>
                                 <div class="card-body px-0 pb-1">
                                     <ul class="post-meta mb-2">
-                                        <li> <a href="#!">{{ post.get_meal_type_display }}</a>
-                                            <a href="#!">{{ post.get_dish_type_display }}</a>
+                                        <li> <a
+                                                href="{% url 'blog_meal_tag' post.meal_type %}">{{ post.get_meal_type_display }}</a>
+                                            <a
+                                                href="{% url 'blog_dish_tag' post.dish_type %}">{{ post.get_dish_type_display }}</a>
                                         </li>
                                     </ul>
                                     <div class="meta-wrap">
@@ -105,7 +107,7 @@
                         <ul class="categories">
                             {% for value, text in dishes.dish_type.field.choices %}
                             {% if not forloop.first %}
-                            <li><a href="#">{{ text }} </a></li>
+                            <li><a href="{% url 'blog_dish_tag' value %}">{{ text }} </a></li>
                             {% endif%}
                             {% endfor %}
                         </ul>
@@ -114,20 +116,21 @@
                     <div class="sidebar-box ftco-animate">
                         <h3 class="sidebar-heading">Popular Articles</h3>
                         {% for post in posts %}
-
                         <div class="block-21 mb-4 d-flex">
-                            <a href="#" class="blog-img mr-4"><img src="{{ post.featured_image.url }}" alt=""></a>
+                            <a href="{% url 'blog_post' post.id %}" class="blog-img mr-4"><img
+                                    src="{{ post.featured_image.url }}" alt="" class="blog-img mr-4"></a>
                             <div class="text">
-                                <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
+                                <h3 class="heading"><a href="{% url 'blog_post' post.id %}">{{ post.title }}</a>
+                                </h3>
                                 <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"><i
-                                                    class="fa-solid fa-calendar-days"></i></span>{{ post.datepublished }}</a>
+                                    <div><span class="icon-calendar"><i
+                                                class="fa-solid fa-calendar-days"></i></span>{{ post.datepublished }}
                                     </div>
-                                    <div><a href="#"><span class="icon-person"><i
-                                                    class="fa-solid fa-user-pen"></i></span>{{ post.author | capfirst }}</a>
+                                    <div><span class="icon-person"><i
+                                                class="fa-solid fa-user-pen"></i></span>{{ post.author | capfirst }}
                                     </div>
-                                    <div><a href="#"><span class="icon-chat"><i
-                                                    class="fa-solid fa-comment-dots"></i></span>{{ post.comments.count }}</a>
+                                    <div><span class="icon-chat"><i
+                                                class="fa-solid fa-comment-dots"></i></span>{{ post.comments.count }}
                                     </div>
                                 </div>
                             </div>
@@ -140,18 +143,18 @@
                         <ul class="tagcloud">
                             {% for value, text in dishes.meal_type.field.choices %}
                             {% if not forloop.first %}
-                            <a href="#" class="tag-cloud-link">{{ text }}</a>
+                            <a href="{% url 'blog_meal_tag' value %}" class="tag-cloud-link">{{ text }}</a>
                             {% endif%}
                             {% endfor %}
                             {% for value, text in dishes.dish_type.field.choices %}
                             {% if not forloop.first %}
-                            <a href="#" class="tag-cloud-link">{{ text }}</a>
+                            <a href="{% url 'blog_dish_tag' value %}" class="tag-cloud-link">{{ text }}</a>
                             {% endif%}
                             {% endfor %}
                         </ul>
                     </div>
 
-                </div><!-- END COL -->
+                </div>
             </div>
         </div>
     </section>
