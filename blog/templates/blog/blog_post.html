@@ -40,6 +40,12 @@
                                         </p>
                                     </div>
                                 </div>
+                                <div class="blog-post-buttons">
+                                    <a href="{% url 'edit_blog_post' post.id %}"><button type="submit"
+                                            class="reserve-button">Edit</button></a>
+                                    <a href="{% url 'delete_blog_post' post.id %}"><button type="submit"
+                                            class="reserve-button">Delete</button></a>
+                                </div>
                                 <div class="post-content">
                                     {{ post.content|safe }}
                                 </div>
@@ -55,9 +61,11 @@
                                         <div class="comment-wrap">
                                             <div class="card-header">
                                                 <div class="comment-author">
-                                                    <h5>{{ comment.author | capfirst}} wrote: <span><a
-                                                                href=""><button>Edit</button></a><a
-                                                                href=""><button>Delete</button></a></span></h5>
+                                                    <h5>{{ comment.author | capfirst}} wrote: <span> <a href="#"
+                                                                class="btn btn-success menu-button">Edit</a>
+                                                            <a href="#"
+                                                                class="btn btn-danger menu-button">Delete</a></span>
+                                                    </h5>
                                                 </div>
                                             </div>
                                             <div class="card-body">

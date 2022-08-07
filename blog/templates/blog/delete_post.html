@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="delete-form">
+    <h1 class="menu-form">Delete Post</h1>
+
+    <div class="delete-info">
+        <h3>Are you sure you wish to delete "{{ post.title }}"?</h3>
+        <p>Please be advised that once deleted these changes are <strong>permanent</strong>!</p>
+    </div>
+
+
+    <form class="menu-form" method="POST">
+        {% csrf_token %}
+
+        <a href="{% url 'blog_post' post.id %}" class="back-link"><button type="button" class="form-button">Go
+                Back</button></a>
+        <button type="submit" class="form-button">Delete</button>
+
+    </form>
+</div>
+
+
+{% endblock %}

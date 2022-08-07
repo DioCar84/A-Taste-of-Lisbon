@@ -42,6 +42,33 @@ def blog_post(request, pk):
     context = {'posts': posts, 'post': post, 'dishes': dish_type, 'comments': CommentForm(), 'post_comments': comments, }
     return render(request, 'blog/blog_post.html', context)
 
+def edit_blog_post(request, pk):
+    post = Post.objects.get(id=pk)
+    form = PostForm(instance=post)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'{post.title} Updated.')
+            return redirect('blog')
+
+    context = { 'post': post, 'form': form }
+    return render(request, 'blog/edit_post.html', context)
+
+
+def delete_blog_post(request, pk):
+    post = Post.objects.get(id=pk)
+
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, f'Post Deleted.')
+        return redirect('blog')
+
+    context = {'post': post}
+    return render(request, 'blog/delete_post.html', context)
+
+
 def blog_meal_tag(request, tag):
     Post.objects.annotate(Count('comments'))
     posts = Post.objects.filter(meal_type=tag)
