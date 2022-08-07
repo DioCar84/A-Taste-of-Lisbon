@@ -10,21 +10,22 @@ from .forms import PostForm, CommentForm
 def blog(request):
     Post.objects.annotate(Count('comments'))
     posts = Post.objects.all()
+    comments = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
     dish_type = PostForm
 
     paginator = Paginator(posts, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    context = {'posts': posts, 'page_obj': page_obj, 'dishes': dish_type, }
+    context = {'posts': posts, 'comments': comments, 'page_obj': page_obj, 'dishes': dish_type, }
     return render(request, 'blog/blog_home.html', context)
 
 
 def blog_post(request, pk):
     Post.objects.annotate(Count('comments'))
-    posts = Post.objects.all()
+    posts = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
     post = Post.objects.get(id=pk)
-    comments = post.comments.all().order_by('-created_on')
+    comments = post.comments.all().order_by('created_on')
     dish_type = PostForm
 
     if request.method == 'POST':
