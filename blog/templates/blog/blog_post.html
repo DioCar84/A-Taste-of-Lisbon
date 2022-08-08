@@ -63,10 +63,13 @@
                                         <div class="comment-wrap">
                                             <div class="card-header">
                                                 <div class="comment-author">
-                                                    <h5>{{ comment.author | capfirst}} wrote: <span> <a href="#"
-                                                                class="btn btn-success menu-button">Edit</a>
-                                                            <a href="#"
-                                                                class="btn btn-danger menu-button">Delete</a></span>
+                                                    <h5>{{ comment.author | capfirst}} wrote:
+                                                        {% if comment.author|stringformat:'s' == request.user.username|stringformat:'s' %}
+                                                        <span> <a href="{url 'edit_blog_comment' post.id}"
+                                                                class="btn btn-success comment-button">Edit</a>
+                                                            <a href="{url 'delete_blog_comment' post.id}"
+                                                                class="btn btn-danger comment-button">Delete</a></span>
+                                                        {% endif %}
                                                     </h5>
                                                 </div>
                                             </div>

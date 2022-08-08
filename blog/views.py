@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.db.models import Count
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
@@ -28,17 +29,20 @@ def blog_post(request, pk):
     comments = post.comments.all().order_by('created_on')
     dish_type = PostForm
 
-    if request.method == 'POST':
-        form = CommentForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.instance.post = post
-            form.instance.email = request.user.email
-            form.instance.author = request.user
-            form.save()
-            messages.success(request, 'Comment Created.')
-            next = request.POST.get('next', '/')
-            return HttpResponseRedirect(next)
+    for comment in comments:
+        print(comment.id)
 
+    if request.method == 'POST':
+            form = CommentForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.instance.post = post
+                form.instance.email = request.user.email
+                form.instance.author = request.user
+                form.save()
+                messages.success(request, 'Comment Created.')
+                next = request.POST.get('next', '/')
+                return HttpResponseRedirect(next)
+            
     context = {'posts': posts, 'post': post, 'dishes': dish_type, 'comments': CommentForm(), 'post_comments': comments, }
     return render(request, 'blog/blog_post.html', context)
 
@@ -67,6 +71,32 @@ def delete_blog_post(request, pk):
 
     context = {'post': post}
     return render(request, 'blog/delete_post.html', context)
+
+def edit_blog_comment(request, pk):
+    comment = Comment.objects.get(id=pk)
+    form = CommentForm(instance=comment)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, request.FILES, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Comment Updated.')
+            return redirect('blog_post')
+
+    context = { 'post': comment, 'form': form }
+    return render(request, 'blog/edit_comment.html', context)
+
+
+def delete_blog_comment(request, pk):
+    comment = Comment.objects.get(id=pk)
+
+    if request.method == 'POST':
+        comment.delete()
+        messages.success(request, f'Comment Deleted.')
+        return redirect('blog_post')
+
+    context = {'post': comment}
+    return render(request, 'blog/delete_comment.html', context)
 
 
 def blog_meal_tag(request, tag):

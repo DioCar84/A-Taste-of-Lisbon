@@ -636,6 +636,10 @@ a.post-title-sm:hover {
     letter-spacing: 0.1em;
 }
 
+.comment-author span {
+    float: right;
+}
+
 .comment-body {
     padding: 2% 0;
 }
