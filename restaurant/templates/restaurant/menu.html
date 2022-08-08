@@ -4,8 +4,10 @@
 <h1 class="page-title">Our Menu</h1>
 <p class="home-description">The simple pleasures of Portuguese cuisine.</p>
 
+{% if user.is_staff %}
 <a href="{% url 'createMenu' %}" class="btn btn-outline-primary btn-lg menu-add-button">Add Menu
     Item</a>
+{% endif %}
 
 <div class="row menu-row">
     {% for item in page_obj %}
@@ -19,10 +21,12 @@
             <h5 class="info-item">{{ item.title }} - £{{ item.price }}</h5>
             <p class="info-item info-p">{{ item.description }}</p>
         </div>
+        {% if user.is_staff %}
         <div class="menu-buttons">
             <a href="{% url 'editMenu' item.id %}" class="btn btn-success menu-button">Edit</a>
             <a href="{% url 'deleteMenu' item.id %}" class="btn btn-danger menu-button">Delete</a>
         </div>
+        {% endif %}
     </div>
 
     {% endfor %}

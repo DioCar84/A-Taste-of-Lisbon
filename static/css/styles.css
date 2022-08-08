@@ -614,6 +614,10 @@ a.post-title-sm:hover {
 
 /* ---------- BLOG POST PAGE ---------- */
 
+.blog-post-buttons a {
+    text-decoration: none;
+}
+
 #div_id_body {
     width: 50%;
     left: 0;
