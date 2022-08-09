@@ -448,7 +448,7 @@ a.post-title-sm:hover {
 }
 
 .meta-wrap span {
-    margin: 0 5%;
+    margin: 0 3%;
 }
 
 .meta-wrap span i {
@@ -682,6 +682,8 @@ a.post-title-sm:hover {
     margin: 5% 0;
 }
 
+/* ---------- EDIT COMMENT PAGE ---------- */
+
 #comment-form #div_id_body {
     left: 33.5%;
     width: 33%;
@@ -897,6 +899,21 @@ a.post-title-sm:hover {
     .menu-buttons {
         position: relative;
         top: 2%;
+    }
+
+    /* ---------- BLOG HOME PAGE ---------- */
+
+    .blog-add-button {
+        left: 35%;
+    }
+
+    .meta-wrap {
+        float: none;
+        width: 100%;
+    }
+
+    .meta-wrap span {
+        margin: 0 3% 0 0;
     }
 
     /* ---------- RESERVATIONS PAGE ---------- */
