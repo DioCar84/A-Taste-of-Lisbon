@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.core.paginator import Paginator
 from django.db.models import Count
 from django.contrib import messages
@@ -31,7 +32,6 @@ def blog(request):
 
     context = {'posts': posts, 'comments': comments, 'page_obj': page_obj, 'dishes': dish_type, }
     return render(request, 'blog/blog_home.html', context)
-
 
 def blog_post(request, pk):
     Post.objects.annotate(Count('comments'))
@@ -66,6 +66,19 @@ def blog_post(request, pk):
     context = {'posts': posts, 'post': post, 'dishes': dish_type, 'comments': CommentForm(), 'post_comments': comments, }
     return render(request, 'blog/blog_post.html', context)
 
+def create_blog_post(request):
+    form = PostForm()
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Post Created.')
+            return redirect('blog')
+
+    context = {'form': form}
+    return render(request, 'blog/create_post.html', context)
+
 def edit_blog_post(request, pk):
     post = Post.objects.get(id=pk)
     form = PostForm(instance=post)
@@ -75,7 +88,7 @@ def edit_blog_post(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, f'{post.title} Updated.')
-            return redirect('blog')
+            return redirect(f'/blog/{post.id}')
 
     context = { 'post': post, 'form': form }
     return render(request, 'blog/edit_post.html', context)
@@ -94,6 +107,7 @@ def delete_blog_post(request, pk):
 
 def edit_blog_comment(request, pk):
     comment = Comment.objects.get(id=pk)
+    post = comment.post.id
     form = CommentForm(instance=comment)
 
     if request.method == 'POST':
@@ -101,7 +115,7 @@ def edit_blog_comment(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Comment Updated.')
-            return redirect('blog')
+            return redirect(f'/blog/{post}')
 
     context = {'post': comment, 'form': form }
     return render(request, 'blog/edit_comment.html', context)
@@ -109,11 +123,12 @@ def edit_blog_comment(request, pk):
 
 def delete_blog_comment(request, pk):
     comment = Comment.objects.get(id=pk)
+    post = comment.post.id
 
     if request.method == 'POST':
         comment.delete()
         messages.success(request, f'Comment Deleted.')
-        return redirect('blog')
+        return redirect(f'/blog/{post}')
 
     context = {'post': comment}
     return render(request, 'blog/delete_comment.html', context)

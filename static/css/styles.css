@@ -289,6 +289,18 @@ footer {
     margin: 5% 0;
 }
 
+.blog-add-button {
+    position: relative;
+    left: 40%;
+    border-color: #ffb570;
+    color: #ffb570;
+}
+
+.blog-add-button:hover {
+    background-color: #f18e84;
+    border-color: #fff;
+}
+
 .article-card {
     padding: 30px;
     border-radius: 0;

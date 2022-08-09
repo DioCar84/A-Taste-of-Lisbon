@@ -9,6 +9,10 @@
                     <p class="home-description">The simple pleasures of Portuguese cuisine in your home.</p>
                 </div>
                 <div class="col-lg-8 mb-5 mb-lg-0">
+                    {% if user.is_staff %}
+                    <a href="{% url 'create_post' %}" class="btn btn-outline-primary btn-lg blog-add-button">Create New
+                        Post</a>
+                    {% endif %}
                     <div class="row">
                         {% for item in page_obj %}
                         <div class="col-12 mb-4">
