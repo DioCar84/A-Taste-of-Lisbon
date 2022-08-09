@@ -100,6 +100,19 @@
                     </div>
                 </div>
                 <div class="col-xl-4 sidebar ftco-animate pt-5">
+                    <div class="sidebar-box pt-md-4">
+                        <form action="" method="POST" class="search-form" id="recipes-search">
+                            {% csrf_token %}
+
+                            <div class="input-group mb-3">
+                                <input type="search" name="recipe_name" id="recipe-input" class="form-control"
+                                    placeholder="Enter Recipe Name Here..." aria-label="Recipe Name"
+                                    aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="submit"
+                                    id="button-addon2">Search</button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="sidebar-box ftco-animate">
                         <h3 class="sidebar-heading">Categories</h3>
                         <ul class="categories">

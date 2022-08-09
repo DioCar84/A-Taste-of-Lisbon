@@ -35,12 +35,24 @@ def blog(request):
 
 def blog_post(request, pk):
     Post.objects.annotate(Count('comments'))
+    all_posts = Post.objects.all()
     posts = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
     post = Post.objects.get(id=pk)
     comments = post.comments.all().order_by('created_on')
     dish_type = PostForm
 
     if request.method == 'POST':
+        if 'recipe_name' in request.POST:
+            recipe = request.POST.get('recipe_name')
+            if recipe != '' and recipe is not None:
+                blog_recipes = all_posts.filter(title__icontains=recipe).order_by('created_on')
+                if not blog_recipes:
+                    messages.warning(request, 'No Recipes Found For Your Search')
+                    return redirect(f'/blog/{post.id}')
+                context = {'recipes': blog_recipes, 'posts': posts, 'dishes': dish_type, }
+                messages.success(request, 'Recipe(s) Found.')
+                return render(request, 'blog/blog_recipes_search.html', context)
+        else:
             form = CommentForm(request.POST, request.FILES)
             if form.is_valid():
                 form.instance.post = post
