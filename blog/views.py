@@ -14,6 +14,17 @@ def blog(request):
     comments = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
     dish_type = PostForm
 
+    if request.method == 'POST':
+        recipe = request.POST.get('recipe_name')
+        if recipe != '' and recipe is not None:
+            blog_recipes = posts.filter(title__icontains=recipe).order_by('created_on')
+            if not blog_recipes:
+                messages.warning(request, 'No Recipes Found For Your Search')
+                return redirect('blog')
+            context = {'recipes': blog_recipes, 'comments': comments, 'dishes': dish_type,}
+            messages.success(request, 'Recipe(s) Found.')
+            return render(request, 'blog/blog_recipes_search.html', context)
+
     paginator = Paginator(posts, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -98,9 +109,21 @@ def delete_blog_comment(request, pk):
 
 def blog_meal_tag(request, tag):
     Post.objects.annotate(Count('comments'))
+    all_posts = Post.objects.all()
     posts = Post.objects.filter(meal_type=tag)
     comments = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
     dish_type = PostForm
+
+    if request.method == 'POST':
+        recipe = request.POST.get('recipe_name')
+        if recipe != '' and recipe is not None:
+            blog_recipes = all_posts.filter(title__icontains=recipe).order_by('created_on')
+            if not blog_recipes:
+                messages.warning(request, 'No Recipes Found For Your Search')
+                return redirect('blog')
+            context = {'recipes': blog_recipes, 'comments': comments, 'dishes': dish_type,}
+            messages.success(request, 'Recipe(s) Found.')
+            return render(request, 'blog/blog_recipes_search.html', context)
 
     paginator = Paginator(posts, 4)
     page_number = request.GET.get('page')
@@ -111,9 +134,21 @@ def blog_meal_tag(request, tag):
 
 def blog_dish_tag(request, tag):
     Post.objects.annotate(Count('comments'))
+    all_posts = Post.objects.all()
     posts = Post.objects.filter(dish_type=tag)
     comments = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
     dish_type = PostForm
+
+    if request.method == 'POST':
+        recipe = request.POST.get('recipe_name')
+        if recipe != '' and recipe is not None:
+            blog_recipes = all_posts.filter(title__icontains=recipe).order_by('created_on')
+            if not blog_recipes:
+                messages.warning(request, 'No Recipes Found For Your Search')
+                return redirect('blog')
+            context = {'recipes': blog_recipes, 'comments': comments, 'dishes': dish_type,}
+            messages.success(request, 'Recipe(s) Found.')
+            return render(request, 'blog/blog_recipes_search.html', context)
 
     paginator = Paginator(posts, 4)
     page_number = request.GET.get('page')
