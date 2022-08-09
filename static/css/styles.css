@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Quicksand:wght@300;400;700&family=Roboto+Slab:wght@200;400;700&display=swap');
 /* photos from Unsplash and Pexel */
+/* recipes from Allrecipes, https://www.homemadeinterest.com/, https://www.foodfromportugal.com/ */
 
 /* ---------- GLOBAL ---------- */
 
@@ -489,6 +490,15 @@ a.post-title-sm:hover {
     margin-bottom: 1rem;
 }
 
+#recipes-search {
+    width: 100%;
+}
+
+#recipes-search .input-group {
+    width: 100%;
+    left: 0;
+}
+
 .categories,
 .sidelink {
     padding: 0;
@@ -560,6 +570,7 @@ a.post-title-sm:hover {
 
 .block-21 .text {
     width: calc(100% - 100px);
+    color: #af8969
 }
 
 .block-21 .text .heading {
@@ -567,7 +578,7 @@ a.post-title-sm:hover {
 }
 
 .block-21 .text .heading a {
-    color: #000000;
+    color: #af8969
 }
 
 .block-21 .text .heading a:hover,
@@ -583,11 +594,7 @@ a.post-title-sm:hover {
     width: 25%;
 }
 
-.block-21 .text .meta>div a {
-    color: #af8969;
-}
-
-.block-21 .text .meta>div a span {
+.block-21 .text .meta>div span {
     margin-right: 10%;
 }
 
@@ -610,6 +617,7 @@ a.post-title-sm:hover {
 
 .tagcloud a:hover {
     border: 1px solid #000;
+    background-color: #f18e84;
 }
 
 /* ---------- BLOG POST PAGE ---------- */
@@ -646,6 +654,11 @@ a.post-title-sm:hover {
 
 .comment-input {
     margin: 5% 0;
+}
+
+#comment-form #div_id_body {
+    left: 33.5%;
+    width: 33%;
 }
 
 /* ---------- RESERVATIONS PAGE ---------- */

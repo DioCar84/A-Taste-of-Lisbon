@@ -29,9 +29,6 @@ def blog_post(request, pk):
     comments = post.comments.all().order_by('created_on')
     dish_type = PostForm
 
-    for comment in comments:
-        print(comment.id)
-
     if request.method == 'POST':
             form = CommentForm(request.POST, request.FILES)
             if form.is_valid():
@@ -81,9 +78,9 @@ def edit_blog_comment(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Comment Updated.')
-            return redirect('blog_post')
+            return redirect('blog')
 
-    context = { 'post': comment, 'form': form }
+    context = {'post': comment, 'form': form }
     return render(request, 'blog/edit_comment.html', context)
 
 
@@ -93,7 +90,7 @@ def delete_blog_comment(request, pk):
     if request.method == 'POST':
         comment.delete()
         messages.success(request, f'Comment Deleted.')
-        return redirect('blog_post')
+        return redirect('blog')
 
     context = {'post': comment}
     return render(request, 'blog/delete_comment.html', context)

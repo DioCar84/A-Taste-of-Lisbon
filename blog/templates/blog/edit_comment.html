@@ -5,12 +5,12 @@
 
 <h1 class="menu-form">Comment Form</h1>
 
-<form class="menu-form" action="" method="post" enctype="multipart/form-data">
+<form class="menu-form" id="comment-form" action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
     {{ form | crispy }}
 
-    <a href="# class=" back-link"><button type="button" class="form-button">Go
+    <a href="{{ request.META.HTTP_REFERER }}" class="back-link"><button type="button" class="form-button">Go
             Back</button></a>
     <button type="submit" class="form-button">Submit</button>
 

@@ -53,18 +53,16 @@
                 </div>
                 <div class="col-xl-4 sidebar ftco-animate pt-5">
                     <div class="sidebar-box pt-md-4">
-                        <form action="#" class="search-form">
-                            <form action="" method="POST" id="reservation-search">
-                                {% csrf_token %}
+                        <form action="" method="POST" class="search-form" id="recipes-search">
+                            {% csrf_token %}
 
-                                <div class="input-group mb-9">
-                                    <input type="search" name="blog-search" id="blog-search-input" class="form-control"
-                                        placeholder="Type a keyword and hit enter"
-                                        aria-label="Email Used for Reservations" aria-describedby="button-addon2">
-                                    <button class="btn btn-outline-secondary" type="submit"
-                                        id="button-addon2">Search</button>
-                                </div>
-                            </form>
+                            <div class="input-group mb-3">
+                                <input type="search" name="recipe_name" id="recipe-input" class="form-control"
+                                    placeholder="Search Recipes Here..." aria-label="Recipe Name"
+                                    aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="submit"
+                                    id="button-addon2">Search</button>
+                            </div>
                         </form>
                     </div>
                     <div class="sidebar-box ftco-animate">

@@ -65,9 +65,9 @@
                                                 <div class="comment-author">
                                                     <h5>{{ comment.author | capfirst}} wrote:
                                                         {% if comment.author|stringformat:'s' == request.user.username|stringformat:'s' %}
-                                                        <span> <a href="{url 'edit_blog_comment' post.id}"
+                                                        <span> <a href="{% url 'edit_blog_comment' comment.id %}"
                                                                 class="btn btn-success comment-button">Edit</a>
-                                                            <a href="{url 'delete_blog_comment' post.id}"
+                                                            <a href="{% url 'delete_blog_comment' comment.id %}"
                                                                 class="btn btn-danger comment-button">Delete</a></span>
                                                         {% endif %}
                                                     </h5>
