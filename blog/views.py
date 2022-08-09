@@ -41,6 +41,10 @@ def blog_post(request, pk):
     comments = post.comments.all().order_by('created_on')
     dish_type = PostForm
 
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        liked = True
+
     if request.method == 'POST':
         if 'recipe_name' in request.POST:
             recipe = request.POST.get('recipe_name')
@@ -63,7 +67,7 @@ def blog_post(request, pk):
                 next = request.POST.get('next', '/')
                 return HttpResponseRedirect(next)
             
-    context = {'posts': posts, 'post': post, 'dishes': dish_type, 'comments': CommentForm(), 'post_comments': comments, }
+    context = {'posts': posts, 'post': post, 'dishes': dish_type, 'comments': CommentForm(), 'post_comments': comments, 'liked': liked, }
     return render(request, 'blog/blog_post.html', context)
 
 def create_blog_post(request):
@@ -183,3 +187,16 @@ def blog_dish_tag(request, tag):
 
     context = {'posts': posts, 'comments': comments, 'page_obj': page_obj, 'dishes': dish_type, }
     return render(request, 'blog/blog_home.html', context)
+
+
+def like_view(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
+
+    return HttpResponseRedirect(reverse('blog_post', args=[str(pk)]))

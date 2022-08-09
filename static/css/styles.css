@@ -460,6 +460,20 @@ a.post-title-sm:hover {
     color: #f18e84;
 }
 
+.meta-wrap button {
+    border: 0;
+    background: none;
+}
+
+.meta-wrap button i {
+    margin-right: 2%;
+    color: #ffb570;
+}
+
+.meta-wrap button i:hover {
+    color: #f18e84;
+}
+
 .content * {
     margin-bottom: 5px;
 }
