@@ -620,10 +620,6 @@ a.post-title-sm:hover {
     width: 25%;
 }
 
-.block-21 .text .meta>div span {
-    margin-right: 10%;
-}
-
 .tagcloud {
     padding: 0;
 }
@@ -916,6 +912,19 @@ a.post-title-sm:hover {
         margin: 0 3% 0 0;
     }
 
+    #recipe-input,
+    #button-addon2 {
+        font-size: 90%;
+    }
+
+    .block-21 {
+        display: block !important;
+    }
+
+    .block-21 .text {
+        width: 100%;
+    }
+
     /* ---------- RESERVATIONS PAGE ---------- */
 
     .reserve-button {
@@ -979,6 +988,20 @@ a.post-title-sm:hover {
 
     .home-description {
         margin: 5%;
+    }
+
+    /* ---------- BLOG HOME PAGE ---------- */
+
+    .block-21 .text {
+        width: 100%;
+    }
+
+    .meta {
+        display: block;
+    }
+
+    .block-21 .text .meta>div {
+        width: 100%;
     }
 
     /* ---------- RESERVATIONS PAGE ---------- */
@@ -1111,6 +1134,32 @@ a.post-title-sm:hover {
         font-size: 150%;
     }
 
+    /* ---------- BLOG HOME PAGE ---------- */
+
+    .blog-add-button {
+        left: 30%;
+    }
+
+    .article-card {
+        text-align: center;
+    }
+
+    .sidebar-box {
+        margin: 10% 0 20%;
+    }
+
+    .pt-md-4 {
+        margin: 0;
+    }
+
+    .block-21 {
+        display: flex !important;
+    }
+
+    .sidebar-box .mb-4 {
+        margin-top: 0;
+    }
+
     /* ---------- RESERVATIONS PAGE ---------- */
 
     .reservation-form .mb-3 {
@@ -1217,6 +1266,18 @@ a.post-title-sm:hover {
         font-size: 130%;
     }
 
+    /* ---------- BLOG HOME PAGE ---------- */
+
+    .blog-add-button {
+        left: 25%;
+        width: 50%;
+    }
+
+    .meta-wrap span {
+        display: block;
+        margin: 0;
+    }
+
     /* ---------- RESERVATIONS PAGE ---------- */
 
     .reservation-form {
@@ -1301,6 +1362,10 @@ a.post-title-sm:hover {
 
 /* For small screens size from 320px wide and down */
 @media screen and (max-width: 320px) {
+
+    /* ---------- BLOG HOME PAGE ---------- */
+
+
 
     /* ---------- RESERVATIONS PAGE ---------- */
 
