@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load cloudinary %}
+{% block content %}
+
+<h1 class="menu-form">Registration Form</h1>
+
+<form class="menu-form" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form | crispy }}
+
+    <a href="#" class="back-link"><button type="button" class="form-button">Go Back</button></a>
+    <button type="submit" class="form-button">Submit</button>
+
+</form>
+
+{% endblock %}

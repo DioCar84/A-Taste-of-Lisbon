@@ -855,6 +855,44 @@ a.post-title-sm:hover {
     height: 500px;
 }
 
+/* ---------- REGISTRATION PAGE ---------- */
+
+.register-card {
+    margin: 10%;
+    width: 50%;
+    position: relative;
+    left: 15%;
+    border: 1px solid #ffb570;
+}
+
+.register-card .card-header {
+    background-color: #ffb570;
+    color: #fff;
+}
+
+.register-card .page-title {
+    padding: 0;
+}
+
+#register-form .form-button {
+    margin: 2% 0;
+    position: relative;
+    left: 33.5%;
+    width: 33%;
+}
+
+.login-redirect {
+    width: 50%;
+    position: relative;
+    left: 25%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.login-redirect p {
+    margin: 0;
+}
+
 
 /* ---------- MEDIA QUERIES ---------- */
 
