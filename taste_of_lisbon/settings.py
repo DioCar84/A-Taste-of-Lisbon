@@ -50,8 +50,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'django_summernote',
-    'blog',
-    'restaurant'
+    'blog.apps.BlogConfig',
+    'restaurant.apps.RestaurantConfig',
+    'users.apps.UsersConfig'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
