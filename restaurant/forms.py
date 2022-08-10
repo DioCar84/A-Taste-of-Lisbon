@@ -11,8 +11,8 @@ class MenuForm(ModelForm):
 
 
 class ReservationForm(ModelForm):
-    date = forms.DateField(input_formats=['%d/%m/%Y'], widget=FengyuanChenDatePickerInput())
+    date = forms.DateField(input_formats=['%m/%d/%Y'], widget=FengyuanChenDatePickerInput())
     
     class Meta:
         model = Reservation
-        fields = ['first_name', 'last_name', 'email', 'number_of_clients', 'date', 'time', ]
+        fields = ['name', 'email', 'table', 'number_of_clients', 'date', 'time', ]

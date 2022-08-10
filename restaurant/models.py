@@ -4,8 +4,7 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Reservation(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()
     number_of_clients = models.PositiveSmallIntegerField(choices=(
         (1, '1'),
@@ -34,7 +33,7 @@ class Reservation(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.first_name + " " + self.last_name + " " + str(self.date)
+        return str(self.name) + " " + str(self.date)
 
     class Meta:
         ordering = ['-date']

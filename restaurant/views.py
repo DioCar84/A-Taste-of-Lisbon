@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 from .models import Reservation, Photo, Menu
 from .forms import MenuForm, ReservationForm
 from django.contrib import messages
-from cloudinary.forms import cl_init_js_callbacks
+from datetime import datetime
 
 # Create your views here.
 def home(request):
@@ -66,11 +66,21 @@ def reservations(request):
     form = ReservationForm()
 
     if request.method == 'POST':
-        form = ReservationForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Reservation Created.')
+        form = ReservationForm(request.POST)
+        table = form['table'].value()
+        date = form['date'].value()
+        date_value = datetime.strptime(date, '%m/%d/%Y')
+        time = form['time'].value()
+        reservation = Reservation.objects.filter(table=table, date=date_value, time=time)
+        
+        if reservation:
+            messages.warning(request, 'Reservation Already Exists Please Choose a Different Day, Time or Table.')
             return redirect('reservations')
+        else:
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Reservation Created.')
+                return redirect('reservations')
 
     context = {'open_image': open_image, 'open_banner': open_banner, 'form': form}
     return render(request, 'restaurant/reservations.html', context)
