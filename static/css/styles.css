@@ -1160,6 +1160,24 @@ a.post-title-sm:hover {
         margin-top: 0;
     }
 
+    /* ---------- BLOG POST PAGE ---------- */
+
+    .col-12 h1 {
+        font-size: 250%;
+    }
+
+    .col-12 p {
+        font-size: 150%;
+    }
+
+    .article-card .post-content {
+        text-align: left;
+    }
+
+    #div_id_body {
+        width: 100%;
+    }
+
     /* ---------- RESERVATIONS PAGE ---------- */
 
     .reservation-form .mb-3 {
@@ -1278,6 +1296,26 @@ a.post-title-sm:hover {
         margin: 0;
     }
 
+    /* ---------- BLOG POST PAGE ---------- */
+
+    .blog-post-buttons .reserve-button {
+        left: 12.5%;
+    }
+
+    .comments-section {
+        font-size: 75%;
+    }
+
+    .comment-author span {
+        float: none;
+        display: block;
+    }
+
+    .comments-form .reserve-button {
+        width: 70%;
+        left: 15%;
+    }
+
     /* ---------- RESERVATIONS PAGE ---------- */
 
     .reservation-form {
@@ -1365,7 +1403,11 @@ a.post-title-sm:hover {
 
     /* ---------- BLOG HOME PAGE ---------- */
 
+    /* ---------- BLOG POST PAGE ---------- */
 
+    .blog-post-buttons .reserve-button {
+        left: 2%;
+    }
 
     /* ---------- RESERVATIONS PAGE ---------- */
 
