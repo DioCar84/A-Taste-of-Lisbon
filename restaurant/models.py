@@ -20,6 +20,16 @@ class Reservation(models.Model):
         (3, '13:00-14:00'),
         (4, '14:00-15:00'),
     ), null=True)
+    table = models.PositiveSmallIntegerField(choices=(
+        (1, 'Table 1'),
+        (2, 'Table 2'),
+        (3, 'Table 3'),
+        (4, 'Table 4'),
+        (5, 'Table 5'),
+        (6, 'Table 6'),
+        (7, 'Table 7'),
+        (8, 'Table 8'),
+    ), null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
