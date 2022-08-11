@@ -2,20 +2,7 @@
 {% block content %}
 
 <h1 class="page-title">Your Reservations</h1>
-<p id="reservation-info" class="home-description">You can view and edit your reservations below. Just search with the
-    email used to book the
-    reservations.</p>
-
-<form action="" method="POST" id="reservation-search">
-    {% csrf_token %}
-
-    <div class="input-group mb-3">
-        <input type="search" name="user_email" id="reserve-email-input" class="form-control"
-            placeholder="Email Used for Reservations" aria-label="Email Used for Reservations"
-            aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
-    </div>
-</form>
+<p id="reservation-info" class="home-description">You can view and edit your reservations below.</p>
 
 
 {% if reservations %}

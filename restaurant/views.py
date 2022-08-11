@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Reservation, Photo, Menu
 from .forms import MenuForm, ReservationForm
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import datetime
 
@@ -85,21 +86,17 @@ def reservations(request):
     context = {'open_image': open_image, 'open_banner': open_banner, 'form': form}
     return render(request, 'restaurant/reservations.html', context)
 
+@login_required
 def userReservations(request):
     reservations = Reservation.objects.all()
 
-    if request.method == 'POST':
-        user_email = request.POST.get('user_email')
-        if user_email != '' and user_email is not None:
-            user_reservations = reservations.filter(email = user_email).order_by('date')
-            if not user_reservations:
-                messages.warning(request, 'No Reservations Found For This Email.')
-                return render(request, 'restaurant/user_reservations.html')
-            context = {'reservations': user_reservations}
-            messages.success(request, 'Reservations Found.')
-            return render(request, 'restaurant/user_reservations.html', context)    
-
-    return render(request, 'restaurant/user_reservations.html')
+    user_reservations = reservations.filter(email = request.user.email).order_by('date')
+    if not user_reservations:
+        messages.warning(request, 'No Reservations Found For This Email.')
+        return render(request, 'users/profile_page.html')
+    context = {'reservations': user_reservations}
+    messages.success(request, 'Reservations Found.')
+    return render(request, 'restaurant/user_reservations.html', context)  
 
 def editUserReservation(request, pk):
     reservation = Reservation.objects.get(id=pk)

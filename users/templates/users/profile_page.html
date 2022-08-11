@@ -39,7 +39,8 @@
             </div>
             <div>
                 <h3>Reservations:</h3>
-                <h5><i class="fa-solid fa-calendar-days"></i> {{ reservations }}</h5>
+                <h5><a href="{% url 'userReservations' %}"><i class="fa-solid fa-calendar-days"></i></a>
+                    {{ reservations }}</h5>
             </div>
         </div>
     </div>

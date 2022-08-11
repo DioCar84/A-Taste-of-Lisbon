@@ -686,6 +686,10 @@ a.post-title-sm:hover {
 
 /* ---------- RESERVATIONS PAGE ---------- */
 
+#descp-1 {
+    margin: 0;
+}
+
 .reservation-form {
     width: 75%;
     display: inline-block;
