@@ -4,7 +4,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import UserProfile
+from blog.models import Post, Comment
+from restaurant.models import Reservation
 
 # Create your views here.
 def create_user(request):
@@ -33,7 +34,18 @@ def create_user(request):
 @login_required
 def user_profile(request):
 
-    profile = UserProfile.objects.filter(user=request.user)
+    user = User.objects.filter(username=request.user.username).first()
+    profile = user.userprofile
 
-    context = {'profile': profile}
+    reservations = Reservation.objects.filter(email= request.user.email).count()
+    comments = 0
+    likes = 0
+    posts = Post.objects.all()
+    for post in posts:
+        comments += post.comments.filter(author=request.user).count()
+        likes += post.likes.filter(username=request.user.username).count()
+
+    
+
+    context = {'profile': profile, 'reservations': reservations, 'comments': comments, 'likes':likes, }
     return render(request, 'users/profile_page.html', context)

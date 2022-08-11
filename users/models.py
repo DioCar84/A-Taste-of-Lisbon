@@ -13,7 +13,7 @@ class UserProfile(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.username)
+        return self.user.username
 
     class Meta:
         ordering = ['created_on']

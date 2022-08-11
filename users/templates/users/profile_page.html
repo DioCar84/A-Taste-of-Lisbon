@@ -3,8 +3,46 @@
 
 <h1 class="page-title">Your Profile</h1>
 
-{{ profile.name }}
+<div class="card register-card">
+    <div class="card-header profile-header">
+        <img class="profile-image" src="{{ profile.profile_image.url }}" alt="User's profile picture">
+        <div class="profile-actions">
+            <a href="#" class="profile-link"><button class="profile-button">Edit Password</button></a>
+            <a href="#" class="profile-link"><button class="profile-button">Edit Profile</button></a>
+            <a href="#" class="profile-link"><button class="profile-button">Delete Profile</button></a>
+        </div>
 
-{{ profile.email }}
+    </div>
+    <div class="card-body">
+        <div class="card-body-details">
+            <div>
+                <h3>Name: </h3>
+                <h5>{{ profile.name }}</h5>
+            </div>
+            <div>
+                <h3>Username:</h3>
+                <h5>{{ profile.name }}</h5>
+            </div>
+            <div>
+                <h3>User Email:</h3>
+                <h5>{{ profile.email }}</h5>
+            </div>
+        </div>
+        <div class="card-body-icons">
+            <div>
+                <h3>Likes:</h3>
+                <h5><i class="fa-solid fa-thumbs-up"></i> {{ likes }}</h5>
+            </div>
+            <div>
+                <h3>Comments:</h3>
+                <h5><i class="fa-solid fa-comment"></i> {{ comments }}</h5>
+            </div>
+            <div>
+                <h3>Reservations:</h3>
+                <h5><i class="fa-solid fa-calendar-days"></i> {{ reservations }}</h5>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
