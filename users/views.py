@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.contrib import messages
 
 # Create your views here.
@@ -14,9 +15,13 @@ def create_user(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
-            user.save()
+            if User.objects.filter(username=user.username):
+                messages.error(request, 'Username has already been taken, please choose a different username.')
+                return redirect('register')
+            else:
+                user.save()
 
-            messages.success(request, 'New User Created.')
+            messages.success(request, f'new user {user.username} was created.')
             return redirect('home')
 
     context = {'page': page, 'form': form}
