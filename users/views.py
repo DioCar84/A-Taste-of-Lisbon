@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -52,7 +52,7 @@ def user_profile(request):
     context = {'profile': profile, 'reservations': reservations, 'comments': comments, 'likes':likes, }
     return render(request, 'users/profile_page.html', context)
 
-
+@login_required
 def edit_profile(request):
 
     user = UserProfile.objects.filter(username=request.user.username).first()
@@ -67,3 +67,17 @@ def edit_profile(request):
 
     context = {'form': form, }
     return render(request, 'users/profile_form.html', context)
+
+
+def delete_profile(request):
+
+    user = UserProfile.objects.filter(username=request.user.username).first()
+
+    if request.method == 'POST':
+        user.delete()
+        logout(request)
+        messages.success(request, 'Profile Deleted.')
+        return redirect('home')
+
+    context = {'user': user}
+    return render(request, 'users/delete_profile.html')

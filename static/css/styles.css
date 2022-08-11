@@ -896,6 +896,13 @@ a.post-title-sm:hover {
     margin: 0;
 }
 
+/* ---------- LOGOUT PAGE ---------- */
+
+#logout-page {
+    display: block;
+}
+
+
 .logout-page .form-button {
     margin: 5% 0;
     width: 33%;
