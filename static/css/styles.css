@@ -54,7 +54,6 @@ body {
 
 .right-nav {
     position: relative;
-    right: 5%;
 }
 
 .login-tablet {
@@ -891,6 +890,11 @@ a.post-title-sm:hover {
 
 .login-redirect p {
     margin: 0;
+}
+
+.logout-page .form-button {
+    margin: 5% 0;
+    width: 33%;
 }
 
 

@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
+from .models import UserProfile
 
 # Create your views here.
 def create_user(request):
@@ -27,4 +30,10 @@ def create_user(request):
     context = {'page': page, 'form': form}
     return render(request, 'users/login_register.html', context)
 
+@login_required
+def user_profile(request):
 
+    profile = UserProfile.objects.filter(user=request.user)
+
+    context = {'profile': profile}
+    return render(request, 'users/profile_page.html', context)

@@ -153,6 +153,9 @@ DATE_INPUT_FORMATS = ['%m/%d/%Y']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+LOGIN_REDIRECT_URL = 'profile'
+LOGIN_URL = 'login'
+
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'

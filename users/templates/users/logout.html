@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card register-card">
+    <div class="card-header">
+        <h1 class="page-title">Logged Out</h1>
+    </div>
+    <div class="card-body">
+        <div class="login-redirect logout-page">
+            <p>You have been successfully logged out!</p>
+            <p>Do you wish to log back in?</p>
+            <a href="{% url 'login' %}" class="back-link"><button type="button" class="form-button">Login</button></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

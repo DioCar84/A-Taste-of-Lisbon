@@ -26,7 +26,34 @@
 
 <div class="login-redirect">
     <p>Already have an account?</p>
-    <a href="#" class="back-link"><button type="button" class="form-button">Login</button></a>
+    <a href="{% url 'login' %}" class="back-link"><button type="button" class="form-button">Login</button></a>
+</div>
+
+{% else %}
+
+<div class="card register-card">
+    <div class="card-header">
+        <h1 class="page-title">User Login</h1>
+    </div>
+    <div class="card-body">
+        <form action="" method="post" id="register-form">
+            {% csrf_token %}
+
+            {{ form|crispy }}
+
+            {% for error in field.errors %}
+            <p style="color: red;">{{error}}</p>
+            {% endfor %}
+
+
+            <button type="submit" class="form-button">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="login-redirect">
+    <p>Don't have an account? Click below to register.</p>
+    <a href="{% url 'register' %}" class="back-link"><button type="button" class="form-button">Register</button></a>
 </div>
 
 {% endif %}
