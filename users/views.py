@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
+from .models import UserProfile
+from .forms import UserProfileForm
 from blog.models import Post, Comment
 from restaurant.models import Reservation
 
@@ -49,3 +51,19 @@ def user_profile(request):
 
     context = {'profile': profile, 'reservations': reservations, 'comments': comments, 'likes':likes, }
     return render(request, 'users/profile_page.html', context)
+
+
+def edit_profile(request):
+
+    user = UserProfile.objects.filter(username=request.user.username).first()
+    form = UserProfileForm(instance=user)
+
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile Updated.')
+            return redirect('profile')
+
+    context = {'form': form, }
+    return render(request, 'users/profile_form.html', context)

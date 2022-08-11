@@ -7,8 +7,9 @@
     <div class="card-header profile-header">
         <img class="profile-image" src="{{ profile.profile_image.url }}" alt="User's profile picture">
         <div class="profile-actions">
-            <a href="#" class="profile-link"><button class="profile-button">Edit Password</button></a>
-            <a href="#" class="profile-link"><button class="profile-button">Edit Profile</button></a>
+            <a href="#" class="profile-link"><button class="profile-button">Edit Login</button></a>
+            <a href="{% url 'edit_profile' %}" class="profile-link"><button class="profile-button">Edit
+                    Profile</button></a>
             <a href="#" class="profile-link"><button class="profile-button">Delete Profile</button></a>
         </div>
 
@@ -21,7 +22,7 @@
             </div>
             <div>
                 <h3>Username:</h3>
-                <h5>{{ profile.name }}</h5>
+                <h5>{{ profile.username }}</h5>
             </div>
             <div>
                 <h3>User Email:</h3>

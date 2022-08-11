@@ -6,11 +6,6 @@ from .models import UserProfile
 @receiver(post_save, sender=User)
 def createProfile(sender, instance, created, **kwargs):
 
-    print('Sender:', sender)
-    print('Instance:', instance)
-    print('Created:', created)
-
-
     if created:
         user = instance
         UserProfile.objects.create(
@@ -18,3 +13,14 @@ def createProfile(sender, instance, created, **kwargs):
             username=user.username,
             email=user.email,
         )
+
+@receiver(post_save, sender=UserProfile)
+def edit_profile(sender, instance, created, **kwargs):
+    user_profile = instance
+    user = user_profile.user
+
+    if created == False:
+        user.first_name = user_profile.name
+        user.username = user_profile.username
+        user.email = user_profile.email
+        user.save()
