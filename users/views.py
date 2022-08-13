@@ -4,6 +4,7 @@ from django.contrib.auth import logout, login, authenticate, update_session_auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
@@ -135,26 +136,40 @@ def change_password(request):
 
 def approve_comments(request):
     comments = Comment.objects.filter(approved=False)
-
-    if request.method == 'POST':
-        post_comment = request.POST.get('id')
-        
-        comment = Comment.objects.get(id=post_comment)
-        comment.approved = True
-        comment.save()
-        messages.success(request, 'Comment has been approved')
-        return redirect('approve_comments')
-
-    context = {'comments': comments}
-    return render(request, 'users/approve_comments.html', context)
-
-def delete_comment(request, pk):
-    comment = Comment.objects.get(id=pk)
     
-    if request.method == 'POST':
-        comment.delete()
-        messages.success(request, 'Comment Deleted.')
-        return redirect('approve_comments')
+    if request.user.is_staff:
 
-    context = {'comment': comment}
-    return render(request, 'users/delete_comment.html', context)
+        if request.method == 'POST':
+            post_comment = request.POST.get('id')
+
+            comment = Comment.objects.get(id=post_comment)
+            comment.approved = True
+            comment.save()
+            messages.success(request, 'Comment has been approved')
+            return redirect('approve_comments')
+
+        context = {'comments': comments}
+        return render(request, 'users/approve_comments.html', context)
+
+    else:
+        messages.warning(request, 'You do not have access to this page!')
+        return redirect('profile')
+
+@staff_member_required
+def delete_comment(request, pk):
+
+    if request.user.is_staff:
+
+        comment = Comment.objects.get(id=pk)
+
+        if request.method == 'POST':
+            comment.delete()
+            messages.success(request, 'Comment Deleted.')
+            return redirect('approve_comments')
+
+        context = {'comment': comment}
+        return render(request, 'users/delete_comment.html', context)
+
+    else:
+        messages.warning(request, 'You do not have access to this page!')
+        return redirect('profile')
