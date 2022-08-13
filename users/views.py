@@ -4,7 +4,6 @@ from django.contrib.auth import logout, login, authenticate, update_session_auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
-from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
@@ -63,7 +62,7 @@ def login_user(request):
 @login_required
 def logout_user(request):
     logout(request)
-    messages.success(request, 'User was logged out!')
+    messages.success(request, 'You are now logged out!')
     return redirect('login')
 
 
@@ -74,7 +73,10 @@ def user_profile(request):
     profile = user.userprofile
     approvals = Comment.objects.filter(approved=False).count()
 
-    reservations = Reservation.objects.filter(email= request.user.email).count()
+    if user.is_staff:
+        reservations = Reservation.objects.all().count()
+    else:
+        reservations = Reservation.objects.filter(email= request.user.email).count()
     comments = 0
     likes = 0
     posts = Post.objects.all()
@@ -155,7 +157,6 @@ def approve_comments(request):
         messages.warning(request, 'You do not have access to this page!')
         return redirect('profile')
 
-@staff_member_required
 def delete_comment(request, pk):
 
     if request.user.is_staff:

@@ -10,6 +10,9 @@
     <thead class="table-head">
         <tr>
             <th>#</th>
+            {% if user.is_staff %}
+            <th>Name</th>
+            {% endif %}
             <th>Date</th>
             <th>Time</th>
             <th>Number of Seats</th>
@@ -22,6 +25,9 @@
 
         <tr>
             <td>{{ forloop.counter }}</td>
+            {% if user.is_staff %}
+            <td>{{ reservation.name }}</td>
+            {% endif %}
             <td>{{ reservation.date }}</td>
             <td>{{ reservation.get_time_display }}</td>
             <td>{{ reservation.number_of_clients }}</td>
