@@ -7,7 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
-from blog.models import Post
+from blog.models import Post, Comment
 from restaurant.models import Reservation
 
 # Create your views here.
@@ -71,6 +71,7 @@ def user_profile(request):
 
     user = User.objects.filter(username=request.user.username).first()
     profile = user.userprofile
+    approvals = Comment.objects.filter(approved=False).count()
 
     reservations = Reservation.objects.filter(email= request.user.email).count()
     comments = 0
@@ -82,7 +83,7 @@ def user_profile(request):
 
     
 
-    context = {'profile': profile, 'reservations': reservations, 'comments': comments, 'likes':likes, }
+    context = {'profile': profile, 'reservations': reservations, 'comments': comments, 'likes':likes, 'approvals': approvals, }
     return render(request, 'users/profile_page.html', context)
 
 @login_required
@@ -130,3 +131,30 @@ def change_password(request):
         form = PasswordChangeForm(request.user)
     context = {'form': form, }
     return render(request, 'users/change_password.html', context)
+
+
+def approve_comments(request):
+    comments = Comment.objects.filter(approved=False)
+
+    if request.method == 'POST':
+        post_comment = request.POST.get('id')
+        
+        comment = Comment.objects.get(id=post_comment)
+        comment.approved = True
+        comment.save()
+        messages.success(request, 'Comment has been approved')
+        return redirect('approve_comments')
+
+    context = {'comments': comments}
+    return render(request, 'users/approve_comments.html', context)
+
+def delete_comment(request, pk):
+    comment = Comment.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        comment.delete()
+        messages.success(request, 'Comment Deleted.')
+        return redirect('approve_comments')
+
+    context = {'comment': comment}
+    return render(request, 'users/delete_comment.html', context)

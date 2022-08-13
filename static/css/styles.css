@@ -991,6 +991,27 @@ a.post-title-sm:hover {
     color: #ffb570;
 }
 
+.comments-table {
+    width: 60%;
+    position: relative;
+    left: 20%;
+    margin: 5% 0;
+}
+
+.approve-button {
+    background: none;
+    border: none;
+    color: #ffb570;
+}
+
+.fa-trash-can {
+    color: #ffb570;
+}
+
+.action-comment {
+    text-align: center;
+}
+
 
 /* ---------- MEDIA QUERIES ---------- */
 

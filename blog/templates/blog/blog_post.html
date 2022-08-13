@@ -70,6 +70,7 @@
                                     <p>No comments, be the first to spark this conversation!</p>
                                     {% else %}
                                     {% for comment in post_comments %}
+                                    {% if comment.approved %}
                                     <div class="card">
                                         <div class="comment-wrap">
                                             <div class="card-header">
@@ -93,6 +94,7 @@
                                                     class="text-muted">{{ comment.created_on }}</small></p>
                                         </div>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                     {% endif %}
                                 </div>

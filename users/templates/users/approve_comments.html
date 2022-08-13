@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1 class="menu-form">Comments Pending Approval</h1>
+
+<table class="comments-table">
+    <tr>
+        <th>Comment: </th>
+        <th>Author: </th>
+        <th>Approve: </th>
+        <th>Delete: </th>
+    </tr>
+    {% for comment in comments %}
+    <tr>
+        <td>{{ comment.body }}</td>
+        <td>{{ comment.author }}</td>
+        <td class="action-comment">
+            <form class="menu-form" method="POST">
+                {% csrf_token %}
+
+                <input type="hidden" name="id" value="{{ comment.id }}">
+                <button type="submit" class="approve-button"><i class="fa-solid fa-square-check"></i></button>
+
+            </form>
+        </td>
+        <td class="action-comment">
+            <a href="{% url 'delete_comment' comment.id %}"><i class="fa-solid fa-trash-can"></i></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+<!-- <form class="menu-form" action="" method="post">
+    {% csrf_token %}
+
+    {{ form | crispy }}
+
+    <a href="{% url 'profile' %}" class="back-link"><button type="button" class="form-button">Go Back</button></a>
+    <button type="submit" class="form-button">Save Changes</button>
+
+</form> -->
+
+{% endblock %}
