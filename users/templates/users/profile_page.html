@@ -31,6 +31,23 @@
                 <h5>{{ profile.email }}</h5>
             </div>
         </div>
+        {% if user.is_staff %}
+        <div class="card-body-icons">
+            <div>
+                <h3>Approvals:</h3>
+                <h5><i class="fa-solid fa-circle-check"></i> {{ likes }}</h5>
+            </div>
+            <div>
+                <h3>Comments:</h3>
+                <h5><i class="fa-solid fa-comment"></i> {{ comments }}</h5>
+            </div>
+            <div>
+                <h3>Reservations:</h3>
+                <h5><a href="{% url 'userReservations' %}"><i class="fa-solid fa-calendar-days"></i></a>
+                    {{ reservations }}</h5>
+            </div>
+        </div>
+        {% else %}
         <div class="card-body-icons">
             <div>
                 <h3>Likes:</h3>
@@ -46,6 +63,7 @@
                     {{ reservations }}</h5>
             </div>
         </div>
+        {% endif %}
     </div>
 </div>
 
