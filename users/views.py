@@ -174,3 +174,15 @@ def delete_comment(request, pk):
     else:
         messages.warning(request, 'You do not have access to this page!')
         return redirect('profile')
+
+
+def view_users(request):
+    if request.user.is_staff:
+        profiles = UserProfile.objects.all()
+
+        context = {'profiles': profiles, }
+        return render(request, 'users/user_accounts.html', context)
+
+    else:
+        messages.warning(request, 'You do not have access to this page!')
+        return redirect('profile')    

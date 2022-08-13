@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1 class="menu-form">Current Registered Users</h1>
+
+<table class="comments-table">
+    <tr>
+        <th>Name: </th>
+        <th>Username: </th>
+        <th>Email: </th>
+        <th>Date Registered: </th>
+    </tr>
+    {% for profile in profiles %}
+    <tr>
+        <td>{{ profile.name }}</td>
+        <td>{{ profile.username }}</td>
+        <td>{{ profile.email }}</td>
+        <td>{{ profile.created_on }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

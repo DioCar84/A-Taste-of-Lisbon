@@ -47,6 +47,11 @@
                 <h5><a href="{% url 'userReservations' %}"><i class="fa-solid fa-calendar-days"></i></a>
                     {{ reservations }}</h5>
             </div>
+            <div>
+                <h3>Accounts:</h3>
+                <h5><a href="{% url 'user_accounts' %}"><i class="fa-solid fa-users"></i></a>
+                    {{ reservations }}</h5>
+            </div>
         </div>
         {% else %}
         <div class="card-body-icons">
