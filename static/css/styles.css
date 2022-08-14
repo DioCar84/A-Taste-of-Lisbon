@@ -155,7 +155,7 @@ footer {
 }
 
 .image-block {
-    height: 55%;
+    height: 50%;
     border-radius: 10% 10% 0;
     background-color: #fff6e9;
 }
@@ -188,7 +188,40 @@ footer {
 }
 
 .menu-button {
+    align-items: center;
+    appearance: none;
+    background-color: #fff6e9;
+    background-size: calc(100% + 20px) calc(100% + 20px);
+    border: 3px solid #af8969;
+    border-radius: 100px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #af8969;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: CircularStd, sans-serif;
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5;
+    margin-top: 2%;
+    padding: 6px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .2s, background-position .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
     width: 25%;
+}
+
+.menu-button:hover {
+    background-color: #af8969;
+    color: #fff6e9;
+    border-color: #fff6e9;
 }
 
 .page-links {
@@ -1466,8 +1499,21 @@ a.post-title-sm:hover {
 
     /* ---------- MENU PAGE ---------- */
 
+    .menu-add-button {
+        width: 40%;
+        left: 30%;
+    }
+
     .menu-card {
         width: 75%
+    }
+
+    .image-block {
+        height: 45%;
+    }
+
+    .info-block {
+        height: 35%;
     }
 
     /* ---------- DELETE ITEM PAGE ---------- */
@@ -1595,8 +1641,6 @@ a.post-title-sm:hover {
 
 /* For small screens size from 320px wide and down */
 @media screen and (max-width: 320px) {
-
-    /* ---------- BLOG HOME PAGE ---------- */
 
     /* ---------- BLOG POST PAGE ---------- */
 
