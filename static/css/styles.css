@@ -674,6 +674,16 @@ a.post-title-sm:hover {
     background-color: #f18e84;
 }
 
+/* ---------- CREATE POST PAGE ---------- */
+
+#id_content_iframe {
+    width: 100%;
+}
+
+.note-editor {
+    width: 100%;
+}
+
 /* ---------- BLOG POST PAGE ---------- */
 
 .blog-post-buttons a {
@@ -1090,6 +1100,12 @@ a.post-title-sm:hover {
 /* For large screens size from 1700px wide and down */
 @media screen and (max-width: 1700px) {
 
+    /* ---------- MENU PAGE ---------- */
+
+    .info-block {
+        height: 33%;
+    }
+
     /* ---------- ABOUT PAGE ---------- */
 
     .about-container {
@@ -1217,6 +1233,12 @@ a.post-title-sm:hover {
 
     .home-description {
         margin: 5%;
+    }
+
+    /* ---------- MENU PAGE ---------- */
+
+    .info-block {
+        height: 30%;
     }
 
     /* ---------- BLOG HOME PAGE ---------- */
@@ -1347,6 +1369,10 @@ a.post-title-sm:hover {
 
     .menu-button {
         width: 30%;
+    }
+
+    .info-block {
+        height: 33%;
     }
 
     /* ---------- DELETE ITEM PAGE ---------- */
