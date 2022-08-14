@@ -76,7 +76,7 @@
                                             <div class="card-header">
                                                 <div class="comment-author">
                                                     <h5>{{ comment.author | capfirst}} wrote:
-                                                        {% if comment.author|stringformat:'s' == request.user.username|stringformat:'s' %}
+                                                        {% if comment.author|stringformat:'s' == request.user.username|stringformat:'s' or user.is_staff %}
                                                         <span> <a href="{% url 'edit_blog_comment' comment.id %}"
                                                                 class="btn btn-success comment-button">Edit</a>
                                                             <a href="{% url 'delete_blog_comment' comment.id %}"

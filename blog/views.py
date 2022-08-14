@@ -3,7 +3,6 @@ from django.urls import reverse
 from django.core.paginator import Paginator
 from django.db.models import Count
 from django.contrib import messages
-from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
@@ -63,7 +62,7 @@ def blog_post(request, pk):
                 form.instance.email = request.user.email
                 form.instance.author = request.user
                 form.save()
-                messages.success(request, 'Comment Created.')
+                messages.success(request, 'Comment Created and Pending Approval.')
                 next = request.POST.get('next', '/')
                 return HttpResponseRedirect(next)
             
