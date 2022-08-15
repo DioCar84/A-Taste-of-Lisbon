@@ -1,10 +1,12 @@
 from django.db import models
-
-# Create your models here.
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 class Post(models.Model):
+    """
+    The Post model class. Defines all the fields in the class.
+    Creates a table in the database which stores each objects data.
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -34,18 +36,33 @@ class Post(models.Model):
         User, related_name='blogpost_like', blank=True)
 
     class Meta:
+        """
+        The Post model Meta class. Defines how each instance is ordered.
+        Also, defines the string represenation of the Post class.
+        """
         ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
 
     def datepublished(self):
+        """
+        A function that retuns a string formatted representation,
+        of when the Post was published.
+        """
         return self.created_on.strftime('%b %d')
 
     def number_of_likes(self):
+        """
+        A function that returns the total number of likes a post has.
+        """
         return self.likes.count()
 
 class Comment(models.Model):
+    """
+    The Comment model class. Defines all the fields in the class.
+    Creates a table in the database which stores each objects data.
+    """
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name="comments")
     author = models.ForeignKey(
@@ -57,6 +74,10 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
+        """
+        The Comment model Meta class. Defines how each instance is ordered.
+        Also, defines the string represenation of the Comment class.
+        """
         ordering = ["created_on"]
 
     def __str__(self):

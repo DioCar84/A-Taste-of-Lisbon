@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 class UserProfile(models.Model):
+    """
+    The UserProfile model class. Defines all the fields in the class.
+    Creates a table in the database which stores each objects data.
+    """
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, blank=True, null=True)
@@ -16,4 +20,8 @@ class UserProfile(models.Model):
         return self.user.username
 
     class Meta:
+        """
+        The UserProfile model Meta class. 
+        Defines that each instance is ordered by creation date.
+        """
         ordering = ['created_on']
