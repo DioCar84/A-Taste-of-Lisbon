@@ -479,6 +479,10 @@ a.post-title-sm:hover {
     width: 55%;
 }
 
+.meta-wrap p {
+    width: -webkit-fill-available;
+}
+
 .meta-wrap span {
     margin: 0 3%;
 }
@@ -685,6 +689,10 @@ a.post-title-sm:hover {
 }
 
 /* ---------- BLOG POST PAGE ---------- */
+
+#post-meta {
+    display: block;
+}
 
 .blog-post-buttons a {
     text-decoration: none;
@@ -957,6 +965,10 @@ a.post-title-sm:hover {
     padding: 0;
 }
 
+.register-card .card-body div {
+    display: block;
+}
+
 #register-form .form-button {
     margin: 2% 0;
     position: relative;
@@ -974,6 +986,12 @@ a.post-title-sm:hover {
 
 .login-redirect p {
     margin: 0;
+}
+
+/* ---------- LOGIN PAGE ---------- */
+
+.login-redirect button {
+    width: 40%;
 }
 
 /* ---------- LOGOUT PAGE ---------- */
@@ -1053,9 +1071,15 @@ a.post-title-sm:hover {
     border-color: #fff6e9;
 }
 
-.card-body div {
+#profile-card-body div {
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
+    text-align: center;
+}
+
+#profile-card-body div div {
+    flex-direction: column;
 }
 
 .card-body h5 {
@@ -1115,6 +1139,17 @@ a.post-title-sm:hover {
 
     .about-item {
         font-size: 190%;
+    }
+
+    /* ---------- PROFILE PAGE ---------- */
+
+    .profile-image {
+        width: 25%;
+        left: 15%;
+    }
+
+    .profile-button {
+        width: 40%;
     }
 }
 
@@ -1202,6 +1237,43 @@ a.post-title-sm:hover {
         width: 55%;
     }
 
+    /* ---------- PASSWORD CHANGE PAGE ---------- */
+
+    .password-change {
+        width: 15%;
+    }
+
+    /* ---------- LOGIN PAGE ---------- */
+
+    .card-body div {
+        width: 50%;
+        left: 25%;
+    }
+
+    /* ---------- PROFILE PAGE ---------- */
+
+    .profile-image {
+        width: 30%;
+        left: 10%;
+    }
+
+    .profile-button {
+        width: 50%;
+    }
+
+    #profile-card-body h3 {
+        font-size: 120%;
+    }
+
+    #profile-card-body h5 {
+        font-size: 100%;
+    }
+
+    /* ---------- PROFILE FORM PAGE ---------- */
+
+    #profile-form .form-button {
+        width: 20%;
+    }
 }
 
 /* For medium screens size from 990px wide and down */
@@ -1327,6 +1399,45 @@ a.post-title-sm:hover {
     .map-container img {
         height: 400px;
     }
+
+    /* ---------- APPROVE COMMENTS PAGE ---------- */
+
+    .comments-table {
+        width: 80%;
+        left: 10%;
+    }
+
+    /* ---------- PASSWORD CHANGE PAGE ---------- */
+
+    .password-change {
+        width: 20%;
+    }
+
+    /* ---------- LOGIN PAGE ---------- */
+
+    .card-body div {
+        width: 70%;
+        left: 15%;
+    }
+
+    /* ---------- PROFILE PAGE ---------- */
+
+    .profile-image {
+        width: 40%;
+        left: 30%;
+        display: block;
+    }
+
+    .profile-button {
+        width: 70%;
+        display: block;
+        right: 60%;
+        font-size: 90%;
+    }
+
+    #profile-card-body div {
+        flex-direction: column;
+    }
 }
 
 /* For medium screens size from 767px wide and down */
@@ -1433,6 +1544,13 @@ a.post-title-sm:hover {
         width: 100%;
     }
 
+    /* ---------- EDIT COMMENT PAGE ---------- */
+
+    #comment-form #div_id_body {
+        left: 20%;
+        width: 60%;
+    }
+
     /* ---------- RESERVATIONS PAGE ---------- */
 
     .reservation-form .mb-3 {
@@ -1501,6 +1619,60 @@ a.post-title-sm:hover {
         position: relative;
         left: 15%;
         margin-bottom: 10%;
+    }
+
+    /* ---------- APPROVE COMMENTS PAGE ---------- */
+
+    .comments-table {
+        width: 90%;
+        left: 5%;
+    }
+
+    /* ---------- PASSWORD CHANGE PAGE ---------- */
+
+    .password-change {
+        width: 25%;
+    }
+
+    /* ---------- REGISTRATION PAGE ---------- */
+
+    #register-title {
+        font-size: 200%;
+    }
+
+    /* ---------- LOGIN PAGE ---------- */
+
+    .card-body div {
+        display: block;
+    }
+
+    /* ---------- PROFILE PAGE ---------- */
+
+    .profile-image {
+        width: 50%;
+        left: 25%;
+    }
+
+    .profile-actions {
+        float: none;
+        width: 60%;
+    }
+
+    .profile-button {
+        width: 100%;
+        left: 0;
+    }
+
+    /* ---------- PROFILE FORM PAGE ---------- */
+
+    #profile-form .form-button {
+        width: 25%;
+    }
+
+    /* ---------- USER ACCOUNTS PAGE ---------- */
+
+    .large-width {
+        visibility: hidden;
     }
 }
 
@@ -1624,9 +1796,10 @@ a.post-title-sm:hover {
     }
 
     #reservations-table {
-        width: 85%;
-        left: 1%;
+        width: 100%;
+        left: 0;
         font-size: 90%;
+        margin: 0;
     }
 
     /* ---------- EDIT RESERVATIONS PAGE ---------- */
@@ -1662,6 +1835,69 @@ a.post-title-sm:hover {
     .map-container {
         width: 90%;
         left: 5%;
+    }
+
+    /* ---------- PASSWORD CHANGE PAGE ---------- */
+
+    .password-change {
+        width: 50%;
+        left: 20%;
+    }
+
+    /* ---------- REGISTRATION PAGE ---------- */
+
+    .register-card {
+        width: 70%;
+        left: 5%;
+    }
+
+    #register-title {
+        font-size: 150%;
+    }
+
+    /* ---------- LOGIN PAGE ---------- */
+
+    #login-title {
+        font-size: 250%;
+    }
+
+    .card-body div {
+        width: 90%;
+        left: 5%;
+    }
+
+    #register-form .form-button {
+        width: 70%;
+        left: 15%;
+    }
+
+    .login-redirect button {
+        width: 70%;
+        left: 15%;
+    }
+
+    /* ---------- PROFILE PAGE ---------- */
+
+    .profile-actions {
+        float: none;
+        width: 70%;
+    }
+
+    .profile-button {
+        left: -10%
+    }
+
+    /* ---------- PROFILE FORM PAGE ---------- */
+
+    #profile-form .form-button {
+        width: 50%;
+        left: 20%;
+    }
+
+    /* ---------- USER ACCOUNTS PAGE ---------- */
+
+    .medium-width {
+        visibility: hidden;
     }
 }
 
@@ -1714,5 +1950,10 @@ a.post-title-sm:hover {
     .map-container {
         width: 80%;
         left: 10%;
+    }
+
+    #profile-form .form-button {
+        width: 60%;
+        left: 15%;
     }
 }

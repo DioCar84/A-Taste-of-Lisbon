@@ -4,19 +4,19 @@
 
 <h1 class="menu-form">Current Registered Users</h1>
 
-<table class="comments-table">
+<table class="comments-table" id="users-table">
     <tr>
-        <th>Name: </th>
+        <th class="large-width">Name: </th>
         <th>Username: </th>
-        <th>Email: </th>
-        <th>Date Registered: </th>
+        <th class="medium-width">Email: </th>
+        <th class="large-width">Date Registered: </th>
     </tr>
     {% for profile in profiles %}
     <tr>
-        <td>{{ profile.name }}</td>
+        <td class="large-width">{{ profile.name }}</td>
         <td>{{ profile.username }}</td>
-        <td>{{ profile.email }}</td>
-        <td>{{ profile.created_on }}</td>
+        <td class="medium-width">{{ profile.email }}</td>
+        <td class="large-width">{{ profile.created_on }}</td>
     </tr>
     {% endfor %}
 </table>

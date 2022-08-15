@@ -31,7 +31,7 @@
                                                 href="{% url 'blog_dish_tag' post.dish_type %}">{{ post.get_dish_type_display }}</a>
                                         </li>
                                     </ul>
-                                    <div class="meta-wrap">
+                                    <div class="meta-wrap" id="post-meta">
                                         <form action="{% url 'like_post' post.pk %}" method="post">
                                             {% csrf_token %}
                                             <p class="meta">
