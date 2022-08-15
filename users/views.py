@@ -5,16 +5,18 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib import messages
-from .models import UserProfile
-from .forms import UserProfileForm
 from blog.models import Post, Comment
 from restaurant.models import Reservation
+from .models import UserProfile
+from .forms import UserProfileForm
 
 # Create your views here.
 def create_user(request):
-
+    """
+    A view for creating a new user.
+    Prevents registering with a username that already exists in the database.
+    """
     page = 'register'
-
     form = UserCreationForm()
 
     if request.method == 'POST':
@@ -35,6 +37,11 @@ def create_user(request):
     return render(request, 'users/login_register.html', context)
 
 def login_user(request):
+    """
+    A view for logging in a user.
+    Prevents a logged in user from logging in again.
+    Also, makes sure that the user exists and has enterred the correct credentials.
+    """
     page = 'login'
     form = AuthenticationForm(request)
 
@@ -61,6 +68,10 @@ def login_user(request):
 
 @login_required
 def logout_user(request):
+    """
+    A view for logging out a user.
+    Can only be accessed by users that are logged in.
+    """
     logout(request)
     messages.success(request, 'You are now logged out!')
     return redirect('login')
@@ -68,7 +79,11 @@ def logout_user(request):
 
 @login_required
 def user_profile(request):
-
+    """
+    A view for rendering a user profile.
+    Can only be accessed by users that are logged in.
+    Alters data displayed based on user if the user is a staff member or not.
+    """
     user = User.objects.filter(username=request.user.username).first()
     profile = user.userprofile
     approvals = Comment.objects.filter(approved=False).count()
@@ -91,7 +106,11 @@ def user_profile(request):
 
 @login_required
 def edit_profile(request):
-
+    """
+    A view for editing a user profile.
+    Can only be accessed by users that are logged in.
+    Returns a prepoluated form with the current profile information available in the database.
+    """
     user = UserProfile.objects.filter(username=request.user.username).first()
     form = UserProfileForm(instance=user)
 
@@ -107,7 +126,10 @@ def edit_profile(request):
 
 @login_required
 def delete_profile(request):
-
+    """
+    A view for deleting a user profile.
+    Can only be accessed by users that are logged in.
+    """
     user = UserProfile.objects.filter(username=request.user.username).first()
 
     if request.method == 'POST':
@@ -121,6 +143,10 @@ def delete_profile(request):
 
 @login_required
 def change_password(request):
+    """
+    A view for changing a user password.
+    Can only be accessed by users that are logged in.
+    """
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -137,6 +163,10 @@ def change_password(request):
 
 
 def approve_comments(request):
+    """
+    A view for staff members to approve user comments.
+    Alters comments approved status from False to True.
+    """
     comments = Comment.objects.filter(approved=False)
     
     if request.user.is_staff:
@@ -158,7 +188,9 @@ def approve_comments(request):
         return redirect('profile')
 
 def delete_comment(request, pk):
-
+    """
+    A view for staff members to delete user comments in the approval queue.
+    """
     if request.user.is_staff:
 
         comment = Comment.objects.get(id=pk)
@@ -177,6 +209,9 @@ def delete_comment(request, pk):
 
 
 def view_users(request):
+    """
+    A view for staff members that displays all currently registered users.
+    """
     if request.user.is_staff:
         profiles = UserProfile.objects.all()
 

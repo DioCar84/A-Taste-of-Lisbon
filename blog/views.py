@@ -9,6 +9,11 @@ from .forms import PostForm, CommentForm
 
 # Create your views here.
 def blog(request):
+    """
+    A view to render the blog page and all the posts.
+    This view limits the posts to 4 per page and then creates page arrows.
+    Also, has a search function that allows users to search for recipes by name.
+    """
     Post.objects.annotate(Count('comments'))
     posts = Post.objects.all()
     comments = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
@@ -33,6 +38,12 @@ def blog(request):
     return render(request, 'blog/blog_home.html', context)
 
 def blog_post(request, pk):
+    """
+    A view to render an individual blog post.
+    This view allows users to like or unlike a post.
+    There is also functionality for logged in Users to leave comments.
+    Also, has a search function that allows users to search for recipes by name.
+    """
     Post.objects.annotate(Count('comments'))
     all_posts = Post.objects.all()
     posts = Post.objects.annotate(post_comments=Count('comments')).order_by('-post_comments')[:3]
@@ -70,6 +81,9 @@ def blog_post(request, pk):
     return render(request, 'blog/blog_post.html', context)
 
 def create_blog_post(request):
+    """
+    A view to render a form for creating new blog posts.
+    """
     form = PostForm()
 
     if request.method == 'POST':
@@ -83,6 +97,10 @@ def create_blog_post(request):
     return render(request, 'blog/create_post.html', context)
 
 def edit_blog_post(request, pk):
+    """
+    A view to render a form for editing blog posts.
+    It will retrieve the post data and prepopulate the form fields.
+    """
     post = Post.objects.get(id=pk)
     form = PostForm(instance=post)
 
@@ -98,6 +116,9 @@ def edit_blog_post(request, pk):
 
 
 def delete_blog_post(request, pk):
+    """
+    A view to delete a blog post.
+    """
     post = Post.objects.get(id=pk)
 
     if request.method == 'POST':
@@ -109,6 +130,10 @@ def delete_blog_post(request, pk):
     return render(request, 'blog/delete_post.html', context)
 
 def edit_blog_comment(request, pk):
+    """
+    A view to edit a comment on a blog post.
+    It will retrieve the post data and prepopulate the form fields.
+    """
     comment = Comment.objects.get(id=pk)
     post = comment.post.id
     form = CommentForm(instance=comment)
@@ -125,6 +150,9 @@ def edit_blog_comment(request, pk):
 
 
 def delete_blog_comment(request, pk):
+    """
+    A view to delete a comment on a blog post.
+    """
     comment = Comment.objects.get(id=pk)
     post = comment.post.id
 
@@ -138,6 +166,10 @@ def delete_blog_comment(request, pk):
 
 
 def blog_meal_tag(request, tag):
+    """
+    A view to associate blog posts with a meal type tag.
+    Allows the user to filter posts by those that contain the selected tag.
+    """
     Post.objects.annotate(Count('comments'))
     all_posts = Post.objects.all()
     posts = Post.objects.filter(meal_type=tag)
@@ -163,6 +195,10 @@ def blog_meal_tag(request, tag):
     return render(request, 'blog/blog_home.html', context)
 
 def blog_dish_tag(request, tag):
+    """
+    A view to associate blog posts with a dish type tag.
+    Allows the user to filter posts by those that contain the selected tag.
+    """
     Post.objects.annotate(Count('comments'))
     all_posts = Post.objects.all()
     posts = Post.objects.filter(dish_type=tag)
@@ -189,6 +225,9 @@ def blog_dish_tag(request, tag):
 
 
 def like_view(request, pk):
+    """
+    A view that allows users to like or unlike a blog post.
+    """
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     liked = False
     if post.likes.filter(id=request.user.id).exists():

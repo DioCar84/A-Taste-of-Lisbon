@@ -8,11 +8,19 @@ from datetime import datetime
 
 # Create your views here.
 def home(request):
+    """
+    A view to render the home page.
+    """
     hero_image = Photo.objects.get(title='Lisbon Tram')
     context = {'hero_image': hero_image, }
     return render(request, 'restaurant/home.html', context)
 
 def menu(request):
+
+    """
+    A view to render the menu page.
+    Displays 6 menu items per page and the creates arrows to switch pages.
+    """
     menu = Menu.objects.all().order_by('dish_type', 'created_on')
     paginator = Paginator(menu, 6)
     page_number = request.GET.get('page')
@@ -22,7 +30,10 @@ def menu(request):
 
     return render(request, 'restaurant/menu.html', context)
 
-def createMenuItem(request):
+def create_menu_item(request):
+    """
+    A view that renders a form for creating menu items.
+    """
     form = MenuForm()
 
     if request.method == 'POST':
@@ -36,32 +47,43 @@ def createMenuItem(request):
     return render(request, 'restaurant/menu_form.html', context)
 
 
-def editMenuItem(request, pk):
-    menuItem = Menu.objects.get(id=pk)
-    form = MenuForm(instance=menuItem)
+def edit_menu_item(request, pk):
+    """
+    A view that renders a form for editing menu items.
+    Prepopulates the form with the existing data.
+    """
+    menu_item = Menu.objects.get(id=pk)
+    form = MenuForm(instance=menu_item)
 
     if request.method == 'POST':
-        form = MenuForm(request.POST, request.FILES, instance=menuItem)
+        form = MenuForm(request.POST, request.FILES, instance=menu_item)
         if form.is_valid():
             form.save()
-            messages.success(request, f'{menuItem.title} Updated.')
+            messages.success(request, f'{menu_item.title} Updated.')
             return redirect('menu')
 
     context = { 'form': form }
     return render(request, 'restaurant/menu_form.html', context)
 
-def deleteMenuItem(request, pk):
-    menuItem = Menu.objects.get(id=pk)
+def delete_menu_item(request, pk):
+    """
+    A view for deleting menu items.
+    """
+    menu_item = Menu.objects.get(id=pk)
 
     if request.method == 'POST':
-        menuItem.delete()
-        messages.success(request, f'{menuItem.title} Deleted.')
+        menu_item.delete()
+        messages.success(request, f'{menu_item.title} Deleted.')
         return redirect('menu')
 
-    context = {'plate': menuItem}
+    context = {'plate': menu_item}
     return render(request, 'restaurant/delete_item.html', context)
 
 def reservations(request):
+    """
+    A view for rendering the reservations page.
+    Allows users to book reservations for a specific day, time slot and table.
+    """
     open_image = Photo.objects.get(title='Open Times')
     open_banner = Photo.objects.get(title='Open Times Banner')
     form = ReservationForm()
@@ -87,7 +109,13 @@ def reservations(request):
     return render(request, 'restaurant/reservations.html', context)
 
 @login_required
-def userReservations(request):
+def user_reservations(request):
+    """
+    A view for rendering user reservations.
+    Can only be accessed by users that are logged in.
+    Allows staff members to view all reservations, however
+    restricts no staff users to only being able to view their own.
+    """
     reservations = Reservation.objects.all()
 
     if request.user.is_staff:
@@ -104,7 +132,11 @@ def userReservations(request):
     messages.success(request, 'Reservations Found.')
     return render(request, 'restaurant/user_reservations.html', context)  
 
-def editUserReservation(request, pk):
+def edit_user_reservation(request, pk):
+    """
+    A view for editing user reservations.
+    Prepopulates the form with the existing data.
+    """
     reservation = Reservation.objects.get(id=pk)
     form = ReservationForm(instance=reservation)
 
@@ -113,23 +145,29 @@ def editUserReservation(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation Updated.')
-            return redirect('userReservations')
+            return redirect('user_reservations')
 
     context = { 'form': form }
     return render(request, 'restaurant/edit_reservation.html', context)
 
-def deleteUserReservation(request, pk):
+def delete_user_reservation(request, pk):
+    """
+    A view for deleting user reservations.
+    """
     reservation = Reservation.objects.get(id=pk)
 
     if request.method == 'POST':
         reservation.delete()
         messages.success(request, 'Reservation Deleted.')
-        return redirect('userReservations')
+        return redirect('user_reservations')
 
     context = {'reservation': reservation}
     return render(request, 'restaurant/delete_reservation.html', context)
 
 def about(request):
+    """
+    A view for rendering the about page.
+    """
     map_image = Photo.objects.get(title='Map of London')
     context = {'map': map_image, }
     return render(request, 'restaurant/about.html', context)
