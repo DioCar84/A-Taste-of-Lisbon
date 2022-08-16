@@ -1,13 +1,14 @@
 from django.test import TestCase
 from .forms import UserProfileForm
 
+
 class TestUserProfileForm(TestCase):
     """
     A class for testing the user profile form.
     """
 
     def test_form_data_input_is_valid(self):
-        form = UserProfileForm(data= {
+        form = UserProfileForm(data={
             'name': 'John',
             'username': 'John123',
             'email': 'john@email.com'
@@ -17,7 +18,10 @@ class TestUserProfileForm(TestCase):
 
     def test_fields_user_has_access_to(self):
         form = UserProfileForm()
-        self.assertEqual(form.Meta.fields, ['username', 'name', 'email', 'profile_image'])
+        self.assertEqual(
+            form.Meta.fields,
+            ['username', 'name', 'email', 'profile_image']
+        )
 
     def test_user_can_be_blank(self):
         form = UserProfileForm({'user': ''})

@@ -1,5 +1,310 @@
 # Testing
 
+## Django Testing (Unit Tests)
+
+For testing Django functionality I used the built in Django TestCase class.
+
+### A Taste of Lisbon Project:
+
+### Restaurant App:
+
+#### Forms
+
+- Tests developed for the Menu Form:
+
+```python
+class TestMenuForm(TestCase):
+    """
+    A class for testing the Menu form.
+    """
+
+    def test_form_data_input_is_valid(self):
+        form = MenuForm(data={
+            'title': 'Roast Lamb',
+            'description': 'Roast Lamb',
+            'dish_type': 2,
+            'price': 12.99,
+        })
+
+        self.assertTrue(form.is_valid())
+
+    def test_fields_user_has_access_to(self):
+        form = MenuForm()
+        self.assertEqual(
+            form.Meta.fields,
+            '__all__'
+        )
+
+    def test_title_field_cannot_be_empty(self):
+        form = MenuForm({'title': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('title', form.errors.keys())
+        self.assertEqual(form.errors['title'][0], 'This field is required.')
+
+    def test_price_field_cannot_be_empty(self):
+        form = MenuForm({'price': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('price', form.errors.keys())
+        self.assertEqual(form.errors['price'][0], 'This field is required.')
+
+    def test_description_field_cannot_be_empty(self):
+        form = MenuForm({'description': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('description', form.errors.keys())
+        self.assertEqual(
+            form.errors['description'][0],
+            'This field is required.'
+        )
+
+    def test_dish_type_field_cannot_be_empty(self):
+        form = MenuForm({'dish_type': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('dish_type', form.errors.keys())
+        self.assertEqual(
+            form.errors['dish_type'][0],
+            'This field is required.'
+        )
+```
+
+- Tests results:
+
+![result](./documentation/tests/Restaurant%20TestForms(Menu)%20Results.png)
+
+- Tests developed for the Reservation Form:
+
+```python
+class TestReservationForm(TestCase):
+    """
+    A class for testing the Reservation form.
+    """
+
+    def test_form_data_input_is_valid(self):
+        form = ReservationForm(data={
+            'email': 'john@email.com',
+            'table': 6,
+            'number_of_clients': 4,
+            'date': '08/22/2022',
+            'time': 3,
+        })
+
+        self.assertTrue(form.is_valid())
+
+    def test_fields_user_has_access_to(self):
+        form = ReservationForm()
+        self.assertEqual(
+            form.Meta.fields,
+            [
+                'name',
+                'email',
+                'table',
+                'number_of_clients',
+                'date',
+                'time'
+            ]
+        )
+
+    def test_email_field_cannot_be_empty(self):
+        form = ReservationForm({'email': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors.keys())
+        self.assertEqual(form.errors['email'][0], 'This field is required.')
+
+    def test_table_field_cannot_be_empty(self):
+        form = ReservationForm({'table': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('table', form.errors.keys())
+        self.assertEqual(form.errors['table'][0], 'This field is required.')
+
+    def test_number_of_clients_field_cannot_be_empty(self):
+        form = ReservationForm({'number_of_clients': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('number_of_clients', form.errors.keys())
+        self.assertEqual(
+            form.errors['number_of_clients'][0],
+            'This field is required.'
+        )
+
+    def test_date_field_cannot_be_empty(self):
+        form = ReservationForm({'date': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('date', form.errors.keys())
+        self.assertEqual(form.errors['date'][0], 'This field is required.')
+
+    def test_time_field_cannot_be_empty(self):
+        form = ReservationForm({'time': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('time', form.errors.keys())
+        self.assertEqual(form.errors['time'][0], 'This field is required.')
+```
+
+- Tests results:
+
+![result](docs/readme/formtestres.png)
+
+#### Models
+
+#### Views
+
+### Blog App:
+
+#### Forms
+
+- Tests developed for the Post Form:
+
+```python
+class TestPostForm(TestCase):
+    """
+    A class for testing the Post form.
+    """
+
+    def test_form_data_input_is_valid(self):
+        form = PostForm(data={
+            'title': 'Lisbon Steak',
+            'featured_image': '',
+            'excerpt': 'A Lisbon Beef Steak',
+            'meal_type': 2,
+            'dish_type': 4,
+            'content': 'Some ramdom content about this dish'
+        })
+
+        self.assertTrue(form.is_valid())
+
+    def test_fields_user_has_access_to(self):
+        form = PostForm()
+        self.assertEqual(
+            form.Meta.fields,
+            (
+                'title',
+                'featured_image',
+                'excerpt',
+                'meal_type',
+                'dish_type',
+                'content'
+            )
+        )
+
+    def test_title_field_cannot_be_empty(self):
+        form = PostForm({'title': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('title', form.errors.keys())
+        self.assertEqual(form.errors['title'][0], 'This field is required.')
+
+    def test_content_field_cannot_be_empty(self):
+        form = PostForm({'content': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('content', form.errors.keys())
+        self.assertEqual(form.errors['content'][0], 'This field is required.')
+
+    def test_meal_type_field_cannot_be_empty(self):
+        form = PostForm({'meal_type': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('meal_type', form.errors.keys())
+        self.assertEqual(
+            form.errors['meal_type'][0],
+            'This field is required.'
+        )
+
+    def test_dish_type_field_cannot_be_empty(self):
+        form = PostForm({'dish_type': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('dish_type', form.errors.keys())
+        self.assertEqual(
+            form.errors['dish_type'][0],
+            'This field is required.'
+        )
+```
+
+- Tests results:
+
+![result](docs/readme/formtestres.png)
+
+- Tests developed for the Comment Form:
+
+```python
+class TestCommentForm(TestCase):
+    """
+    A class for testing the Comment form.
+    """
+
+    def test_form_data_input_is_valid(self):
+        form = CommentForm(data={
+            'email': 'john@email.com',
+            'body': 'some random comment',
+        })
+
+        self.assertTrue(form.is_valid())
+
+    def test_fields_user_has_access_to(self):
+        form = CommentForm()
+        self.assertEqual(
+            form.Meta.fields,
+            ('body', )
+        )
+
+    def test_body_field_cannot_be_empty(self):
+        form = CommentForm({'body': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('body', form.errors.keys())
+        self.assertEqual(form.errors['body'][0], 'This field is required.')
+```
+
+- Tests results:
+
+![result](docs/readme/formtestres.png)
+
+#### Models
+
+#### Views
+
+### Users App:
+
+#### Forms
+
+- Tests developed for the User Profile Form:
+
+```python
+class TestUserProfileForm(TestCase):
+    """
+    A class for testing the user profile form.
+    """
+
+    def test_form_data_input_is_valid(self):
+        form = UserProfileForm(data={
+            'name': 'John',
+            'username': 'John123',
+            'email': 'john@email.com'
+        })
+
+        self.assertTrue(form.is_valid())
+
+    def test_fields_user_has_access_to(self):
+        form = UserProfileForm()
+        self.assertEqual(
+            form.Meta.fields,
+            ['username', 'name', 'email', 'profile_image']
+        )
+
+    def test_user_can_be_blank(self):
+        form = UserProfileForm({'user': ''})
+        self.assertTrue(form.is_valid())
+
+    def test_username_can_be_blank(self):
+        form = UserProfileForm({'username': ''})
+        self.assertTrue(form.is_valid())
+
+    def test_email_can_be_blank(self):
+        form = UserProfileForm({'email': ''})
+        self.assertTrue(form.is_valid())
+```
+
+- Tests results:
+
+![result](docs/readme/formtestres.png)
+
+#### Models
+
+#### Views
+
 ## Validator Testing 
 [PEP8 Python Validation](http://pep8online.com/)
 
@@ -144,188 +449,6 @@ The errors which can be seen on the screen shot below are coming from Front-Awes
 ### Desktop:
 
 ![LighthouseDesktop](docs/readme/lighthousedesktop.png)
-
-## Django Testing (Unit Tests)
-
-I have used Django TestCase for automated testing:
-
-### Testing Forms:
-
-- Test the PortfolioForm() used when a user creates a new portfolio:
-
-```python
-class TestPortfolioForm(TestCase):
-
-    def test_portfolio_name_is_required(self):
-        form = PortfolioForm({'name': ''})
-        self.assertFalse(form.is_valid())
-        self.assertIn('name', form.errors.keys())
-        self.assertEqual(form.errors['name'][0], 'This field is required.')
-
-    def test_field_are_explicit_in_form_metaclass(self):
-        form = PortfolioForm()
-        self.assertEqual(form.Meta.fields, ['name'])
-```
-
-- Test the AddAsset() form used for when a user ADDs a new coin to their portfolio:
-
-```python
-class TestAddAssetForm(TestCase):
-
-    def test_portfolio_name_is_required(self):
-        form = AddAsset({'quantity': ''})
-        self.assertFalse(form.is_valid())
-        self.assertIn('quantity', form.errors.keys())
-        self.assertEqual(form.errors['quantity'][0], 'This field is required.')
-
-    def test_field_are_explicit_in_form_metaclass(self):
-        form = AddAsset()
-        self.assertEqual(form.Meta.fields, ['quantity'])
-```
-
-- Test the UpdateAsset() form used when a user BUY/SELL a coin:
-
-```python
-class TestUpdateAssetForm(TestCase):
-
-    def test_portfolio_name_is_required(self):
-        form = UpdateAsset({'quantity': ''})
-        self.assertFalse(form.is_valid())
-        self.assertIn('quantity', form.errors.keys())
-        self.assertEqual(form.errors['quantity'][0], 'This field is required.')
-
-    def test_field_are_explicit_in_form_metaclass(self):
-        form = UpdateAsset()
-        self.assertEqual(form.Meta.fields, ['quantity'])
-```
-
-#### Results:
-
-![result](docs/readme/formtestres.png)
-
-### Testing Urls:
-
-- Test Get Portfolio List url which is called when the user views their portfolios:
-
-```python
-class TestPortfolioUrls(TestCase):
-    def test_getPortfolioList_url_is_resolved(self):
-        url = reverse('get_portfolio_list')
-        self.assertEquals(resolve(url).func, get_portfolio_list)
-```
-
-- Test Edit Portfolio url which is called when the user wants to edit the portfolio name:
-
-```python
-def test_editPortfolio_url_is_resolved(self):
-        url = reverse('edit_portfolio', args=[1])
-        self.assertEqual(resolve(url).func, edit_portfolio)
-```
-
-- Test Delete Portfolio url which is called when a portfolio is deleted:
-
-```python
-def test_deletePortfolio_url_is_resolved(self):
-        url = reverse('delete_portfolio', args=[1])
-        self.assertEqual(resolve(url).func, delete_portfolio)
-```
-
-- Test Create Portfolio url which is called when a portfolio is created:
-
-```python
-def test_createPortfolio_url_is_resolved(self):
-        url = reverse('create_portfolio_url')
-        self.assertEquals(resolve(url).func, create_portfolio)
-```
-
-- Test View url which is called when the user clicks on a portfolio to view its assets:
-
-```python
-def test_viewPortfolio_url_is_resloved(self):
-        url = reverse('get_asset_list', args=[1])
-        self.assertEquals(resolve(url).func, get_asset_list)
-```
-
-- Test Get url which is called when the user ADDs a coin:
-
-```python
- def test_get_url_is_resolved(self):
-        url = reverse('get_asset', args=[1])
-        self.assertEquals(resolve(url).func, get_asset)
-```
-
-- Test Add url which is called when a user ADDs a coin:
-
-```python
-def test_add_url_is_resolved(self):
-        url = reverse('add_asset_form', args=[1, 'ADA', '10.00'])
-        self.assertAlmostEquals(resolve(url).func, add_asset)
-```
-
-- Test Update which is called when a user BUY/SELL a coin:
-
-```python
-def test_update_url_is_resolved(self):
-        url = reverse('update_asset', args=[1, 'sell', 'ADA', '0.89'])
-        self.assertAlmostEquals(resolve(url).func, update_asset)
-```
-
-#### Results:
-
-![url](docs/readme/urltest.png)
-
-### Testing Views:
-
-- Test 404 Handler View:
-
-```python
-class TestHandler404(TestCase):
-    def test_404_page(self):
-        response = self.client.get('/handler404')
-        self.assertEqual(response.status_code, 404)
-        self.assertTemplateUsed(response, 'errors/404.html')
-```
-
-#### Results:
-
-![main.views](docs/readme/mainviewtest.png)
-
-Views within the Portfolio App have been partially tested:
-
-- Test get_portfolio_list:
-
-```python
-def test_get_portfolio_list(self):
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'home/index.html')
-```
-
-- Test create_portfolio renders correct template:
-
-```python
-def test_create_portfolio(self):
-        url = reverse('create_portfolio_url')
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'portfolio/create_portfolio.html')
-```
-
-- Test create_portfolio submits the form correctly:
-
-```python
-def test_create_portfolio_form(self):
-        url = reverse('create_portfolio_url')
-        john = User.objects.get(username='john')
-        response = self.client.post(
-            url, {"name": "ftx", "slug": "ftx", "user": john})
-        count = Portfolio.objects.count()
-        self.assertEqual(count, 1)
-```
-
-#### Results:
-
-![portfolio.view](docs/readme/testportfolioview.png)
 
 ## User Story Tests
 
