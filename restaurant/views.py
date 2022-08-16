@@ -127,7 +127,7 @@ def user_reservations(request):
     A view for rendering user reservations.
     Can only be accessed by users that are logged in.
     Allows staff members to view all reservations, however
-    restricts no staff users to only being able to view their own.
+    restricts non staff users to only being able to view their own.
     """
     reservations = Reservation.objects.all()
 
@@ -148,9 +148,11 @@ def user_reservations(request):
     return render(request, 'restaurant/user_reservations.html', context)
 
 
+@login_required
 def edit_user_reservation(request, pk):
     """
     A view for editing user reservations.
+    Can only be accessed by users that are logged in.
     Prepopulates the form with the existing data.
     """
     reservation = Reservation.objects.get(id=pk)
@@ -170,9 +172,11 @@ def edit_user_reservation(request, pk):
     return render(request, 'restaurant/edit_reservation.html', context)
 
 
+@login_required
 def delete_user_reservation(request, pk):
     """
     A view for deleting user reservations.
+    Can only be accessed by users that are logged in.
     """
     reservation = Reservation.objects.get(id=pk)
 

@@ -139,7 +139,7 @@ class TestReservationForm(TestCase):
 
 - Tests results:
 
-![result](docs/readme/formtestres.png)
+![result](./documentation/tests/Restaurant%20TestForms(Reservation)%20Results.png)
 
 #### Models
 
@@ -216,7 +216,7 @@ class TestPostForm(TestCase):
 
 - Tests results:
 
-![result](docs/readme/formtestres.png)
+![result](./documentation/tests/Blog%20TestForms(Post)%20Results.png)
 
 - Tests developed for the Comment Form:
 
@@ -250,7 +250,7 @@ class TestCommentForm(TestCase):
 
 - Tests results:
 
-![result](docs/readme/formtestres.png)
+![result](./documentation/tests/Blog%20TestForms(Comment)%20Results.png)
 
 #### Models
 
@@ -299,7 +299,7 @@ class TestUserProfileForm(TestCase):
 
 - Tests results:
 
-![result](docs/readme/formtestres.png)
+![result](./documentation/tests/Users%20TestForms%20Results.png)
 
 #### Models
 
@@ -356,6 +356,10 @@ class TestUserProfileForm(TestCase):
 
 ![admin](./documentation/tests/Restaurant%20Admin.png)
 
+#### test_forms.py
+
+![test_forms](./documentation/tests/Restaurant%20TestForms.png)
+
 ### Blog App:
 
 #### views.py
@@ -381,6 +385,10 @@ class TestUserProfileForm(TestCase):
 #### admin.py
 
 ![admin](./documentation/tests/Blog%20Admin.png)
+
+#### test_forms.py
+
+![test_forms](./documentation/tests/Blog%20TestForms.png)
 
 ### Users App:
 
@@ -412,23 +420,11 @@ class TestUserProfileForm(TestCase):
 
 ![views](./documentation/tests/Users%20Admin.png)
 
-### Django Test Files
-
 #### test_forms.py
 
-![test_forms](docs/readme/testviewspep8.png)
+![test_forms](./documentation/tests/Users%20TestForms.png)
 
-#### test_urls.py
 
-![test_urls](docs/readme/testurlspep8.png)
-
-#### test_views.py
-
-![test_views](docs/readme/testviewspypep8.png)
-
-### Settings.py
-
-![settings](docs/readme/pep8settings.png)
 
 ## [HTML Validation](https://validator.w3.org/)
 
