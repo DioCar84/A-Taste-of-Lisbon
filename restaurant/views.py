@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import datetime
 
-# Create your views here.
+
 def home(request):
     """
     A view to render the home page.
@@ -14,6 +14,7 @@ def home(request):
     hero_image = Photo.objects.get(title='Lisbon Tram')
     context = {'hero_image': hero_image, }
     return render(request, 'restaurant/home.html', context)
+
 
 def menu(request):
 
@@ -26,9 +27,10 @@ def menu(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    context = {'menu': menu, 'page_obj': page_obj,}
+    context = {'menu': menu, 'page_obj': page_obj, }
 
     return render(request, 'restaurant/menu.html', context)
+
 
 def create_menu_item(request):
     """
@@ -62,8 +64,9 @@ def edit_menu_item(request, pk):
             messages.success(request, f'{menu_item.title} Updated.')
             return redirect('menu')
 
-    context = { 'form': form }
+    context = {'form': form}
     return render(request, 'restaurant/menu_form.html', context)
+
 
 def delete_menu_item(request, pk):
     """
@@ -78,6 +81,7 @@ def delete_menu_item(request, pk):
 
     context = {'plate': menu_item}
     return render(request, 'restaurant/delete_item.html', context)
+
 
 def reservations(request):
     """
@@ -94,10 +98,15 @@ def reservations(request):
         date = form['date'].value()
         date_value = datetime.strptime(date, '%m/%d/%Y')
         time = form['time'].value()
-        reservation = Reservation.objects.filter(table=table, date=date_value, time=time)
-        
+        reservation = Reservation.objects. \
+            filter(table=table, date=date_value, time=time)
+
         if reservation:
-            messages.warning(request, 'Reservation Already Exists Please Choose a Different Day, Time or Table.')
+            messages.warning(
+                request,
+                'Reservation Already Exists Please '
+                'Choose a Different Day, Time or Table.'
+                )
             return redirect('reservations')
         else:
             if form.is_valid():
@@ -105,8 +114,12 @@ def reservations(request):
                 messages.success(request, 'Reservation Created.')
                 return redirect('reservations')
 
-    context = {'open_image': open_image, 'open_banner': open_banner, 'form': form}
+    context = {
+        'open_image': open_image, 'open_banner': open_banner,
+        'form': form
+    }
     return render(request, 'restaurant/reservations.html', context)
+
 
 @login_required
 def user_reservations(request):
@@ -124,13 +137,16 @@ def user_reservations(request):
             messages.warning(request, 'No Reservations Booked At This Time.')
             return render(request, 'users/profile_page.html')
     else:
-        user_reservations = reservations.filter(email = request.user.email).order_by('date')
+        user_reservations = reservations.filter(
+            email=request.user.email
+            ).order_by('date')
         if not user_reservations:
             messages.warning(request, 'No Reservations Found For This Email.')
             return render(request, 'users/profile_page.html')
     context = {'reservations': user_reservations}
     messages.success(request, 'Reservations Found.')
-    return render(request, 'restaurant/user_reservations.html', context)  
+    return render(request, 'restaurant/user_reservations.html', context)
+
 
 def edit_user_reservation(request, pk):
     """
@@ -141,14 +157,18 @@ def edit_user_reservation(request, pk):
     form = ReservationForm(instance=reservation)
 
     if request.method == 'POST':
-        form = ReservationForm(request.POST, request.FILES, instance=reservation)
+        form = ReservationForm(
+            request.POST, request.FILES,
+            instance=reservation
+            )
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation Updated.')
             return redirect('user_reservations')
 
-    context = { 'form': form }
+    context = {'form': form}
     return render(request, 'restaurant/edit_reservation.html', context)
+
 
 def delete_user_reservation(request, pk):
     """
@@ -163,6 +183,7 @@ def delete_user_reservation(request, pk):
 
     context = {'reservation': reservation}
     return render(request, 'restaurant/delete_reservation.html', context)
+
 
 def about(request):
     """

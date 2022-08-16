@@ -7,7 +7,8 @@ from .models import Post, Comment
 class PostAdmin(SummernoteModelAdmin):
     """
     The PostAdmin class will add the Post model to admin page.
-    Also defines the content field as a Summernote field to use the text editor,
+    Also defines the content field as a
+    Summernote field to use the text editor,
     as well as prepopulating the slug based on the post title.
     """
     prepopulated_fields = {'slug': ('title',)}

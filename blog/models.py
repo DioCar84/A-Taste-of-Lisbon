@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+
 class Post(models.Model):
     """
     The Post model class. Defines all the fields in the class.
@@ -57,6 +58,7 @@ class Post(models.Model):
         A function that returns the total number of likes a post has.
         """
         return self.likes.count()
+
 
 class Comment(models.Model):
     """

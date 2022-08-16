@@ -1,7 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 
-# Create your models here.
 
 class Reservation(models.Model):
     """
@@ -41,7 +40,7 @@ class Reservation(models.Model):
 
     class Meta:
         """
-        The Reservation model Meta class. 
+        The Reservation model Meta class.
         Defines that each instance is ordered by earliest date.
         """
         ordering = ['-date']

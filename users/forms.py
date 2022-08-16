@@ -2,9 +2,11 @@ from django import forms
 from django.forms import ModelForm
 from . models import UserProfile
 
+
 class UserProfileForm(ModelForm):
     """
-    The UserProfileForm class defines the user form output for the UserProfile model class.
+    The UserProfileForm class defines the user form
+    output for the UserProfile model class.
     """
     class Meta:
         """
