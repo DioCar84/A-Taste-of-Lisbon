@@ -145,6 +145,110 @@ class TestReservationForm(TestCase):
 
 #### Views
 
+- Tests developed for the Restaurant app views:
+
+```python
+class TestRestaurantViews(TestCase):
+    """
+    A class for testing the Restaurant app views.
+    """
+    def test_get_home_page(self):
+        hero_image = Photo.objects.create(title='Lisbon Tram')
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'restaurant/home.html')
+
+    def test_get_menu_page(self):
+        response = self.client.get('/menu/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'restaurant/menu.html')
+
+    def test_get_create_menu_item_page(self):
+        item = Menu.objects.create(
+            title='Roast Lamb',
+            description='Roast Lamb',
+            dish_type=2,
+            price=12.99,
+        )
+        response = self.client.get('/create_menu/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'restaurant/menu_form.html')
+
+    def test_get_edit_menu_item_page(self):
+        item = Menu.objects.create(
+            title='Roast Lamb',
+            description='Roast Lamb',
+            dish_type=2,
+            price=12.99,
+        )
+        response = self.client.get(f'/edit_menu/{item.id}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'restaurant/menu_form.html')
+
+    def test_get_delete_menu_item_page(self):
+        item = Menu.objects.create(
+            title='Roast Lamb',
+            description='Roast Lamb',
+            dish_type=2,
+            price=12.99,
+        )
+        response = self.client.get(f'/delete_menu/{item.id}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'restaurant/delete_item.html')
+
+    def test_get_reservations_page(self):
+        open_image = Photo.objects.create(title='Open Times')
+        open_banner = Photo.objects.create(title='Open Times Banner')
+        response = self.client.get('/reservations/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'restaurant/reservations.html')
+
+    def test_get_redirected_by_user_reservations_page(self):
+        response = self.client.get('/reservations/user/')
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/user/login/?next=/reservations/user/')
+
+    def test_get_redirected_by_edit_user_reservations_page(self):
+        item = Reservation.objects.create(
+            email='john@email.com',
+            table=6,
+            number_of_clients=4,
+            date='2022-08-22',
+            time=3,
+        )
+        response = self.client.get(f'/reservations/user/{item.id}')
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response,
+            f'/user/login/?next=/reservations/user/{item.id}'
+        )
+
+    def test_get_redirected_by_delete_user_reservations_page(self):
+        item = Reservation.objects.create(
+            email='john@email.com',
+            table=6,
+            number_of_clients=4,
+            date='2022-08-22',
+            time=3,
+        )
+        response = self.client.get(f'/reservations/user/{item.id}/delete')
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response,
+            f'/user/login/?next=/reservations/user/{item.id}/delete'
+        )
+
+    def test_get_about_page(self):
+        map_image = Photo.objects.create(title='Map of London')
+        response = self.client.get('/about/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'restaurant/about.html')
+```
+
+- Tests results:
+
+![result](./documentation/tests/Restaurant%20TestViews%20Results.png)
+
 ### Blog App:
 
 #### Forms
@@ -256,6 +360,133 @@ class TestCommentForm(TestCase):
 
 #### Views
 
+- Tests developed for the Blog app views:
+
+```python
+class TestBlogViews(TestCase):
+    """
+    A class for testing the Blog app views.
+    """
+    def test_get_blog_page(self):
+        response = self.client.get('/blog/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/blog_home.html')
+
+    def test_get_blog_post_page(self):
+        item = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            featured_image='',
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+        response = self.client.get(f'/blog/{item.id}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/blog_post.html')
+
+    def test_get_edit_blog_post_page(self):
+        item = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            featured_image='',
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+        response = self.client.get(f'/blog/edit_post/{item.id}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/edit_post.html')
+
+    def test_get_delete_blog_post_page(self):
+        item = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            featured_image='',
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+        response = self.client.get(f'/blog/delete_post/{item.id}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/delete_post.html')
+
+    def test_get_edit_blog_comment_page(self):
+        post = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            featured_image='',
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+        item = Comment.objects.create(
+            email='john@email.com',
+            author=post.author,
+            post=post,
+            body='some random comment',
+        )
+        response = self.client.get(f'/blog/edit_comment/{item.id}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/edit_comment.html')
+
+    def test_get_delete_blog_comment_page(self):
+        post = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            featured_image='',
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+        item = Comment.objects.create(
+            email='john@email.com',
+            author=post.author,
+            post=post,
+            body='some random comment',
+        )
+        response = self.client.get(f'/blog/delete_comment/{item.id}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/delete_comment.html')
+
+    def test_get_blog_meal_tag_page(self):
+        item = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            featured_image='',
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+        response = self.client.get(f'/blog/meal_tag/{item.meal_type}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/blog_home.html')
+
+    def test_get_blog_dish_tag_page(self):
+        item = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            featured_image='',
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+        response = self.client.get(f'/blog/meal_tag/{item.dish_type}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/blog_home.html')
+```
+
+- Tests results:
+
+![result](./documentation/tests/Blog%20TestViews%20Results.png)
+
 ### Users App:
 
 #### Forms
@@ -360,6 +591,10 @@ class TestUserProfileForm(TestCase):
 
 ![test_forms](./documentation/tests/Restaurant%20TestForms.png)
 
+#### test_views.py
+
+![test_views](./documentation/tests/Restaurant%20TestViews.png)
+
 ### Blog App:
 
 #### views.py
@@ -389,6 +624,10 @@ class TestUserProfileForm(TestCase):
 #### test_forms.py
 
 ![test_forms](./documentation/tests/Blog%20TestForms.png)
+
+#### test_views.py
+
+![test_views](./documentation/tests/Blog%20TestViews.png)
 
 ### Users App:
 

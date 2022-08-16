@@ -3,7 +3,9 @@ from .models import Reservation, Menu, Photo
 
 
 class TestRestaurantViews(TestCase):
-
+    """
+    A class for testing the Restaurant app views.
+    """
     def test_get_home_page(self):
         hero_image = Photo.objects.create(title='Lisbon Tram')
         response = self.client.get('/')

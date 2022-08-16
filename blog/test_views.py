@@ -4,7 +4,9 @@ from .models import Post, Comment
 
 
 class TestBlogViews(TestCase):
-
+    """
+    A class for testing the Blog app views.
+    """
     def test_get_blog_page(self):
         response = self.client.get('/blog/')
         self.assertEqual(response.status_code, 200)
