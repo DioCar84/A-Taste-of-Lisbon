@@ -6,9 +6,9 @@ For testing Django functionality I used the built in Django TestCase class.
 
 ### A Taste of Lisbon Project:
 
-### Restaurant App:
+#### Restaurant App:
 
-#### Forms
+##### Forms
 
 - Tests developed for the Menu Form:
 
@@ -141,9 +141,55 @@ class TestReservationForm(TestCase):
 
 ![result](./documentation/tests/Restaurant%20TestForms(Reservation)%20Results.png)
 
-#### Models
+##### Models
 
-#### Views
+- Tests developed for the Restaurant app models:
+
+```python
+import datetime as date
+from django.test import TestCase
+from .models import Photo, Menu, Reservation
+
+
+class TestRestaurantModels(TestCase):
+    '''
+    A class to test models in the Restaurant app.
+    '''
+    def test_reservation_item_created_now(self):
+        item = Reservation.objects.create(
+            email='john@email.com',
+            table=6,
+            number_of_clients=4,
+            date='2022-08-22',
+            time=3,
+        )
+        current_date = date.datetime.now()
+        self.assertEqual(current_date.date(), item.created_on.date())
+
+    def test_default_image_name(self):
+        item = Photo.objects.create(
+            title='random photo'
+        )
+
+        self.assertEqual(item.image, 'yleipz1gqfmdwpnbtx0v.jpg')
+
+    def test_menu_item_created_now(self):
+        item = Menu.objects.create(
+            title='Roast Lamb',
+            description='Roast Lamb',
+            dish_type=2,
+            price=12.99,
+        )
+        current_date = date.datetime.now()
+        self.assertEqual(current_date.date(), item.created_on.date())
+
+```
+
+- Tests results:
+
+![result](./documentation/tests/Restaurant%20TestModels%20Results.png)
+
+##### Views
 
 - Tests developed for the Restaurant app views:
 
@@ -249,9 +295,9 @@ class TestRestaurantViews(TestCase):
 
 ![result](./documentation/tests/Restaurant%20TestViews%20Results.png)
 
-### Blog App:
+#### Blog App:
 
-#### Forms
+##### Forms
 
 - Tests developed for the Post Form:
 
@@ -356,9 +402,96 @@ class TestCommentForm(TestCase):
 
 ![result](./documentation/tests/Blog%20TestForms(Comment)%20Results.png)
 
-#### Models
+##### Models
 
-#### Views
+- Tests developed for the Blog app models:
+
+```python
+class TestBlogModels(TestCase):
+    '''
+    A class to test models in the Blog app.
+    '''
+    def test_post_item_created_now(self):
+        item = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+        current_date = date.datetime.now()
+        self.assertEqual(current_date.date(), item.created_on.date())
+
+    def test_default_featured_image_name(self):
+        item = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+
+        self.assertEqual(item.featured_image, 'placeholder')
+
+    def test_post_title_must_be_unique(self):
+        item = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+
+        password = 'mypassword'
+        my_admin = User.objects.create_superuser(
+            'myuser',
+            'myemail@test.com',
+            password
+        )
+
+        form = PostForm(data={
+            'title': 'Lisbon Steak',
+            'author': my_admin.username,
+            'excerpt': 'A Lisbon Beef Steak',
+            'meal_type': 2,
+            'dish_type': 4,
+            'content': 'Some ramdom content about this dish'
+        })
+
+        self.assertFalse(form.is_valid())
+        self.assertIn('title', form.errors.keys())
+        self.assertEqual(
+            form.errors['title'][0],
+            'Post with this Title already exists.'
+        )
+
+    def test_comment_item_created_now(self):
+        post = Post.objects.create(
+            title='Lisbon Steak',
+            author=User.objects.create(),
+            excerpt='A Lisbon Beef Steak',
+            meal_type=2,
+            dish_type=4,
+            content='Some ramdom content about this dish'
+        )
+        item = Comment.objects.create(
+            email='john@email.com',
+            author=post.author,
+            post=post,
+            body='some random comment',
+        )
+        current_date = date.datetime.now()
+        self.assertEqual(current_date.date(), item.created_on.date())
+```
+
+- Tests results:
+
+![result](./documentation/tests/Blog%20TestModels%20Results.png)
+
+##### Views
 
 - Tests developed for the Blog app views:
 
@@ -487,9 +620,9 @@ class TestBlogViews(TestCase):
 
 ![result](./documentation/tests/Blog%20TestViews%20Results.png)
 
-### Users App:
+#### Users App:
 
-#### Forms
+##### Forms
 
 - Tests developed for the User Profile Form:
 
@@ -532,9 +665,30 @@ class TestUserProfileForm(TestCase):
 
 ![result](./documentation/tests/Users%20TestForms%20Results.png)
 
-#### Models
+##### Models
 
-#### Views
+- Tests developed for the Users app models:
+
+```python
+class TestUsersModels(TestCase):
+    '''
+    A class to test models in the Users app.
+    '''
+    def test_user_profile_created_now(self):
+        item = UserProfile.objects.create()
+        current_date = date.datetime.now()
+        self.assertEqual(current_date.date(), item.created_on.date())
+
+    def test_default_profile_image_name(self):
+        item = UserProfile.objects.create()
+        self.assertEqual(item.profile_image, 'muoktj5dbjhygxwuu0v3.png')
+```
+
+- Tests results:
+
+![result](./documentation/tests/Users%20TestModels%20Results.png)
+
+##### Views
 
 - Tests developed for the Users app views:
 
@@ -652,131 +806,143 @@ class TestUsersViews(TestCase):
 
 ### A Taste of Lisbon Project:
 
-#### wsgi.py
+##### wsgi.py
 
 ![wsgi](./documentation/tests/ATOL%20Wsgi.png)
 
-#### urls.py
+##### urls.py
 
 ![urls](./documentation/tests/ATOL%20Urls.png)
 
-#### settings.py
+##### settings.py
 
 ![settings](./documentation/tests/ATOL%20Settings.png)
 
-#### asgi.py
+##### asgi.py
 
 ![asgi](./documentation/tests/ATOL%20Asgi.png)
 
-### Restaurant App:
+#### Restaurant App:
 
-#### widgets.py
+##### widgets.py
 
 ![widgets](./documentation/tests/Restaurant%20Widgets.png)
 
-#### views.py
+##### views.py
 
 ![views](./documentation/tests/Restaurant%20Views.png)
 
-#### urls.py
+##### urls.py
 
 ![urls](./documentation/tests/Restaurant%20Urls.png)
 
-#### models.py
+##### models.py
 
 ![models](./documentation/tests/Restaurant%20Models.png)
 
-#### forms.py
+##### forms.py
 
 ![forms](./documentation/tests/Restaurant%20Forms.png)
 
-#### apps.py
+##### apps.py
 
 ![apps](./documentation/tests/Restaurant%20Apps.png)
 
-#### admin.py
+##### admin.py
 
 ![admin](./documentation/tests/Restaurant%20Admin.png)
 
-#### test_forms.py
+##### test_forms.py
 
 ![test_forms](./documentation/tests/Restaurant%20TestForms.png)
 
-#### test_views.py
+##### test_models.py
+
+![test_models](./documentation/tests/Restaurant%20TestModels.png)
+
+##### test_views.py
 
 ![test_views](./documentation/tests/Restaurant%20TestViews.png)
 
-### Blog App:
+#### Blog App:
 
-#### views.py
+##### views.py
 
 ![views](./documentation/tests/Blog%20Views.png)
 
-#### urls.py
+##### urls.py
 
 ![urls](./documentation/tests/Blog%20Urls.png)
 
-#### models.py
+##### models.py
 
 ![models](./documentation/tests/Blog%20Models.png)
 
-#### forms.py
+##### forms.py
 
 ![forms](./documentation/tests/Blog%20Forms.png)
 
-#### apps.py
+##### apps.py
 
 ![apps](./documentation/tests/Blog%20Apps.png)
 
-#### admin.py
+##### admin.py
 
 ![admin](./documentation/tests/Blog%20Admin.png)
 
-#### test_forms.py
+##### test_forms.py
 
 ![test_forms](./documentation/tests/Blog%20TestForms.png)
 
-#### test_views.py
+##### test_models.py
+
+![test_models](./documentation/tests/Blog%20TestModels.png)
+
+##### test_views.py
 
 ![test_views](./documentation/tests/Blog%20TestViews.png)
 
-### Users App:
+#### Users App:
 
-#### views.py
+##### views.py
 
 ![views](./documentation/tests/Users%20Views.png)
 
-#### urls.py
+##### urls.py
 
 ![urls](./documentation/tests/Users%20Urls.png)
 
-#### signals.py
+##### signals.py
 
 ![signals](./documentation/tests/Users%20Signals.png)
 
-#### models.py
+##### models.py
 
 ![models](./documentation/tests/Users%20Views.png)
 
-#### forms.py
+##### forms.py
 
 ![views](./documentation/tests/Users%20Models.png)
 
-#### apps.py
+##### apps.py
 
 ![apps](./documentation/tests/Users%20Apps.png)
 
-#### admin.py
+##### admin.py
 
 ![views](./documentation/tests/Users%20Admin.png)
 
-#### test_forms.py
+##### test_forms.py
 
 ![test_forms](./documentation/tests/Users%20TestForms.png)
 
-#### test_views.py
+##### test_models.py
 
-![test_forms](./documentation/tests/Users%20TestViews.PNG)
+![test_models](./documentation/tests/Users%20TestModels.png)
+
+##### test_views.py
+
+![test_views](./documentation/tests/Users%20TestViews.PNG)
 
 
 
