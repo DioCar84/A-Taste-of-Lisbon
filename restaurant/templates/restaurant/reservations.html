@@ -6,14 +6,14 @@
 <p class="home-description">You must be logged in to edit your reservations.</p>
 
 <div>
-    <form class="reservation-form" action="" method="post" enctype="multipart/form-data">
+    <form class="reservation-form" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
         {{ form | crispy }}
 
         <div class="button-row">
             <button type="submit" class="col-sm-6 col-md-2 reserve-button">Reserve Now</button>
-            <a href="{% url 'user_reservations' %}"><button type="button" class="col-sm-4 col-md-2 reserve-button">Edit
+            <a href="{% url 'user_reservations' %}"><button type="submit" class="col-sm-4 col-md-2 reserve-button">Edit
                     Reservations</button></a>
         </div>
 
