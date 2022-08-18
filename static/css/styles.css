@@ -388,6 +388,9 @@ footer {
 
 .card-image img {
     border-radius: 0;
+    max-height: 439px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .card-image .post-info {

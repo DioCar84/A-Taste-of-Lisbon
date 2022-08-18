@@ -16,7 +16,7 @@
                     <div class="row">
                         {% for item in page_obj %}
                         <div class="col-12 mb-4">
-                            <article class="card article-card">
+                            <div class="card article-card">
                                 <a href="{% url 'blog_post' item.id %}">
                                     <div class="card-image">
                                         <div class="post-info"> <span
@@ -51,7 +51,7 @@
                                             Article</a>
                                     </div>
                                 </div>
-                            </article>
+                            </div>
                         </div>
                         {% endfor %}
                     </div>
