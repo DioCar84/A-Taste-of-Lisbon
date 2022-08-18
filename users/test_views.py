@@ -20,24 +20,24 @@ class TestUsersViews(TestCase):
     def test_get_redirected_by_logout_user_page(self):
         response = self.client.get('/user/logout/')
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/user/login/?next=/user/logout/')
+        self.assertRedirects(response, '/user/login/')
 
     def test_get_redirected_by_user_profile_page(self):
         response = self.client.get('/user/profile/')
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/user/login/?next=/user/profile/')
+        self.assertRedirects(response, '/user/login/')
 
     def test_get_redirected_by_edit_profile_page(self):
         response = self.client.get('/user/profile/edit/')
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/user/login/?next=/user/profile/edit/')
+        self.assertRedirects(response, '/user/login/')
 
     def test_get_redirected_by_delete_profile_page(self):
         response = self.client.get('/user/profile/delete/')
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response,
-            '/user/login/?next=/user/profile/delete/'
+            '/user/login/'
         )
 
     def test_get_redirected_by_change_password_page(self):
@@ -45,7 +45,7 @@ class TestUsersViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response,
-            '/user/login/?next=/user/profile/password/'
+            '/user/login/'
         )
 
     def test_get_approve_comments_page(self):

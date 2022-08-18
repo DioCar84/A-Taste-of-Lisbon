@@ -710,24 +710,24 @@ class TestUsersViews(TestCase):
     def test_get_redirected_by_logout_user_page(self):
         response = self.client.get('/user/logout/')
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/user/login/?next=/user/logout/')
+        self.assertRedirects(response, '/user/login/')
 
     def test_get_redirected_by_user_profile_page(self):
         response = self.client.get('/user/profile/')
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/user/login/?next=/user/profile/')
+        self.assertRedirects(response, '/user/login/')
 
     def test_get_redirected_by_edit_profile_page(self):
         response = self.client.get('/user/profile/edit/')
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/user/login/?next=/user/profile/edit/')
+        self.assertRedirects(response, '/user/login/')
 
     def test_get_redirected_by_delete_profile_page(self):
         response = self.client.get('/user/profile/delete/')
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response,
-            '/user/login/?next=/user/profile/delete/'
+            '/user/login/'
         )
 
     def test_get_redirected_by_change_password_page(self):
@@ -735,7 +735,7 @@ class TestUsersViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response,
-            '/user/login/?next=/user/profile/password/'
+            '/user/login/'
         )
 
     def test_get_approve_comments_page(self):
@@ -948,13 +948,49 @@ class TestUsersViews(TestCase):
 
 ## [HTML Validation](https://validator.w3.org/)
 
-![html](docs/readme/w3chtml.png)
+### Home Page
+
+![html](./documentation/tests/Home%20HTML.png)
+
+### Menu Page
+
+![html](./documentation/tests/Menu%20HTML.png)
+
+### Blog Page
+
+![html](./documentation/tests/Blog%20HTML.png)
+
+### Blog Post Page
+
+![html](./documentation/tests/Blog%20Post%20HTML.png)
+
+- Errors are related to the Summernote text editor not this project's HTML code
+
+### Reservations Page
+
+![html](./documentation/tests/Reservations%20HTML.png)
+
+### About Page
+
+![html](./documentation/tests/About%20HTML.png)
+
+### Login Page
+
+![html](./documentation/tests/Login%20HTML.png)
+
+### Register Page
+
+![html](./documentation/tests/Register%20HTML.png)
+
+- Error is related to Django's user creation form not this project's HTML code
+
+### User Profile Page
+
+![html](./documentation/tests/User%20Profile%20HTML.png)
 
 ## [CSS Validation](https://jigsaw.w3.org/css-validator/)
 
-The errors which can be seen on the screen shot below are coming from Front-Awesome, not my project, so can be ignored.
-
-![CSS](docs/readme/w3ccss.png)
+![CSS](./documentation/tests/styles%20css%20test.png)
 
 ## Lighthouse Score
 
