@@ -13,11 +13,9 @@
 
         <div class="button-row">
             <button type="submit" class="col-sm-6 col-md-2 reserve-button">Reserve Now</button>
-            <a href="{% url 'user_reservations' %}"><button type="submit" class="col-sm-4 col-md-2 reserve-button">Edit
-                    Reservations</button></a>
+            <a href="{% url 'user_reservations' %}" class="col-sm-4 col-md-2 reserve-button" id="reserve-link">Edit
+                Reservations</a>
         </div>
-
-
     </form>
 
     <img src="{{ open_image.image.url }}" id="open-times-image"

@@ -1781,6 +1781,12 @@ a.post-title-sm:hover {
         left: 20%;
     }
 
+    #reserve-link {
+        width: 75%;
+        display: block;
+        left: 20%;
+    }
+
     .button-row a {
         left: 0%;
     }
@@ -1927,6 +1933,13 @@ a.post-title-sm:hover {
     }
 
     .reserve-button {
+        margin: 10% 0;
+        width: 100%;
+        display: block;
+        left: 2%;
+    }
+
+    #reserve-link {
         margin: 10% 0;
         width: 100%;
         display: block;
