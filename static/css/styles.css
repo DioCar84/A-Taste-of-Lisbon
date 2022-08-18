@@ -658,6 +658,11 @@ a.post-title-sm:hover {
 
 .tagcloud {
     padding: 0;
+    list-style: none;
+}
+
+.tagcloud li {
+    display: inline-block;
 }
 
 .tagcloud a {
@@ -1354,6 +1359,8 @@ a.post-title-sm:hover {
         height: 100%;
         position: relative;
         left: 25%;
+        object-fit: contain;
+        object-position: center;
     }
 
     /* ---------- USER RESERVATIONS PAGE ---------- */
