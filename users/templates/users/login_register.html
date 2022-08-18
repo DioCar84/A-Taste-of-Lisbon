@@ -9,7 +9,7 @@
         <h1 class="page-title" id="register-title">User Registration</h1>
     </div>
     <div class="card-body">
-        <form action="" method="post" id="register-form">
+        <form action="{% url 'profile' %}" method="post" id="register-form">
             {% csrf_token %}
 
             {{ form|crispy }}
@@ -26,7 +26,7 @@
 
 <div class="login-redirect">
     <p>Already have an account?</p>
-    <a href="{% url 'login' %}" class="back-link"><button type="button" class="form-button">Login</button></a>
+    <a href="{% url 'login' %}" class="back-link form-button">Login</a>
 </div>
 
 {% else %}
@@ -36,7 +36,7 @@
         <h1 class="page-title" id="login-title">User Login</h1>
     </div>
     <div class="card-body">
-        <form action="" method="post" id="register-form">
+        <form action="{% url 'profile' %}" method="post" id="register-form">
             {% csrf_token %}
 
             {{ form|crispy }}
@@ -53,7 +53,7 @@
 
 <div class="login-redirect">
     <p>Don't have an account? Click below to register.</p>
-    <a href="{% url 'register' %}" class="back-link"><button type="button" class="form-button">Register</button></a>
+    <a href="{% url 'register' %}" class="back-link" class="form-button">Register</a>
 </div>
 
 {% endif %}
