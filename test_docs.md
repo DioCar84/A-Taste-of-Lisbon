@@ -1095,25 +1095,37 @@ class TestUsersViews(TestCase):
 
 Manual testing is the process of manually testing software for defects. It requires a tester to play the role of an end user where by they use most of the application's features to ensure correct behaviour.
 
-- As I am using django-allauth, it handles the login / create an account functionality ensuring users only enter the correct infomration before they can progress. It ensures duplicate users cannot be created, passwords are not too similar / short as well as all information is validated before users can submit.
+- User tries to register with a name already taken:
 
-    ![allauth](docs/readme/manualtestlogin.png)
+![registration](./documentation/tests//manual/User%20Already%20Taken.png)
 
-- When users try ADD a coin to a portfolio, the application will ensure the ticker they enter is valid. If it does not exist within the CoinMarketCap API then a Bootstrap message will display telling them that the ticker they entered does not exist. Furthermore, when submitting the inital form, all tickers must be entered in uppercase. If the user does not do this, it would cause the API call to fail, so I made sure that all valid tickers entered are transformed to uppercase before the next form can be submit.
+- User tries to create username with invalid characters:
 
-    ![addcoin](docs/readme/addcointest.png)
+![registration](./documentation/tests/manual/Invalid%20Username%20Char.png)
 
-- When trying to SELL a coin, user's should not be able to sell more than they hold. As a result I have put in code which checks if the quantity they are trying to sell is less or equal to the quantity they hold. If this check fails, then a Bootstrap message will appear letting the user know, and the form will not submit.
+- User tries to register with two passwords that don't match:
 
-    ![sell](docs/readme/sellmanualtest.png)
+![registration](./documentation/tests/manual/Password%20Don't%20Match.png)
 
-- If a user tries to ADD a coin which they already hold in their portfolio, instead of creating a new instance of that coin, the updated quantity and price bought at should be appended to the existing assets fields. This is because you should not have mulitple instances of the same coin within a single portfolio.
+- User tries to register without filling in all the fields:
 
-    ![duplicatetest](docs/readme/duplicatetest.png)
+![registration](./documentation/tests/manual/Blank%20Registration%20Field.png)
 
-- A user is unable to name a portfolio anything greater than nine characters, this is because on mobile, due to the portfolio information being stored on a ```<table>```, if the name is greater than nine chars it will cause an overflow error. As a result, in the model, I defined max_length = 9.
+- User tries to login with a username that doesn't exist or is incorrect:
 
-    ![9](docs/readme/manualtestcreate.png)
+![login](./documentation/tests/manual/Invalid%20Username.png)
+
+- User tries to login without filling in all the fields:
+
+![login](./documentation/tests/manual/Blank%20Login%20Field.png)
+
+- User tries to send a blank reservation form:
+
+![reservation](./documentation/tests/manual/Blank%20Reservation%20Form.png)
+
+- User tries to send a blank comment:
+
+![reservation](./documentation/tests/manual/Blank%20Comment.png)
 
 ## Responsiveness Testing
 

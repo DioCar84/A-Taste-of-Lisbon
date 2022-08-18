@@ -9,7 +9,7 @@
         <h1 class="page-title" id="register-title">User Registration</h1>
     </div>
     <div class="card-body">
-        <form action="{% url 'profile' %}" method="post" id="register-form">
+        <form action="{% url 'register' %}" method="post" id="register-form">
             {% csrf_token %}
 
             {{ form|crispy }}
@@ -36,7 +36,7 @@
         <h1 class="page-title" id="login-title">User Login</h1>
     </div>
     <div class="card-body">
-        <form action="{% url 'profile' %}" method="post" id="register-form">
+        <form action="{% url 'login' %}" method="post" id="register-form">
             {% csrf_token %}
 
             {{ form|crispy }}

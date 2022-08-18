@@ -34,7 +34,7 @@ def create_user(request):
                 user.save()
 
             messages.success(request, f'new user {user.username} was created.')
-            return redirect('home')
+            return redirect('login')
 
     context = {'page': page, 'form': form}
     return render(request, 'users/login_register.html', context)
@@ -104,9 +104,11 @@ def user_profile(request):
         user = User.objects.filter(username=request.user.username).first()
         profile = user.userprofile
         approvals = Comment.objects.filter(approved=False).count()
+        users = UserProfile.objects.all().count()
 
         if user.is_staff:
             reservations = Reservation.objects.all().count()
+
         else:
             reservations = Reservation.objects. \
                 filter(email=request.user.email).count()
@@ -118,8 +120,12 @@ def user_profile(request):
             likes += post.likes.filter(username=request.user.username).count()
 
         context = {
-            'profile': profile, 'reservations': reservations,
-            'comments': comments, 'likes': likes, 'approvals': approvals,
+            'profile': profile,
+            'users': users,
+            'reservations': reservations,
+            'comments': comments,
+            'likes': likes,
+            'approvals': approvals,
         }
         return render(request, 'users/profile_page.html', context)
 
