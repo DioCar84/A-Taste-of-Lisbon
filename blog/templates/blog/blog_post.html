@@ -96,21 +96,20 @@
                                 </div>
                                 <div class="comment-input">
                                     <h3>Leave a comment: </h3>
-                                    <form action="" method="post" class="comments-form">
+                                    <form action="{% url 'blog_post' post.id %}" method="post" class="comments-form">
                                         {% csrf_token %}
                                         {{ comments|crispy }}
                                         <input type="hidden" name="next" value="{{ request.path }}">
                                         <button type="submit" class="reserve-button">Submit Comment</button>
+                                    </form>
                                 </div>
-
-                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 sidebar ftco-animate pt-5">
                     <div class="sidebar-box pt-md-4">
-                        <form action="" method="POST" class="search-form" id="recipes-search">
+                        <form action="{% url 'blog_search' %}" method="POST" class="search-form" id="recipes-search">
                             {% csrf_token %}
 
                             <div class="input-group mb-3">
@@ -163,12 +162,16 @@
                         <ul class="tagcloud">
                             {% for value, text in dishes.meal_type.field.choices %}
                             {% if not forloop.first %}
-                            <a href="{% url 'blog_meal_tag' value %}" class="tag-cloud-link">{{ text }}</a>
+                            <li>
+                                <a href="{% url 'blog_meal_tag' value %}" class="tag-cloud-link">{{ text }}</a>
+                            </li>
                             {% endif%}
                             {% endfor %}
                             {% for value, text in dishes.dish_type.field.choices %}
                             {% if not forloop.first %}
-                            <a href="{% url 'blog_dish_tag' value %}" class="tag-cloud-link">{{ text }}</a>
+                            <li>
+                                <a href="{% url 'blog_dish_tag' value %}" class="tag-cloud-link">{{ text }}</a>
+                            </li>
                             {% endif%}
                             {% endfor %}
                         </ul>
