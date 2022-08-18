@@ -388,9 +388,10 @@ footer {
 
 .card-image img {
     border-radius: 0;
-    max-height: 439px;
+    max-height: 50vh;
     object-fit: cover;
     object-position: center;
+    height: 50vh;
 }
 
 .card-image .post-info {
@@ -1747,6 +1748,10 @@ a.post-title-sm:hover {
     }
 
     /* ---------- BLOG POST PAGE ---------- */
+
+    .card-image img {
+        max-height: 30vh;
+    }
 
     .blog-post-buttons .reserve-button {
         left: 12.5%;
