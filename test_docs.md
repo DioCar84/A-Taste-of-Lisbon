@@ -996,69 +996,100 @@ class TestUsersViews(TestCase):
 
 ### Mobile:
 
-![LighthouseMobile](docs/readme/lighthousemobile.png)
+![LighthouseMobile](./documentation/tests/Home%20Mobile.png)
 
 ### Desktop:
 
-![LighthouseDesktop](docs/readme/lighthousedesktop.png)
+![LighthouseDesktop](./documentation/tests/Home%20Desktop.png)
+
+#### Best Practices
+
+![LighthouseBestPractices](./documentation/tests/Best%20Practices.png)
+
+- Yellow score due to JQuery library and not the project's code
 
 ## User Story Tests
 
-1. As a **Site User** I will be **directed to the Home Page** so that **I can understand the website**
+### Site user:
 
-    When the user loads the site, they are taken to this page which is the homepage. Here they are able to get an understanding of what Cryptics is and the aim of the website, they are also prompted to Create an Account, which allows them to use the Portfolio Tracking features. 
+    - As a site user I can register an account so that I can comment and like posts
 
-    ![homepage](docs/readme/hp768px.png)
+![userregistration](./documentation/tests/user%20stories/User%20Registration.png)
 
-2. As a **Site User** I can **create an account** so that **I can create a portfolio**
+    - As a site user I can view the menu so that I can determine if I want to eat at this restaurant
 
-    Once the user has created an account, they are able to create and view their portfolios, as well as add assets to them.
+![menu](./documentation/tests/user%20stories/Menu.png)
 
-    ![create](docs/readme/cp768px.png)
+    - As a site user I can view key information so that I know when the restaurant is open, or where it is located
 
-3. As a **Site User** I can **log in to my account** so that **I can view my portfolios**
+![info](./documentation/tests/user%20stories/Info%201.png)
+![info](./documentation/tests/user%20stories/Info%202.png)
 
-    Once an account has been created, users are able to login to their account on any device and view their portfolios as well as individual assets
+    - As a site user I can view a paginated list of posts so that I can easily select a post to view
 
-    ![view](docs/readme/lilo768px.png)
+![paginatedposts](./documentation/tests/user%20stories/Paginated%20Posts.png)
 
-4. As a **Site User** I can **create a Portfolio** so that **I can track my crypto holdings**
+    - As a site user I can make, edit and delete comments so that I have control over how I interact with the blog community
 
-    Cryptics provides full portfolio tracking functionality, meaning once a portfolio has been created, they are then able to add assets to them, allowing them to track their crypto holdings.
+![crudcomments](./documentation/tests/user%20stories/CRUD%20Comments.png)
 
-    ![track](docs/readme/va768px.png)
+    - As a site user I can like a post so that the author knows I enjoyed the content
 
+![likepost](./documentation/tests/user%20stories/Like%20Post.png)
 
-5. As a **Site User** I can **view all Portfolios** so that **I can see the total valuation**
+    - As a site user I can make, edit, view and delete my reservations so that I can have control over when I will eat at the restaurant
 
-    As well as being able to view individual assets within a portfolio, Cryptics also allows user to view all portfolios and see the total USD valuation of them.
+![crudreservations](./documentation/tests/user%20stories/CRUD%20Reservations.png)
 
-    ![usdvalue](docs/readme/ustest.png)
+    - As a site user I can remove a like so that I can demonstrate that I am no longer interested in/agree with the post
 
-6. As a **Site User** I can **delete my Portfolio** so that **I can remove my portfolio**
+![removelike](./documentation/tests/user%20stories/Unlike%20Post.png)
 
-    Cryptics has full CRUD functionality meaning users have full control over the creation, reading, updating and deletion of their portfolios and assets.
+    - As a site user I can edit my account so that I can update any information as it changes
 
-    ![delete](docs/readme/mp768px.png)
+![crudprofile](./documentation/tests/user%20stories/CRUD%20Profile.png)
 
-7. As a **Site User** I can **search for a token** so that **I can add it to my portfolio**
+    - As a site user I can delete my account so that I can choose to no longer be a member of the site community
 
-    Cryptics harnesses the power of the CoinMarketCap API allowing users to search for and add over 2000 cryptocurrencies to their portfolios with live price data.
+![deleteprofile](./documentation/tests/user%20stories/CRUD%20Profile.png)    
 
-    ![search](docs/readme/ac425px.png)
+  ### Site admin:
 
+    - As a site admin I can create, edit, view and delete posts so that I can be in total control of my sites content
 
-8. As a **Site User** I can **Sell a token** so that **I can remove it from portfolio**
+![createpost](./documentation/tests/user%20stories/Create%20Post.png)
+![editdeletepost](./documentation/tests/user%20stories/Edit%20Delete%20Post.png)
 
-    Users have the ability to Buy and Sell thousands of coins and track their holdings all in one platform.
+    - As a site admin I can approve comments so that I can filter out any unwanted comments
 
-    ![buy/sell](docs/readme/buyselluserstory.png)
+![approvecomments](./documentation/tests/user%20stories/Comment%20Approval.png)
 
-9. As a **Site User** I can **Buy a token** so that **I can add to my portfolio**
+    - As a site admin I can make, edit and remove comments so that I have total control over my interactions with the site community
 
-    Users have the ability to Buy and Sell thousands of coins and track their holdings all in one platform.
+![crudcomments](./documentation/tests/user%20stories/Admin%20CRUD%20Comments.png)
 
-    ![buy/sell](docs/readme/buyselluserstory.png)
+    - As a site admin I can view member accounts so that I know how many users have registered
+
+![viewusers](./documentation/tests/user%20stories/Registered%20Users.png)
+
+    - As a site admin I can view the number of reservations so that I can advise the kitchen of how customers are expected
+
+![viewreservations](./documentation/tests/user%20stories/Admin%20Reservations.png)
+
+    - As a site admin I can display key information so that users know where the restaurant is located and what's on the menu
+
+![info](./documentation/tests/user%20stories/Info%201.png)
+![info](./documentation/tests/user%20stories/Info%202.png)    
+
+  ### Common stories:
+
+    - As a site user|admin I can view the comments so that I can be aware of the conversation
+
+![viewcomments](./documentation/tests/user%20stories/Admin%20CRUD%20Comments.png)
+
+    - As a site user|admin I can view likes so that I am aware of which topics are trendy
+
+![likepost](./documentation/tests/user%20stories/Like%20Post.png)    
 
 ## Manual Testing
 
