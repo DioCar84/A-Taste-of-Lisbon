@@ -99,6 +99,7 @@ def user_profile(request):
     Can only be accessed by users that are logged in.
     Alters data displayed based on user if the user is a staff member or not.
     """
+    login_user(request)
     if request.user.is_authenticated:
         user = User.objects.filter(username=request.user.username).first()
         profile = user.userprofile
