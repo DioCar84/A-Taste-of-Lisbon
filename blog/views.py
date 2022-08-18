@@ -275,13 +275,22 @@ def like_view(request, pk):
     """
     A view that allows users to like or unlike a blog post.
     """
-    post = get_object_or_404(Post, id=request.POST.get('post_id'))
-    liked = False
-    if post.likes.filter(id=request.user.id).exists():
-        post.likes.remove(request.user)
-        liked = False
-    else:
-        post.likes.add(request.user)
-        liked = True
 
-    return HttpResponseRedirect(reverse('blog_post', args=[str(pk)]))
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, id=request.POST.get('post_id'))
+        liked = False
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+            liked = False
+        else:
+            post.likes.add(request.user)
+            liked = True
+
+        return HttpResponseRedirect(reverse('blog_post', args=[str(pk)]))
+
+    else:
+        messages.warning(
+            request,
+            'You must be logged in to perform that action!'
+        )
+        return redirect('login')

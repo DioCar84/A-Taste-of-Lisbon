@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth \
     import logout, login, authenticate, update_session_auth_hash
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib import messages
@@ -76,48 +75,61 @@ def login_user(request):
     return render(request, 'users/login_register.html', context)
 
 
-@login_required
 def logout_user(request):
     """
     A view for logging out a user.
     Can only be accessed by users that are logged in.
     """
-    logout(request)
-    messages.success(request, 'You are now logged out!')
-    return redirect('login')
+    if request.user.is_authenticated:
+        logout(request)
+        messages.success(request, 'You are now logged out!')
+        return redirect('login')
+
+    else:
+        messages.warning(
+            request,
+            'You must be logged in to perform that action!'
+        )
+        return redirect('login')
 
 
-@login_required
 def user_profile(request):
     """
     A view for rendering a user profile.
     Can only be accessed by users that are logged in.
     Alters data displayed based on user if the user is a staff member or not.
     """
-    user = User.objects.filter(username=request.user.username).first()
-    profile = user.userprofile
-    approvals = Comment.objects.filter(approved=False).count()
+    if request.user.is_authenticated:
+        user = User.objects.filter(username=request.user.username).first()
+        profile = user.userprofile
+        approvals = Comment.objects.filter(approved=False).count()
 
-    if user.is_staff:
-        reservations = Reservation.objects.all().count()
+        if user.is_staff:
+            reservations = Reservation.objects.all().count()
+        else:
+            reservations = Reservation.objects. \
+                filter(email=request.user.email).count()
+        comments = 0
+        likes = 0
+        posts = Post.objects.all()
+        for post in posts:
+            comments += post.comments.filter(author=request.user).count()
+            likes += post.likes.filter(username=request.user.username).count()
+
+        context = {
+            'profile': profile, 'reservations': reservations,
+            'comments': comments, 'likes': likes, 'approvals': approvals,
+        }
+        return render(request, 'users/profile_page.html', context)
+
     else:
-        reservations = Reservation.objects. \
-            filter(email=request.user.email).count()
-    comments = 0
-    likes = 0
-    posts = Post.objects.all()
-    for post in posts:
-        comments += post.comments.filter(author=request.user).count()
-        likes += post.likes.filter(username=request.user.username).count()
-
-    context = {
-        'profile': profile, 'reservations': reservations,
-        'comments': comments, 'likes': likes, 'approvals': approvals,
-    }
-    return render(request, 'users/profile_page.html', context)
+        messages.warning(
+            request,
+            'You must be logged in to access this page!'
+        )
+        return redirect('login')
 
 
-@login_required
 def edit_profile(request):
     """
     A view for editing a user profile.
@@ -125,60 +137,85 @@ def edit_profile(request):
     Returns a prepoluated form with the
     current profile information available in the database.
     """
-    user = UserProfile.objects.filter(username=request.user.username).first()
-    form = UserProfileForm(instance=user)
+    if request.user.is_authenticated:
+        user = UserProfile.objects.filter(
+            username=request.user.username
+        ).first()
+        form = UserProfileForm(instance=user)
 
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=user)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Profile Updated.')
-            return redirect('profile')
+        if request.method == 'POST':
+            form = UserProfileForm(request.POST, request.FILES, instance=user)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Profile Updated.')
+                return redirect('profile')
 
-    context = {'form': form, }
-    return render(request, 'users/profile_form.html', context)
+        context = {'form': form, }
+        return render(request, 'users/profile_form.html', context)
+
+    else:
+        messages.warning(
+            request,
+            'You must be logged in to access this page!'
+        )
+        return redirect('login')
 
 
-@login_required
 def delete_profile(request):
     """
     A view for deleting a user profile.
     Can only be accessed by users that are logged in.
     """
-    user = UserProfile.objects.filter(username=request.user.username).first()
+    if request.user.is_authenticated:
+        user = UserProfile.objects.filter(
+            username=request.user.username
+        ).first()
 
-    if request.method == 'POST':
-        user.delete()
-        logout(request)
-        messages.success(request, 'Profile Deleted.')
-        return redirect('home')
+        if request.method == 'POST':
+            user.delete()
+            logout(request)
+            messages.success(request, 'Profile Deleted.')
+            return redirect('home')
 
-    context = {'user': user}
-    return render(request, 'users/delete_profile.html')
+        context = {'user': user}
+        return render(request, 'users/delete_profile.html')
+
+    else:
+        messages.warning(
+            request,
+            'You must be logged in to access this page!'
+        )
+        return redirect('login')
 
 
-@login_required
 def change_password(request):
     """
     A view for changing a user password.
     Can only be accessed by users that are logged in.
     """
-    if request.method == 'POST':
-        form = PasswordChangeForm(request.user, request.POST)
-        if form.is_valid():
-            user = form.save()
-            update_session_auth_hash(request, user)
-            messages.success(
-                request,
-                'Your password was successfully updated!'
-                )
-            return redirect('profile')
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = PasswordChangeForm(request.user, request.POST)
+            if form.is_valid():
+                user = form.save()
+                update_session_auth_hash(request, user)
+                messages.success(
+                    request,
+                    'Your password was successfully updated!'
+                    )
+                return redirect('profile')
+            else:
+                messages.error(request, 'Please correct the error below.')
         else:
-            messages.error(request, 'Please correct the error below.')
+            form = PasswordChangeForm(request.user)
+        context = {'form': form, }
+        return render(request, 'users/change_password.html', context)
     else:
-        form = PasswordChangeForm(request.user)
-    context = {'form': form, }
-    return render(request, 'users/change_password.html', context)
+        messages.warning(
+            request,
+            'You must be logged in to perform that action!'
+        )
+        return redirect('login')
 
 
 def approve_comments(request):
