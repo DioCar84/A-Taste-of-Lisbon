@@ -1127,156 +1127,146 @@ Manual testing is the process of manually testing software for defects. It requi
 
 ![reservation](./documentation/tests/manual/Blank%20Comment.png)
 
-## Responsiveness Testing
+## Device Display Testing
 
-### Homepage:
+### Home:
 
-### 320px & 375px:
+#### Mobile:
 
-![homepage](docs/readme/hp320px.png)
+![home](./documentation/tests/devices/Home%20Mobile.png)
 
-### 425px:
+#### Tablet:
 
-![homepage](docs/readme/hp425px.png)
+![home](./documentation/tests/devices/Home%20Tablet.png)
 
-### 768px:
+#### Desktop:
 
-![homepage](docs/readme/hp768px.png)
+![home](./documentation/tests/devices/Home%20Desktop.png)
 
-### 1024px:
+### Menu:
 
-![homepage](docs/readme/hp1024px.png)
+#### Mobile:
 
-### 1440px:
+![menu](./documentation/tests/devices/Menu%20Mobile.png)
 
-![homepage](docs/readme/hp1440px.png)
+#### Tablet:
 
-### Login, Create Account & Logout:
+![menu](./documentation/tests/devices/Menu%20Tablet.png)
 
-### 320px & 375px:
+#### Desktop:
 
-![LILO](docs/readme/lilo320px.png)
+![menu](./documentation/tests/devices/Menu%20Desktop.png)
 
-### 425px:
+### Blog:
 
-![LILO](docs/readme/lilo425px.png)
+#### Mobile:
 
-### 768px, 1204px & 1440px:
+![blog](./documentation/tests/devices/Blog%20Mobile.png)
 
-![LILO](docs/readme/lilo768px.png)
+#### Tablet:
 
-### View Portfolio:
+![blog](./documentation/tests/devices/Blog%20Tablet.png)
 
-### 320px & 375px:
+#### Desktop:
 
-![vp](docs/readme/vp320px.png)
+![blog](./documentation/tests/devices/Blog%20Desktop.png)
 
-### 425px:
+### Blog Post:
 
-![vp](docs/readme/vp425px.png)
+#### Mobile:
 
-### 768px:
+![blogpost](./documentation/tests/devices/Blog%20Post%20Mobile.png)
 
-![vp](docs/readme/vp768px.png)
+#### Tablet:
 
-### 1024px & 1440px:
+![blogpost](./documentation/tests/devices/Blog%20Post%20Tablet.png)
 
-![vp](docs/readme/vp1024px.png)
+#### Desktop:
 
-### Create Portfolio:
+![blogpost](./documentation/tests/devices/Blog%20Post%20Desktop.png)
 
-### 320px, 375px, 425px:
+### Reservations:
 
-![cp](docs/readme/cp320px.png)
+#### Mobile:
 
-### 768px:
+![reservations](./documentation/tests/devices/Reservations%20Mobile.png)
 
-![cp](docs/readme/cp768px.png)
+#### Tablet:
 
-### 1024px & 1440px:
+![reservations](./documentation/tests/devices/Reservations%20Tablet.png)
 
-![cp](docs/readme/cp1024px.png)
+#### Desktop:
 
-### Manage Portfolio Modal:
+![reservations](./documentation/tests/devices/Reservations%20Desktop.png)
 
-### 320px & 375px:
+### About:
 
-![mp](docs/readme/mp320px.png)
+#### Mobile:
 
-### 425px:
+![about](./documentation/tests/devices/About%20Mobile.png)
 
-![mp](docs/readme/mp425px.png)
+#### Tablet:
 
-### 768px:
+![about](./documentation/tests/devices/About%20Tablet.png)
 
-![mp](docs/readme/mp768px.png)
+#### Desktop:
 
-### 1024px & 1440px:
+![about](./documentation/tests/devices/About%20Desktop.png)
 
-![mp](docs/readme/mp1024px.png)
+### Login:
 
-### View Assets:
+#### Mobile:
 
-### 320px & 375px:
+![login](./documentation/tests/devices/Login%20Mobile.png)
 
-![va](docs/readme/va320px.png)
+#### Tablet:
 
-### 425px:
+![login](./documentation/tests/devices/Login%20Tablet.png)
 
-![va](docs/readme/va425px.png)
+#### Desktop:
 
-### 768px:
+![login](./documentation/tests/devices/Login%20Desktop.png)
 
-![va](docs/readme/va768px.png)
+### Register:
 
-### 1024px & 1440px:
+#### Mobile:
 
-![va](docs/readme/va1024px.png)
+![register](./documentation/tests/devices/Reservations%20Mobile.png)
 
-### Add Coin Form:
+#### Tablet:
 
-### 320px & 375px:
+![register](./documentation/tests/devices/Register%20Tablet.png)
 
-![ac](docs/readme/ac320px.png)
+#### Desktop:
 
-### 425px:
+![register](./documentation/tests/devices/Register%20Desktop.png)
 
-![ac](docs/readme/ac425px.png)
+### Profile:
 
-### 768px and above:
+#### Mobile:
 
-![ac](docs/readme/ac768px.png)
+![profile](./documentation/tests/devices/Profile%20Mobile.png)
+
+#### Tablet:
+
+![profile](./documentation/tests/devices/Profile%20Tablet.png)
+
+#### Desktop:
+
+![profile](./documentation/tests/devices/Profile%20Desktop.png)
 
 ## Browser Compatibility Tests 
 
-I will test Cryptics on [Firefox](https://www.mozilla.org/en-GB/firefox/new/), [Microsoft Edge](https://www.microsoft.com/en-us/edge) and [Brave Browser](https://brave.com/):
+A Taste of Lisbon was tested on [Firefox](https://www.mozilla.org/en-GB/firefox/new/), [Google Chrome](https://www.google.com/intl/en_uk/chrome/) and [Brave Browser](https://brave.com/):
 
 ### Firefox:
 
-![firefox](docs/readme/firefox.png)
+![firefox](./documentation/tests/devices/Browser%20Firefox.png)
 
-### Microsoft Edge:
+### Google Chrome:
 
-![edge](docs/readme/microsoftedge.png)
+![chrome](./documentation/tests/devices/Browser%20Chrome.png)
 
 ### Brave Browser:
 
-![Brave](docs/readme/bravebrowser.png)
-
-## GitHub Issues
-
-When developing the project, I used GitHub Issues as a way to track my work on GitHub, and make notes of any bugs or features that I needed to fix/implement.
-
-- [Here](https://github.com/RiyadhKh4n/cryptics/issues?q=is%3Aopen+is%3Aissue) you can find a list of open issues, which are made up of various User Stories or Dvelopment tasks that needed completing.
-
-- [Here](https://github.com/RiyadhKh4n/cryptics/issues?q=is%3Aissue+is%3Aclosed) you can find a list of all closed issues, which show any bugs I resolved.
-
-## Bugs
-
-- Not so much a bug but the API I am using only allows 333 calls per day as I am using the free version. Each time the user Adds or Buys a coin, as well as each time the [portfolio.html](portfolio/templates/portfolio/portfolio.html) template is rendered, 10 credits (calls) are used which means the program can be called 33 times a day before going over the limit. The limit is a soft limit meaning it does let you go over the 333 per day however after 10,000 calls (per month) the API will stop allowing calls meaning the program would not work if the limit is reached.
-
-    ![apikey](docs/readme/apikeytest.png)
-
-- A bug that is out of my control is if the CoinMarketCap data has been hacked or corrupted. This was not something I thought I had to worry about however on (14/12/21) the website got hacked causing all the coin data to be incorrect, meaning if the data my program produces will also be incorrect.
-
-- If a user adds a coin whose price is very small e.g. SHIB (£0.00001852), the program will add the coin as price £0. This is because I round the price displayed to 3 decimal places in order to reduce how many decimal places display on the front-end making the site look cleaner. However, this will cause all other fields which depend on price (current_holdings, average_price, pnl) to also equal £0 as anything multiplied by zero equals zero. As a result, the asset will not display the correct data on the table in [assets.html](portfolio/templates/portfolio/assets.html)
+![brave](./documentation/tests/devices/Browser%20Brave.png)
