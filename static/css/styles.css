@@ -1897,6 +1897,11 @@ a.post-title-sm:hover {
         left: 15%;
     }
 
+    #register-link {
+        width: 50%;
+        left: 20%;
+    }
+
     /* ---------- PROFILE PAGE ---------- */
 
     .profile-actions {
