@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'django_summernote',
+    'django_extensions',
     'blog.apps.BlogConfig',
     'restaurant.apps.RestaurantConfig',
     'users.apps.UsersConfig'
@@ -165,3 +166,8 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
