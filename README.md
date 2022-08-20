@@ -157,15 +157,128 @@ Using the principles of UX design and the agile development methodology, this pr
 
 - ## **Implemented features**
 
+  - ### User Registration
+
+    Users can register and create an account. This will create a User instance and trigger a Django signal to 
+    automatically create a Profile for this user and link them together. A message will then be displayed to the user so they know the registration was sucessful.
+
+    ![userregistration](./documentation/features/User%20Registration.png)
+
+    ![messages](./documentation/features/Messages.png)
+
+  - ### User Login/Logout
+
+    Registered users are able to log in and out at will. However, certain features are only available to users that are logged in given the user and incentive to do so. The user is also constantly given feedback through messages that appear at the top of the page below the navbar, so that they know an action has been carried out or not.
+
+    ![login1](./documentation/features/User%20Login1.png)
+
+    ![login2](./documentation/features/User%20Login2.png)
+
+    ![logout](./documentation/features/Logout.png)
+
+  - ### User Profile
+
+    Each registered user is given a profile they can choose to supply information and an image for. They are also able to edit all visible fields in this profile or delete the profile if they no longer which to be a registered user.
+
+    ![userprofile](./documentation/features/Profile.png)
+
+  - ### Paginated Menu/Blog
+
+    The menu page lists up to 6 different menu items and then will create a link below to the next page. This will continue until either the last 6 or less items are displayed. For the blog up to 4 articles will be displayed per page and then the same logic will be applied as in the menu page. New pages will be created until the last 4 or less posts remain and are diplayed.
+
+    ![paginatedmenu](./documentation/features/Paginated%20Menu.png)
+
+    ![paginatedblog](./documentation/features/Paginated%20Blog.png)
+
+  - ### Blog Recipe Search
+
+    The various blog pages have a search bar which can be used to search for recipes by name. This search functionality will look for recipes that match the user input or that contain those words in their title.
+
+    ![recipesearch](./documentation/features/Blog%20Recipe%20Search.png)
+
+  - ### Recipe Categories
+
+    Each blog post(recipe) has been created with certain identifier fields. Such as if it's a meat dish or salad, etc... These categories are then displayed under the search bar. the user can select a category and this will filter the posts by those that belong in the chosen category.
+
+    ![recipecategory](./documentation/features/Recipe%20Categories.png)
+
+  - ### Popular Articles
+
+    The 3 blog posts with the most comments will be displayed in the popular articles section so that the user knows which recipes are trendy or have the greatest amount of interaction between the website's community. The 3 articles will be ordered by descending order so that the post with the most comments appears first.
+
+    ![populararticles](./documentation/features/Popular%20Articles.png)
+
+  - ### Tag Cloud/Tags
+
+    Each blog post(recipe) will have two identifying fields, dish type and meal type. These fields will auto generate tags which the user can select to filter all posts with the same tag as the selected one.
+
+    ![tagcloud](./documentation/features/Tag%20Cloud.png)
+
+  - ### Blog Post/Like
+
+    Every post created will have key information displayed to the user. This information includes, who the author of the post is, when it was created and how many likes the post has. If the user is a registered user, they can choose to like or unlike as many posts as they desire.
+
+    ![blogpost](./documentation/features/Blog%20Post.png)
+
+  - ### Blog Comments
+
+    All registered users can choose to leave a comment on any blog post. The comment will then go to an approval queue to be released by a staff member. Once approved the comment will be displayed. Users who create a comment will also have the option to edit or delete their comments.
+
+    ![blogcomment](./documentation/features/Comments%20Section.png)
+
+  - ### Reservations
+
+    All visitors, whether they are a register user or not, will have the option to book a reservation. The user can choose a date, a time slot, how many people will be present and a table. However, in order to be able to edit their reservations a user must be registered and logged in.
+
+    ![reservation](./documentation/features/Make%20Reservations.png)
+
+    ![editreservation](./documentation/features/Edit%20Reservations.png)
+
+  - ### Admin/Staff
+
+    Admin or staff members will be people to access all of their data and perform CRUD actions on the front-end. There is no need to visit the Django admin panel unless they wish to create a new superuser. Staff members will be granted special privelages that reguler users do not have access to. Staff mebers can create, edit or delete blog posts. They can crete, edit or delete menu items. A staff profile allows them to approve any pending comments, view the total reservations that have been booked or how many registered users there are and their info.
+
+    ![admin](./documentation/features/Admin%20Profile.png)
+
+    ![admin](./documentation/features/Admin%20Blog.png)
+
+    ![admin](./documentation/features/Admin%20Post.png)
+
+    ![admin](./documentation/features/Admin%20Menu.png)
+
+    ![admin](./documentation/features/Admin%20Comment%20Approval.png)
+
+    ![admin](./documentation/features/Admin%20Reservations.png)
+
+    ![admin](./documentation/features/Admin%20Users.png)
+
 - ## **Features left to implement**
+
+  - ### Modals
+
+    The use of modals to pop up and display forms so that the user does not have to leave the page they are on.
+
+  - ### AJAX
+
+    Process the form post requests using AJAX so that page refreshing is reduced. This will increase the application's speed and improve user experience.
+
+  - ### Google Maps API
+
+    Instead of using a static image of a map, the Google Maps API would allow users the functionalities associated with using a Google map.
 
 # **TECHNOLOGY USED**
 
 - ## **Languages**
 
+ - Python, HTML, CSS, JavaScript
+
 - ## **Database**
 
+  - PostgreSQL
+
 - ## **Libraries frameworks and other technologies**
+
+  - Django, Jquery, Bootstrap, Cloudinary, Crispy Forms, Summernote, Pillow, Whitenoise
 
 # **CODE ORGANISATION**
 
@@ -173,18 +286,142 @@ Using the principles of UX design and the agile development methodology, this pr
 
 # **TESTING**
 
+  - A full lists of tests performed as well the results can be found [here](./test_docs.md)
+
 # **DEPLOYMENT**
 
 - ## **Deploying this project**
 
+  Deploying the project using Heroku:
+
+  1. Login to [Heroku](https://dashboard.heroku.com/apps) and Create a New App
+
+  2. Give the App a name, it must be unique, and select a region closest to you
+
+  3. Click on 'Create App', this will take you to a page where you can deploy your project
+
+  4. Click on the 'Resources' tab and search for 'Heroku Postgres' as this is the add-on you will use for the deployed database
+
+  5. Click on the 'Settings' tab at the top of the page. The following step must be completed before deployment. 
+
+  6. Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within   env.py as a root level file.
+
+  The env.py files is where the projects secret environment variables are stored. This file is then added to a gitnore file so it isn't stored publicly within the projects   repository.
+
+  7. Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on  GitPod.
+
+  8. Within the [settings.py](settings.py) file you need to import several libraries:
+      ```python
+      import os
+      import dj_database_url
+      from django.contrib.messages import constants as messages
+      if os.path.isfile('env.py'):
+          import env
+      ```
+
+  9. Then, we need to replace the current insecre secret key with ```os.environ.get('SECRET_KEY)'```, that we set witin the env.py file.
+
+  10. Once the secret key is replaced, scroll down to DATABASES to connect to the Postgres database. Comment out the current code and add the following python dictionary: 
+  ```python
+  DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
+  ```
+
+  11. The next step is to connect the project to whitenoise, which is where the static files will be stored. You can find a full explanation of how to install whitenoise [here]  (http://whitenoise.evans.io/en/stable/)
+
+  12. Then on Heroku add to the Config Vars, DISABLE_COLLECTSTATIC = 1, as a temporary measure to enable deployment without any static files, this will be removed when it is time  to deploy the full project.
+
+  13. Next we need to tell Django where to store the madia and static files. Towards the bottom of settings.py file we can add:
+
+  ```python
+  STATIC_URL = '/static/'
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+  MEDIA_URL = '/media/'
+  ```
+
+  14. Then we need to tell Django where the templates will be stored. At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll   down to TEMPLATES and add the templates directory variable to 'DIRS': [].
+
+  15. Now we have to add our Heroku Host Name into allowed hosts in settings.py file:
+
+  ```python
+  ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
+  ```
+
+  16. Finally, to complete the first deployment set up of the skeleton app, create a Procfile so that Heroku knows how to run the project. Within this file add the following:  web: gunicorn APP-NAME.wsgi Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a  standard that allows Python services to integrate with web servers.
+
+  17. Now, go to the 'Deploy' Tab on Heroku. Find the 'Deployment Method' section and choose GitHub. Connect to your GitHub account and find the repo you want to deploy. 
+
+  18. Scroll down to the Automatic and Manual Deploys sections. Click 'Deploy Branch' in the Manual Deploy section and waited as Heroku installed all dependencies and deployed   the code.
+
+  21. Once the project is finnished deploying, click 'Open App' to see the newly deployed project.
+
+  22. Before deploying the final draft of your project you must:
+
+  - Remove staticcollect=1 from congifvars within Heroku
+  - Ensure DEBUG is set to false in settings.py file or:
+
 - ## **Using this project locally**
+
+  1. Log in to GitHub and locate the [GitHub Repository](https://github.com/DioCar84/A-Taste-of-Lisbon)
+  2. Under the repository name, click "Clone or download".
+  3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+  4. Open Git Bash
+  5. Change the current working directory to the location where you want the cloned directory to be made.
+  6. Type `git clone`, and then paste the URL you copied in Step 3.
+  
+      $ `https://github.com/DioCar84/A-Taste-of-Lisbon.git`
+  
+  7. Press Enter. Your local clone will be created.
+ 
+  Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+  
+  [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DioCar84/A-Taste-of-Lisbon)
+
+  You will need to also install all required packages in order to run this application on Heroku, refer to [requirements.txt](requirements.txt)
+  * Command to install this apps requirements is `pip3 install -r requirements.txt`
 
 # **CREDITS**
 
 - ## **Code**
 
+  - As always a big thanks to everyone who answers questions on [stackoverflow](https://stackoverflow.com/). Whenever I was stumped or did not know how to implement a certain functionality there was a post on stack overflow which gave me the answer and could be adapted to my project's needs.
+
+  - The blog search functionality as well as the User profile come from the [Python Django - Complete Course on](https://www.udemy.com/course/python-django-2021-complete-course/) which is available on the online learning platform [Udemy](https://www.udemy.com/).
+
+  - The calendar widget was taken from [FengyuanChen](https://github.com/fengyuanchen/datepicker)
+
+  - The Post and Comment models were taken from the [Code Institutes](https://codeinstitute.net/) Django lessons, more specifically the I Think Before I Blog section
+
+  - The blog page as well as each blog post where adapted from the [Andrea Blog Template](https://themewagon.com/themes/free-bootstrap-4-html5-blog-website-template-andrea/) and [Reporter](https://themefisher.com/products/reporter)
+
+  - The footer social media buttons can be found at [mdbootstrap](https://mdbootstrap.com/docs/standard/navigation/footer/)
+
+  - most buttons displayed across the various webpages will be an adaptation of button 21 ffrom [CSS Scan](https://getcssscan.com/css-buttons-examples)
+
+  - this read me file and supporting docs were adapted from 2 former Code Institue student's projects [Codzilla](https://github.com/lemocla/Codzilla) and [Cryptics](https://github.com/RiyadhKh4n/cryptics) 
+
 - ## **Content**
+
+  For the most part the content displayed is original, however the blog recipes were taken from various sources:
+
+    - [Allrecipes](https://www.allrecipes.com/recipes/724/world-cuisine/european/portuguese/)
+
+    - [Home Made Interest](https://www.homemadeinterest.com/)
+
+    - [Food From Portugal](https://www.foodfromportugal.com/)
 
 - ## **Media**
 
+  - All images except for profile pictures were souced from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/)
+
+  - The profile pictures are randonly generated faces from [ThisPersonDoesNotExist](https://thispersondoesnotexist.com/)
+
 - ## **Acknowledgments**
+
+  - First and foremost I would like to thank my family for putting up with me while I would get lost for hours on end thinkering and labouring on this project
+
+  - A big thank you also has to go out to the Code Institue slack community, so very friendly and patient and willing to help out
+
+  - My mentor Dario for the sound advice and support
+
+  - Last but not least the Stack Overflow community, seriously what would we do without Stack Overflow...

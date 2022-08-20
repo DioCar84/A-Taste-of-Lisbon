@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Quicksand:wght@300;400;700&family=Roboto+Slab:wght@200;400;700&display=swap');
-/* photos from Unsplash and Pexel */
-/* recipes from Allrecipes, https://www.homemadeinterest.com/, https://www.foodfromportugal.com/ */
 
 /* ---------- GLOBAL ---------- */
 
@@ -93,7 +91,6 @@ footer {
     background-color: #ffb570;
 }
 
-/* buttons from website https://mdbootstrap.com/docs/standard/navigation/footer/ */
 .facebook {
     background-color: #3b5998;
 }
@@ -253,8 +250,6 @@ footer {
 .back-link {
     text-decoration: none;
 }
-
-/* https://getcssscan.com/css-buttons-examples button 21*/
 
 .form-button {
     align-items: center;
@@ -851,7 +846,6 @@ a.post-title-sm:hover {
     opacity: 0.5;
 }
 
-/* https://www.postermywall.com/index.php/posterbuilder/copy/679efb3c48c0f2dbcfb9a07d337bd562#.YuuNY3bMJhF */
 #open-times-image {
     width: 15%;
     margin: 10% 0;
