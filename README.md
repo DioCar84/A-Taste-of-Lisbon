@@ -2,7 +2,7 @@
 
 ## **Introduction** 
 
-![screenshots of project on responsive devices]()
+![screenshots of project on responsive devices](./documentation/tests/devices/Am%20I%20Responsive.png)
 
 A Taste of Lisbon -  an online blog/restaurant - was created for educational purposes only as the 4th project in the Code Institute’s full stack development program.
 
