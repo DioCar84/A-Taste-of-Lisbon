@@ -127,11 +127,31 @@ Using the principles of UX design and the agile development methodology, this pr
 
   - ### Colors
 
+    - The following color paletts were used throught the project. these were taken from the [mycolor](https://mycolor.space/) website.
+
+      ![colorpalette1](./documentation/surface/Color%20Palette1.png)
+
+      ![colorpalette2](./documentation/surface/Color%20Palette2.png) 
+
   - ### Typography
+
+    - The fonts chosen for this project were taken from [GoogleFonts](https://fonts.google.com/)
+
+        - font-family: 'Quicksand'
+
+        - font-family: 'Roboto Slab'
+
+        - font-family: 'EB Garamond'
 
   - ### Icons
 
+    - The various icons utilized throught the different pages were all taken from [fontawesome](https://fontawesome.com/)
+
   - ### Images
+
+    - All images except for profile pictures were souced from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/)
+
+    - The profile pictures are randonly generated faces from [ThisPersonDoesNotExist](https://thispersondoesnotexist.com/)
 
 # **FEATURES**
 

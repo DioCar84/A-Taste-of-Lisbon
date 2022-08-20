@@ -22,7 +22,6 @@ body {
 /* ---------- NAVBAR ---------- */
 
 .navbar {
-    /* from website https://mycolor.space/ */
     background-image: linear-gradient(to right, #ffb570, #ffad73, #fea576, #fb9d7a, #f8967e, #f39182, #ee8c86, #e88789, #e1828c, #d97e8f, #d07a92, #c67794);
     font-family: 'EB Garamond', 'Times New Roman', serif;
     padding: 3% 10%;
