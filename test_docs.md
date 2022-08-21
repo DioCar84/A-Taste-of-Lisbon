@@ -68,7 +68,7 @@ class TestMenuForm(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Restaurant%20TestForms(Menu)%20Results.png)
+![result](./documentation/tests/restaurant_testforms(menu)_results.png)
 
 - Tests developed for the Reservation Form:
 
@@ -139,7 +139,7 @@ class TestReservationForm(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Restaurant%20TestForms(Reservation)%20Results.png)
+![result](./documentation/tests/restaurant_testforms(reservation)_results.png)
 
 ##### Models
 
@@ -182,7 +182,7 @@ class TestRestaurantModels(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Restaurant%20TestModels%20Results.png)
+![result](./documentation/tests/restaurant_testmodels_results.png)
 
 ##### Views
 
@@ -288,7 +288,7 @@ class TestRestaurantViews(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Restaurant%20TestViews%20Results.png)
+![result](./documentation/tests/restaurant_testviews_results.png)
 
 #### Blog App:
 
@@ -361,7 +361,7 @@ class TestPostForm(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Blog%20TestForms(Post)%20Results.png)
+![result](./documentation/tests/blog_testforms(post)_results.png)
 
 - Tests developed for the Comment Form:
 
@@ -395,7 +395,7 @@ class TestCommentForm(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Blog%20TestForms(Comment)%20Results.png)
+![result](./documentation/tests/blog_testforms(comment)_results.png)
 
 ##### Models
 
@@ -484,7 +484,7 @@ class TestBlogModels(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Blog%20TestModels%20Results.png)
+![result](./documentation/tests/blog_testforms(post)_results.png)
 
 ##### Views
 
@@ -613,7 +613,7 @@ class TestBlogViews(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Blog%20TestViews%20Results.png)
+![result](./documentation/tests/blog_testviews_results.png)
 
 #### Users App:
 
@@ -658,7 +658,7 @@ class TestUserProfileForm(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Users%20TestForms%20Results.png)
+![result](./documentation/tests/users_testforms_results.png)
 
 ##### Models
 
@@ -681,7 +681,7 @@ class TestUsersModels(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Users%20TestModels%20Results.png)
+![result](./documentation/tests/users_testmodels_results.png)
 
 ##### Views
 
@@ -794,7 +794,7 @@ class TestUsersViews(TestCase):
 
 - Tests results:
 
-![result](./documentation/tests/Users%20TestViews%20Results.PNG)
+![result](./documentation/tests/users_testviews_results.PNG)
 
 ## Validator Testing 
 [PEP8 Python Validation](http://pep8online.com/)
@@ -803,287 +803,287 @@ class TestUsersViews(TestCase):
 
 ##### wsgi.py
 
-![wsgi](./documentation/tests/ATOL%20Wsgi.png)
+![wsgi](./documentation/tests/pep8/atol_wsgi.png)
 
 ##### urls.py
 
-![urls](./documentation/tests/ATOL%20Urls.png)
+![urls](./documentation/tests/pep8/atol_urls.png)
 
 ##### settings.py
 
-![settings](./documentation/tests/ATOL%20Settings.png)
+![settings](./documentation/tests/pep8/atol_settings.png)
 
 ##### asgi.py
 
-![asgi](./documentation/tests/ATOL%20Asgi.png)
+![asgi](./documentation/tests/pep8/atol_asgi.png)
 
 #### Restaurant App:
 
 ##### widgets.py
 
-![widgets](./documentation/tests/Restaurant%20Widgets.png)
+![widgets](./documentation/tests/pep8/restaurant_widgets.png)
 
 ##### views.py
 
-![views](./documentation/tests/Restaurant%20Views.png)
+![views](./documentation/tests/pep8/restaurant_views.png)
 
 ##### urls.py
 
-![urls](./documentation/tests/Restaurant%20Urls.png)
+![urls](./documentation/tests/pep8/restaurant_urls.png)
 
 ##### models.py
 
-![models](./documentation/tests/Restaurant%20Models.png)
+![models](./documentation/tests/pep8/restaurant_models.png)
 
 ##### forms.py
 
-![forms](./documentation/tests/Restaurant%20Forms.png)
+![forms](./documentation/tests/pep8/restaurant_forms.png)
 
 ##### apps.py
 
-![apps](./documentation/tests/Restaurant%20Apps.png)
+![apps](./documentation/tests/pep8/restaurant_apps.png)
 
 ##### admin.py
 
-![admin](./documentation/tests/Restaurant%20Admin.png)
+![admin](./documentation/tests/pep8/restaurant_admin.png)
 
 ##### test_forms.py
 
-![test_forms](./documentation/tests/Restaurant%20TestForms.png)
+![test_forms](./documentation/tests/pep8/restaurant_testforms.png)
 
 ##### test_models.py
 
-![test_models](./documentation/tests/Restaurant%20TestModels.png)
+![test_models](./documentation/tests/pep8/restaurant_testmodels.png)
 
 ##### test_views.py
 
-![test_views](./documentation/tests/Restaurant%20TestViews.png)
+![test_views](./documentation/tests/pep8/restaurant_testviews.png)
 
 #### Blog App:
 
 ##### views.py
 
-![views](./documentation/tests/Blog%20Views.png)
+![views](./documentation/tests/pep8/blog_views.png)
 
 ##### urls.py
 
-![urls](./documentation/tests/Blog%20Urls.png)
+![urls](./documentation/tests/pep8/blog_urls.png)
 
 ##### models.py
 
-![models](./documentation/tests/Blog%20Models.png)
+![models](./documentation/tests/pep8/blog_models.png)
 
 ##### forms.py
 
-![forms](./documentation/tests/Blog%20Forms.png)
+![forms](./documentation/tests/pep8/blog_forms.png)
 
 ##### apps.py
 
-![apps](./documentation/tests/Blog%20Apps.png)
+![apps](./documentation/tests/pep8/blog_apps.png)
 
 ##### admin.py
 
-![admin](./documentation/tests/Blog%20Admin.png)
+![admin](./documentation/tests/pep8/blog_admin.png)
 
 ##### test_forms.py
 
-![test_forms](./documentation/tests/Blog%20TestForms.png)
+![test_forms](./documentation/tests/pep8/blog_testforms.png)
 
 ##### test_models.py
 
-![test_models](./documentation/tests/Blog%20TestModels.png)
+![test_models](./documentation/tests/pep8/blog_models.png)
 
 ##### test_views.py
 
-![test_views](./documentation/tests/Blog%20TestViews.png)
+![test_views](./documentation/tests/pep8/blog_testviews.png)
 
 #### Users App:
 
 ##### views.py
 
-![views](./documentation/tests/Users%20Views.png)
+![views](./documentation/tests/pep8/users_views.png)
 
 ##### urls.py
 
-![urls](./documentation/tests/Users%20Urls.png)
+![urls](./documentation/tests/pep8/users_urls.png)
 
 ##### signals.py
 
-![signals](./documentation/tests/Users%20Signals.png)
+![signals](./documentation/tests/pep8/users_signals.png)
 
 ##### models.py
 
-![models](./documentation/tests/Users%20Views.png)
+![models](./documentation/tests/pep8/users_models.png)
 
 ##### forms.py
 
-![views](./documentation/tests/Users%20Models.png)
+![views](./documentation/tests/pep8/users_forms.png)
 
 ##### apps.py
 
-![apps](./documentation/tests/Users%20Apps.png)
+![apps](./documentation/tests/pep8/users_apps.png)
 
 ##### admin.py
 
-![views](./documentation/tests/Users%20Admin.png)
+![views](./documentation/tests/pep8/users_admin.png)
 
 ##### test_forms.py
 
-![test_forms](./documentation/tests/Users%20TestForms.png)
+![test_forms](./documentation/tests/pep8/users_testforms.png)
 
 ##### test_models.py
 
-![test_models](./documentation/tests/Users%20TestModels.png)
+![test_models](./documentation/tests/pep8/users_testmodels.png)
 
 ##### test_views.py
 
-![test_views](./documentation/tests/Users%20TestViews.PNG)
+![test_views](./documentation/tests/pep8/users_testviews.PNG)
 
 
 ## [HTML Validation](https://validator.w3.org/)
 
 ### Home Page
 
-![html](./documentation/tests/Home%20HTML.png)
+![html](./documentation/tests/html/home_html.png)
 
 ### Menu Page
 
-![html](./documentation/tests/Menu%20HTML.png)
+![html](./documentation/tests/html/menu_html.png)
 
 ### Blog Page
 
-![html](./documentation/tests/Blog%20HTML.png)
+![html](./documentation/tests/html/blog_html.png)
 
 ### Blog Post Page
 
-![html](./documentation/tests/Blog%20Post%20HTML.png)
+![html](./documentation/tests/html/blog_post_html.png)
 
 - Errors are related to the Summernote text editor not this project's HTML code
 
 ### Reservations Page
 
-![html](./documentation/tests/Reservations%20HTML.png)
+![html](./documentation/tests/html/reservations_html.png)
 
 ### About Page
 
-![html](./documentation/tests/About%20HTML.png)
+![html](./documentation/tests/html/about_html.png)
 
 ### Login Page
 
-![html](./documentation/tests/Login%20HTML.png)
+![html](./documentation/tests/html/login_html.png)
 
 ### Register Page
 
-![html](./documentation/tests/Register%20HTML.png)
+![html](./documentation/tests/html/register_html.png)
 
 - Error is related to Django's user creation form not this project's HTML code
 
 ### User Profile Page
 
-![html](./documentation/tests/User%20Profile%20HTML.png)
+![html](./documentation/tests/html/user_profile_html.png)
 
 ## [CSS Validation](https://jigsaw.w3.org/css-validator/)
 
-![CSS](./documentation/tests/styles%20css%20test.png)
+![CSS](./documentation/tests/css/styles_css_test.png)
 
 ## Lighthouse Score
 
 ### Mobile:
 
-![LighthouseMobile](./documentation/tests/Home%20Mobile.png)
+![LighthouseMobile](./documentation/tests/home_mobile.png)
 
 ### Desktop:
 
-![LighthouseDesktop](./documentation/tests/Home%20Desktop.png)
+![LighthouseDesktop](./documentation/tests/home_mobile.png)
 
 #### Best Practices
 
-![LighthouseBestPractices](./documentation/tests/Best%20Practices.png)
+![LighthouseBestPractices](./documentation/tests/best_practices.png)
 
 - Yellow score due to JQuery library and not the project's code
 
 ## User Story Tests
 
-### Site user:
+- ### Site user:
 
     - As a site user I can register an account so that I can comment and like posts
 
-![userregistration](./documentation/tests/user%20stories/User%20Registration.png)
+        ![userregistration](./documentation/tests/user_stories/user_registration.png)
 
     - As a site user I can view the menu so that I can determine if I want to eat at this restaurant
 
-![menu](./documentation/tests/user%20stories/Menu.png)
+        ![menu](./documentation/tests/user_stories/menu.png)
 
     - As a site user I can view key information so that I know when the restaurant is open, or where it is located
 
-![info](./documentation/tests/user%20stories/Info%201.png)
-![info](./documentation/tests/user%20stories/Info%202.png)
+        ![info](./documentation/tests/user_stories/info_1.png)
+        ![info](./documentation/tests/user_stories/info_2.png)
 
     - As a site user I can view a paginated list of posts so that I can easily select a post to view
 
-![paginatedposts](./documentation/tests/user%20stories/Paginated%20Posts.png)
+        ![paginatedposts](./documentation/tests/user_stories/paginated_posts.png)
 
     - As a site user I can make, edit and delete comments so that I have control over how I interact with the blog community
 
-![crudcomments](./documentation/tests/user%20stories/CRUD%20Comments.png)
+        ![crudcomments](./documentation/tests/user_stories/crud_comments.png)
 
     - As a site user I can like a post so that the author knows I enjoyed the content
 
-![likepost](./documentation/tests/user%20stories/Like%20Post.png)
+        ![likepost](./documentation/tests/user_stories/like_post.png)
 
     - As a site user I can make, edit, view and delete my reservations so that I can have control over when I will eat at the restaurant
 
-![crudreservations](./documentation/tests/user%20stories/CRUD%20Reservations.png)
+        ![crudreservations](./documentation/tests/user_stories/crud_reservations.png)
 
     - As a site user I can remove a like so that I can demonstrate that I am no longer interested in/agree with the post
 
-![removelike](./documentation/tests/user%20stories/Unlike%20Post.png)
+        ![removelike](./documentation/tests/user_stories/unlike_post.png)
 
     - As a site user I can edit my account so that I can update any information as it changes
 
-![crudprofile](./documentation/tests/user%20stories/CRUD%20Profile.png)
+        ![crudprofile](./documentation/tests/user_stories/crud_profile.png)
 
     - As a site user I can delete my account so that I can choose to no longer be a member of the site community
 
-![deleteprofile](./documentation/tests/user%20stories/CRUD%20Profile.png)    
+        ![deleteprofile](./documentation/tests/user_stories/crud_profile.png)    
 
-  ### Site admin:
+- ### Site admin:
 
     - As a site admin I can create, edit, view and delete posts so that I can be in total control of my sites content
 
-![createpost](./documentation/tests/user%20stories/Create%20Post.png)
-![editdeletepost](./documentation/tests/user%20stories/Edit%20Delete%20Post.png)
+        ![createpost](./documentation/tests/user_stories/create_post.png)
+        ![editdeletepost](./documentation/tests/user_stories/edit_delete_post.png)
 
     - As a site admin I can approve comments so that I can filter out any unwanted comments
 
-![approvecomments](./documentation/tests/user%20stories/Comment%20Approval.png)
+        ![approvecomments](./documentation/tests/user_stories/comment_approval.png)
 
     - As a site admin I can make, edit and remove comments so that I have total control over my interactions with the site community
 
-![crudcomments](./documentation/tests/user%20stories/Admin%20CRUD%20Comments.png)
+        ![crudcomments](./documentation/tests/user_stories/crud_comments.png)
 
     - As a site admin I can view member accounts so that I know how many users have registered
 
-![viewusers](./documentation/tests/user%20stories/Registered%20Users.png)
+        ![viewusers](./documentation/tests/user_stories/registered_users.png)
 
     - As a site admin I can view the number of reservations so that I can advise the kitchen of how customers are expected
 
-![viewreservations](./documentation/tests/user%20stories/Admin%20Reservations.png)
+        ![viewreservations](./documentation/tests/user_stories/admin_reservations.png)
 
     - As a site admin I can display key information so that users know where the restaurant is located and what's on the menu
 
-![info](./documentation/tests/user%20stories/Info%201.png)
-![info](./documentation/tests/user%20stories/Info%202.png)    
+        ![info](./documentation/tests/user_stories/info_1.png)
+        ![info](./documentation/tests/user_stories/info_2.png)    
 
-  ### Common stories:
+- ### Common stories:
 
     - As a site user|admin I can view the comments so that I can be aware of the conversation
 
-![viewcomments](./documentation/tests/user%20stories/Admin%20CRUD%20Comments.png)
+        ![viewcomments](./documentation/tests/user_stories/admin_crud_comments.png)
 
     - As a site user|admin I can view likes so that I am aware of which topics are trendy
 
-![likepost](./documentation/tests/user%20stories/Like%20Post.png)    
+        ![likepost](./documentation/tests/user_stories/like_post.png)    
 
 ## Manual Testing
 
@@ -1091,176 +1091,176 @@ Manual testing is the process of manually testing software for defects. It requi
 
 - User tries to register with a name already taken:
 
-![registration](./documentation/tests//manual/User%20Already%20Taken.png)
+    ![registration](./documentation/tests/manual/user_already_taken.png)
 
 - User tries to create username with invalid characters:
 
-![registration](./documentation/tests/manual/Invalid%20Username%20Char.png)
+    ![registration](./documentation/tests/manual/invalid_username_char.png)
 
 - User tries to register with two passwords that don't match:
 
-![registration](./documentation/tests/manual/Password%20Don't%20Match.png)
+    ![registration](./documentation/tests/manual/password_don't_match.png)
 
 - User tries to register without filling in all the fields:
 
-![registration](./documentation/tests/manual/Blank%20Registration%20Field.png)
+    ![registration](./documentation/tests/manual/blank_registration_field.png)
 
 - User tries to login with a username that doesn't exist or is incorrect:
 
-![login](./documentation/tests/manual/Invalid%20Username.png)
+    ![login](./documentation/tests/manual/invalid_username.png)
 
 - User tries to login without filling in all the fields:
 
-![login](./documentation/tests/manual/Blank%20Login%20Field.png)
+    ![login](./documentation/tests/manual/blank_login_field.png)
 
 - User tries to send a blank reservation form:
 
-![reservation](./documentation/tests/manual/Blank%20Reservation%20Form.png)
+    ![reservation](./documentation/tests/manual/blank_reservation_form.png)
 
 - User tries to send a blank comment:
 
-![reservation](./documentation/tests/manual/Blank%20Comment.png)
+    ![reservation](./documentation/tests/manual/blank_comment.png)
 
 ## Device Display Testing
 
 ### Home:
 
-#### Mobile:
+ - #### Mobile:
 
-![home](./documentation/tests/devices/Home%20Mobile.png)
+    ![home](./documentation/tests/devices/home_mobile.png)
 
-#### Tablet:
+- #### Tablet:
 
-![home](./documentation/tests/devices/Home%20Tablet.png)
+    ![home](./documentation/tests/devices/home_tablet.png)
 
-#### Desktop:
+- #### Desktop:
 
-![home](./documentation/tests/devices/Home%20Desktop.png)
+    ![home](./documentation/tests/devices/home_desktop.png)
 
 ### Menu:
 
-#### Mobile:
+- #### Mobile:
 
-![menu](./documentation/tests/devices/Menu%20Mobile.png)
+    ![menu](./documentation/tests/devices/menu_mobile.png)
 
-#### Tablet:
+- #### Tablet:
 
-![menu](./documentation/tests/devices/Menu%20Tablet.png)
+    ![menu](./documentation/tests/devices/menu_tablet.png)
 
-#### Desktop:
+- #### Desktop:
 
-![menu](./documentation/tests/devices/Menu%20Desktop.png)
+    ![menu](./documentation/tests/devices/menu_desktop.png)
 
 ### Blog:
 
-#### Mobile:
+- #### Mobile:
 
-![blog](./documentation/tests/devices/Blog%20Mobile.png)
+    ![blog](./documentation/tests/devices/blog_mobile.png)
 
-#### Tablet:
+- #### Tablet:
 
-![blog](./documentation/tests/devices/Blog%20Tablet.png)
+    ![blog](./documentation/tests/devices/blog_tablet.png)
 
-#### Desktop:
+- #### Desktop:
 
-![blog](./documentation/tests/devices/Blog%20Desktop.png)
+    ![blog](./documentation/tests/devices/blog_desktop.png)
 
 ### Blog Post:
 
-#### Mobile:
+- #### Mobile:
 
-![blogpost](./documentation/tests/devices/Blog%20Post%20Mobile.png)
+    ![blogpost](./documentation/tests/devices/blog_post_mobile.png)
 
-#### Tablet:
+- #### Tablet:
 
-![blogpost](./documentation/tests/devices/Blog%20Post%20Tablet.png)
+    ![blogpost](./documentation/tests/devices/blog_post_tablet.png)
 
-#### Desktop:
+- #### Desktop:
 
-![blogpost](./documentation/tests/devices/Blog%20Post%20Desktop.png)
+    ![blogpost](./documentation/tests/devices/blog_post_desktop.png)
 
 ### Reservations:
 
-#### Mobile:
+- #### Mobile:
 
-![reservations](./documentation/tests/devices/Reservations%20Mobile.png)
+    ![reservations](./documentation/tests/devices/reservations_mobile.png)
 
-#### Tablet:
+- #### Tablet:
 
-![reservations](./documentation/tests/devices/Reservations%20Tablet.png)
+    ![reservations](./documentation/tests/devices/reservations_tablet.png)
 
-#### Desktop:
+- #### Desktop:
 
-![reservations](./documentation/tests/devices/Reservations%20Desktop.png)
+    ![reservations](./documentation/tests/devices/reservations_desktop.png)
 
 ### About:
 
-#### Mobile:
+- #### Mobile:
 
-![about](./documentation/tests/devices/About%20Mobile.png)
+    ![about](./documentation/tests/devices/about_mobile.png)
 
-#### Tablet:
+- #### Tablet:
 
-![about](./documentation/tests/devices/About%20Tablet.png)
+    ![about](./documentation/tests/devices/about_tablet.png)
 
-#### Desktop:
+- #### Desktop:
 
-![about](./documentation/tests/devices/About%20Desktop.png)
+    ![about](./documentation/tests/devices/about_desktop.png)
 
 ### Login:
 
-#### Mobile:
+- #### Mobile:
 
-![login](./documentation/tests/devices/Login%20Mobile.png)
+    ![login](./documentation/tests/devices/login_mobile.png)
 
-#### Tablet:
+- #### Tablet:
 
-![login](./documentation/tests/devices/Login%20Tablet.png)
+    ![login](./documentation/tests/devices/login_tablet.png)
 
-#### Desktop:
+- #### Desktop:
 
-![login](./documentation/tests/devices/Login%20Desktop.png)
+    ![login](./documentation/tests/devices/login_desktop.png)
 
 ### Register:
 
-#### Mobile:
+- #### Mobile:
 
-![register](./documentation/tests/devices/Reservations%20Mobile.png)
+    ![register](./documentation/tests/devices/register_mobile.png)
 
-#### Tablet:
+- #### Tablet:
 
-![register](./documentation/tests/devices/Register%20Tablet.png)
+    ![register](./documentation/tests/devices/register_tablet.png)
 
-#### Desktop:
+- #### Desktop:
 
-![register](./documentation/tests/devices/Register%20Desktop.png)
+    ![register](./documentation/tests/devices/register_desktop.png)
 
 ### Profile:
 
-#### Mobile:
+- #### Mobile:
 
-![profile](./documentation/tests/devices/Profile%20Mobile.png)
+    ![profile](./documentation/tests/devices/profile_mobile.png)
 
-#### Tablet:
+- #### Tablet:
 
-![profile](./documentation/tests/devices/Profile%20Tablet.png)
+    ![profile](./documentation/tests/devices/profile_tablet.png)
 
-#### Desktop:
+- #### Desktop:
 
-![profile](./documentation/tests/devices/Profile%20Desktop.png)
+    ![profile](./documentation/tests/devices/profile_desktop.png)
 
 ## Browser Compatibility Tests 
 
 A Taste of Lisbon was tested on [Firefox](https://www.mozilla.org/en-GB/firefox/new/), [Google Chrome](https://www.google.com/intl/en_uk/chrome/) and [Brave Browser](https://brave.com/):
 
-### Firefox:
+- ### Firefox:
 
-![firefox](./documentation/tests/devices/Browser%20Firefox.png)
+    ![firefox](./documentation/tests/devices/browser_firefox.png)
 
-### Google Chrome:
+- ### Google Chrome:
 
-![chrome](./documentation/tests/devices/Browser%20Chrome.png)
+    ![chrome](./documentation/tests/devices/browser_chrome.png)
 
-### Brave Browser:
+- ### Brave Browser:
 
-![brave](./documentation/tests/devices/Browser%20Brave.png)
+    ![brave](./documentation/tests/devices/browser_brave.png)
