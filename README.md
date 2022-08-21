@@ -4,12 +4,11 @@
 
 ![screenshots of project on responsive devices](./documentation/tests/devices/Am%20I%20Responsive.png)
 
-A Taste of Lisbon -  an online blog/restaurant - was created for educational purposes only as the 4th project in the Code Institute’s full stack development program.
+A Taste of Lisbon - an online blog/restaurant - was created for educational purposes only as the 4th project in the Code Institute’s full stack development program.
 
 Using the principles of UX design and the agile development methodology, this project was developed using HTML, CSS, JavaScript, Python and the Django framework. 
 
 [View live project here](https://a-taste-of-lisbon.herokuapp.com/)
-
 
 ## **Table of content** 
 
@@ -48,7 +47,7 @@ Using the principles of UX design and the agile development methodology, this pr
     - Create an online presence
     - Interact with current/potential customers
     - Create a recipes blog
-    - Creat an online reservation mechanism
+    - Create an online reservation mechanism
     - Display key information
 
   ### Site Objectives:
@@ -125,9 +124,9 @@ Using the principles of UX design and the agile development methodology, this pr
 
 - ## **Surface**
 
-  - ### Colors
+  - ### Colours
 
-    - The following color paletts were used throught the project. these were taken from the [mycolor](https://mycolor.space/) website.
+    - The following colour palette were used throughout the project. these were taken from the [mycolor](https://mycolor.space/) website.
 
       ![colorpalette1](./documentation/surface/Color%20Palette1.png)
 
@@ -145,13 +144,13 @@ Using the principles of UX design and the agile development methodology, this pr
 
   - ### Icons
 
-    - The various icons utilized throught the different pages were all taken from [fontawesome](https://fontawesome.com/)
+    - The various icons utilized throughout the different pages were all taken from [fontawesome](https://fontawesome.com/)
 
   - ### Images
 
-    - All images except for profile pictures were souced from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/)
+    - All images except for profile pictures were sourced from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/)
 
-    - The profile pictures are randonly generated faces from [ThisPersonDoesNotExist](https://thispersondoesnotexist.com/)
+    - The profile pictures are randomly generated faces from [ThisPersonDoesNotExist](https://thispersondoesnotexist.com/)
 
 # **FEATURES**
 
@@ -160,7 +159,7 @@ Using the principles of UX design and the agile development methodology, this pr
   - ### User Registration
 
     Users can register and create an account. This will create a User instance and trigger a Django signal to 
-    automatically create a Profile for this user and link them together. A message will then be displayed to the user so they know the registration was sucessful.
+    automatically create a Profile for this user and link them together. A message will then be displayed to the user so they know the registration was successful.
 
     ![userregistration](./documentation/features/User%20Registration.png)
 
@@ -184,7 +183,7 @@ Using the principles of UX design and the agile development methodology, this pr
 
   - ### Paginated Menu/Blog
 
-    The menu page lists up to 6 different menu items and then will create a link below to the next page. This will continue until either the last 6 or less items are displayed. For the blog up to 4 articles will be displayed per page and then the same logic will be applied as in the menu page. New pages will be created until the last 4 or less posts remain and are diplayed.
+    The menu page lists up to 6 different menu items and then will create a link below to the next page. This will continue until either the last 6 or less items are displayed. For the blog up to 4 articles will be displayed per page and then the same logic will be applied as in the menu page. New pages will be created until the last 4 or less posts remain and are displayed.
 
     ![paginatedmenu](./documentation/features/Paginated%20Menu.png)
 
@@ -236,7 +235,7 @@ Using the principles of UX design and the agile development methodology, this pr
 
   - ### Admin/Staff
 
-    Admin or staff members will be people to access all of their data and perform CRUD actions on the front-end. There is no need to visit the Django admin panel unless they wish to create a new superuser. Staff members will be granted special privelages that reguler users do not have access to. Staff mebers can create, edit or delete blog posts. They can crete, edit or delete menu items. A staff profile allows them to approve any pending comments, view the total reservations that have been booked or how many registered users there are and their info.
+    Admin or staff members will be people to access all of their data and perform CRUD actions on the front-end. There is no need to visit the Django admin panel unless they wish to create a new superuser. Staff members will be granted special privileges that regular users do not have access to. Staff members can create, edit or delete blog posts. They can create, edit or delete menu items. A staff profile allows them to approve any pending comments, view the total reservations that have been booked or how many registered users there are and their info.
 
     ![admin](./documentation/features/Admin%20Profile.png)
 
@@ -278,15 +277,15 @@ Using the principles of UX design and the agile development methodology, this pr
 
 - ## **Libraries frameworks and other technologies**
 
-  - Django, Jquery, Bootstrap, Cloudinary, Crispy Forms, Summernote, Pillow, Whitenoise
+  - Django, jQuery, Bootstrap, Cloudinary, Crispy Forms, Summernote, Pillow, Whitenoise
 
 # **CODE STRUCTURE**
 
   - ## Project
 
-    The Django project was named taste_of_lisbon. This is where the settings.py file and the main urls.py files are housed. All applications created will inherit the settingsdefined in the project and all url paths defined will be linked to the main url file in the project. 
-    The project will also import the os module and link the env.py fileto the settings file. This will allow for a seperate file that houses environment variables with sensitive information, such as passwords and private url paths. 
-    As theproject grew it quickly became evident that more than one app was going to be needed in order to seperate functionality and make it easier to address the requirementsseperatly.
+    The Django project was named taste_of_lisbon. This is where the settings.py file and the main urls.py files are housed. All applications created will inherit the settings defined in the project and all URL paths defined will be linked to the main URL file in the project. 
+    The project will also import the os module and link the env.py file to the settings file. This will allow for a separate file that houses environment variables with sensitive information, such as passwords and private URL paths. 
+    As the project grew it quickly became evident that more than one app was going to be needed in order to separate functionality and make it easier to address the requirements separately.
 
   - ## Apps
 
@@ -300,15 +299,15 @@ Using the principles of UX design and the agile development methodology, this pr
 
       - ### Users
 
-        The users app is where all the code for resgistering users and building user profiles can be found. User information is defined here, such as what fields should make up a user profile. This is where the functionality is storred for users to be able to edit their profiles, add a profile image, change their password, etc... The login and logout functionalities are also defined here, as well as, certain privelages which are granted to staff members only, restricting non-staff users from accessing this content.
+        The users app is where all the code for registering users and building user profiles can be found. User information is defined here, such as what fields should make up a user profile. This is where the functionality is stored for users to be able to edit their profiles, add a profile image, change their password, etc... The login and logout functionalities are also defined here, as well as, certain privileges which are granted to staff members only, restricting non-staff users from accessing this content.
 
   - ## Static
 
-    The static folder is where the JavaScript and CSS files can be found. There are both linked to the base html template defined in the main project and then re used throught the app templates through inheritance of the base template.
+    The static folder is where the JavaScript and CSS files can be found. There are both linked to the base html template defined in the main project and then re used throughout the app templates through inheritance of the base template.
 
   - ## Documentation
 
-    This folder contains most of the documentation related to the whole project. The 5 planes of UX design can be found here with their respective supporting images and content. There is also a features folder contained images related to the features that were implemented for this project. Finally, there is a tests folder, which holds all the supporting images vor the various tests and validations that were performed.
+    This folder contains most of the documentation related to the whole project. The 5 planes of UX design can be found here with their respective supporting images and content. There is also a features folder contained images related to the features that were implemented for this project. Finally, there is a tests folder, which holds all the supporting images for the various tests and validations that were performed.
 
 # **TESTING**
 
@@ -332,7 +331,7 @@ Using the principles of UX design and the agile development methodology, this pr
 
   6. Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within   env.py as a root level file.
 
-  The env.py files is where the projects secret environment variables are stored. This file is then added to a gitnore file so it isn't stored publicly within the projects   repository.
+  The env.py files is where the projects secret environment variables are stored. This file is then added to a .gitignore file so it isn't stored publicly within the projects   repository.
 
   7. Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on  GitPod.
 
@@ -345,7 +344,7 @@ Using the principles of UX design and the agile development methodology, this pr
           import env
       ```
 
-  9. Then, we need to replace the current insecre secret key with ```os.environ.get('SECRET_KEY)'```, that we set witin the env.py file.
+  9. Then, we need to replace the current insecure secret key with ```os.environ.get('SECRET_KEY)'```, that we set within the env.py file.
 
   10. Once the secret key is replaced, scroll down to DATABASES to connect to the Postgres database. Comment out the current code and add the following python dictionary: 
   ```python
@@ -356,7 +355,7 @@ Using the principles of UX design and the agile development methodology, this pr
 
   12. Then on Heroku add to the Config Vars, DISABLE_COLLECTSTATIC = 1, as a temporary measure to enable deployment without any static files, this will be removed when it is time  to deploy the full project.
 
-  13. Next we need to tell Django where to store the madia and static files. Towards the bottom of settings.py file we can add:
+  13. Next we need to tell Django where to store the media and static files. Towards the bottom of settings.py file we can add:
 
   ```python
   STATIC_URL = '/static/'
@@ -379,7 +378,7 @@ Using the principles of UX design and the agile development methodology, this pr
 
   18. Scroll down to the Automatic and Manual Deploys sections. Click 'Deploy Branch' in the Manual Deploy section and waited as Heroku installed all dependencies and deployed   the code.
 
-  21. Once the project is finnished deploying, click 'Open App' to see the newly deployed project.
+  21. Once the project is finished deploying, click 'Open App' to see the newly deployed project.
 
   22. Before deploying the final draft of your project you must:
 
@@ -422,9 +421,9 @@ Using the principles of UX design and the agile development methodology, this pr
 
   - The footer social media buttons can be found at [mdbootstrap](https://mdbootstrap.com/docs/standard/navigation/footer/)
 
-  - most buttons displayed across the various webpages will be an adaptation of button 21 ffrom [CSS Scan](https://getcssscan.com/css-buttons-examples)
+  - most buttons displayed across the various webpages will be an adaptation of button 21 from [CSS Scan](https://getcssscan.com/css-buttons-examples)
 
-  - this read me file and supporting docs were adapted from 2 former Code Institue student's projects [Codzilla](https://github.com/lemocla/Codzilla) and [Cryptics](https://github.com/RiyadhKh4n/cryptics) 
+  - this read me file and supporting docs were adapted from 2 former Code Institute student's projects [Codzilla](https://github.com/lemocla/Codzilla) and [Cryptics](https://github.com/RiyadhKh4n/cryptics) 
 
 - ## **Content**
 
@@ -438,16 +437,18 @@ Using the principles of UX design and the agile development methodology, this pr
 
 - ## **Media**
 
-  - All images except for profile pictures were souced from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/)
+  - All images except for profile pictures were sourced from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/)
 
-  - The profile pictures are randonly generated faces from [ThisPersonDoesNotExist](https://thispersondoesnotexist.com/)
+  - The profile pictures are randomly generated faces from [ThisPersonDoesNotExist](https://thispersondoesnotexist.com/)
 
 - ## **Acknowledgments**
 
-  - First and foremost I would like to thank my family for putting up with me while I would get lost for hours on end thinkering and labouring on this project
+  - First and foremost I would like to thank my family for putting up with me while I would get lost for hours on end tinkering and labouring on this project
 
-  - A big thank you also has to go out to the Code Institue slack community, so very friendly and patient and willing to help out
+  - A big thank you also has to go out to the Code Institute slack community, so very friendly and patient and willing to help out
 
   - My mentor Dario for the sound advice and support
 
   - Last but not least the Stack Overflow community, seriously what would we do without Stack Overflow...
+
+
