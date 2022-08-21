@@ -146,11 +146,6 @@ class TestReservationForm(TestCase):
 - Tests developed for the Restaurant app models:
 
 ```python
-import datetime as date
-from django.test import TestCase
-from .models import Photo, Menu, Reservation
-
-
 class TestRestaurantModels(TestCase):
     '''
     A class to test models in the Restaurant app.
@@ -314,7 +309,7 @@ class TestPostForm(TestCase):
             'excerpt': 'A Lisbon Beef Steak',
             'meal_type': 2,
             'dish_type': 4,
-            'content': 'Some ramdom content about this dish'
+            'content': 'Some random content about this dish'
         })
 
         self.assertTrue(form.is_valid())
@@ -418,7 +413,7 @@ class TestBlogModels(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         current_date = date.datetime.now()
         self.assertEqual(current_date.date(), item.created_on.date())
@@ -430,7 +425,7 @@ class TestBlogModels(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
 
         self.assertEqual(item.featured_image, 'placeholder')
@@ -442,7 +437,7 @@ class TestBlogModels(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
 
         password = 'mypassword'
@@ -458,7 +453,7 @@ class TestBlogModels(TestCase):
             'excerpt': 'A Lisbon Beef Steak',
             'meal_type': 2,
             'dish_type': 4,
-            'content': 'Some ramdom content about this dish'
+            'content': 'Some random content about this dish'
         })
 
         self.assertFalse(form.is_valid())
@@ -475,7 +470,7 @@ class TestBlogModels(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         item = Comment.objects.create(
             email='john@email.com',
@@ -513,7 +508,7 @@ class TestBlogViews(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         response = self.client.get(f'/blog/{item.id}/')
         self.assertEqual(response.status_code, 200)
@@ -527,7 +522,7 @@ class TestBlogViews(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         response = self.client.get(f'/blog/edit_post/{item.id}/')
         self.assertEqual(response.status_code, 200)
@@ -541,7 +536,7 @@ class TestBlogViews(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         response = self.client.get(f'/blog/delete_post/{item.id}/')
         self.assertEqual(response.status_code, 200)
@@ -555,7 +550,7 @@ class TestBlogViews(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         item = Comment.objects.create(
             email='john@email.com',
@@ -575,7 +570,7 @@ class TestBlogViews(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         item = Comment.objects.create(
             email='john@email.com',
@@ -595,7 +590,7 @@ class TestBlogViews(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         response = self.client.get(f'/blog/meal_tag/{item.meal_type}/')
         self.assertEqual(response.status_code, 200)
@@ -609,7 +604,7 @@ class TestBlogViews(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         response = self.client.get(f'/blog/meal_tag/{item.dish_type}/')
         self.assertEqual(response.status_code, 200)
@@ -769,7 +764,7 @@ class TestUsersViews(TestCase):
             excerpt='A Lisbon Beef Steak',
             meal_type=2,
             dish_type=4,
-            content='Some ramdom content about this dish'
+            content='Some random content about this dish'
         )
         item = Comment.objects.create(
             email='john@email.com',
@@ -943,7 +938,6 @@ class TestUsersViews(TestCase):
 ##### test_views.py
 
 ![test_views](./documentation/tests/Users%20TestViews.PNG)
-
 
 
 ## [HTML Validation](https://validator.w3.org/)
