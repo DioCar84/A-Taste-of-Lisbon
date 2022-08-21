@@ -27,7 +27,7 @@ Using the principles of UX design and the agile development methodology, this pr
     - [Languages](#languages)
     - [Database](#database)
     - [Libraries, frameworks and other technologies](#libraries-frameworks-and-other-technologies)
-  - [Code organisation](#code-organisation)
+  - [Code structure](#code-structure)
   - [Data validation](#data-validation)
   - [Testing](#testing)
   - [Deployment](#deployment)
@@ -280,9 +280,35 @@ Using the principles of UX design and the agile development methodology, this pr
 
   - Django, Jquery, Bootstrap, Cloudinary, Crispy Forms, Summernote, Pillow, Whitenoise
 
-# **CODE ORGANISATION**
+# **CODE STRUCTURE**
 
-# **DATA VALIDATION**
+  - ## Project
+
+    The Django project was named taste_of_lisbon. This is where the settings.py file and the main urls.py files are housed. All applications created will inherit the settingsdefined in the project and all url paths defined will be linked to the main url file in the project. 
+    The project will also import the os module and link the env.py fileto the settings file. This will allow for a seperate file that houses environment variables with sensitive information, such as passwords and private url paths. 
+    As theproject grew it quickly became evident that more than one app was going to be needed in order to seperate functionality and make it easier to address the requirementsseperatly.
+
+  - ## Apps
+
+      - ### Blog
+
+        The blog app houses the functionality for the blog section of the project. This is where staff can perform CRUD operations such as creating a new blog post or editing an existing post. This app also allows for registered users to leave comments on any post and also edit or delete their comments. Finally, the like functionality, which can be used by registered users to like or unlike a post.
+
+      - ### Restaurant
+
+        The restaurant app contains the functionality for the menu and reservations sections. Staff can perform CRUD operations on the menu items, such as add an item to the menu or delete items from the menu. Reservations are also defined in the restaurant app, users and staff can make reservations, view, edit or delete them. Finally, this app houses the home and about sections as this is a restaurant business it made sense to place these here.
+
+      - ### Users
+
+        The users app is where all the code for resgistering users and building user profiles can be found. User information is defined here, such as what fields should make up a user profile. This is where the functionality is storred for users to be able to edit their profiles, add a profile image, change their password, etc... The login and logout functionalities are also defined here, as well as, certain privelages which are granted to staff members only, restricting non-staff users from accessing this content.
+
+  - ## Static
+
+    The static folder is where the JavaScript and CSS files can be found. There are both linked to the base html template defined in the main project and then re used throught the app templates through inheritance of the base template.
+
+  - ## Documentation
+
+    This folder contains most of the documentation related to the whole project. The 5 planes of UX design can be found here with their respective supporting images and content. There is also a features folder contained images related to the features that were implemented for this project. Finally, there is a tests folder, which holds all the supporting images vor the various tests and validations that were performed.
 
 # **TESTING**
 
