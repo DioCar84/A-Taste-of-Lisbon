@@ -80,6 +80,7 @@ Using the principles of UX design and the agile development methodology, this pr
   ### Site admin:
 
     - As a site admin I can create, edit, view and delete posts so that I can be in total control of my sites content
+    - As a site admin I can create, edit, view and delete menu items so that I can be in total control of my sites content
     - As a site admin I can approve comments so that I can filter out any unwanted comments
     - As a site admin I can make, edit and remove comments so that I have total control over my interactions with the site community
     - As a site admin I can view member accounts so that I know how many users have registered
@@ -94,12 +95,14 @@ Using the principles of UX design and the agile development methodology, this pr
 - ## **Scope**
 
   - ### Features
+
     ![Features](documentation/scope/features.png)
 
     This website will released as a minimal viable product with the above features implemented in this release. 
     There will be room for improvement and new features may be added in future releases.
 
   - ### Functionality and Content
+
     ![Functions and Content](documentation/scope/function_content.png)
 
     The above functionality and content have been identified as mandatory for this release.
@@ -107,12 +110,14 @@ Using the principles of UX design and the agile development methodology, this pr
 - ## **Structure**
 
   - ### Information Architecture
-  ![Information Architecture](documentation/structure/information_architecture.png)
+
+    ![Information Architecture](documentation/structure/information_architecture.png)
 
   The navigation for this website was designed to be user-friendly and intuitive. Grouping pages according to relationships and functionality. As can be seen in the mapping image, the user never has to traverse more than 3 layers deep from the home page.
 
   - ### Entity Relationship Model
-  ![Entity Relationship Model](./documentation/structure/graphviz.png)
+
+    ![Entity Relationship Model](./documentation/structure/graphviz.png)
 
   The ERM design demonstrates how the information will be stored while the data is at rest. Here we can see one-to-many relationships between the User model and the Comment and/or Post model. The same relationship is established between the Post model and the Comment. The Reservation model does not establish any direct relationship, this allows for greater flexibility and doesn't limit the reservation functionality to only Users that are already in the database. The Menu model inherits from the Photo model, the rest of the relationships are derived from Django built-in models such as User, AbstractUser, Session, etc...
 
@@ -273,7 +278,7 @@ Using the principles of UX design and the agile development methodology, this pr
 
 - ## **Languages**
 
- - Python, HTML, CSS, JavaScript
+  - Python, HTML, CSS, JavaScript
 
 - ## **Database**
 
@@ -333,11 +338,9 @@ Using the principles of UX design and the agile development methodology, this pr
 
   5. Click on the 'Settings' tab at the top of the page. The following step must be completed before deployment. 
 
-  6. Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within   env.py as a root level file.
+  6. Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py as a root level file. The env.py files is where the projects secret environment variables are stored. This file is then added to a .gitignore file so it isn't stored publicly within the projects repository.
 
-  The env.py files is where the projects secret environment variables are stored. This file is then added to a .gitignore file so it isn't stored publicly within the projects   repository.
-
-  7. Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on  GitPod.
+  7. Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on GitPod.
 
   8. Within the [settings.py](./taste_of_lisbon/settings.py) file you need to import several libraries:
       ```python
@@ -351,9 +354,10 @@ Using the principles of UX design and the agile development methodology, this pr
   9. Then, we need to replace the current insecure secret key with ```os.environ.get('SECRET_KEY)'```, that we set within the env.py file.
 
   10. Once the secret key is replaced, scroll down to DATABASES to connect to the Postgres database. Comment out the current code and add the following python dictionary: 
-  ```python
-  DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
-  ```
+    
+      ```python
+      DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
+      ```
 
   11. The next step is to connect the project to whitenoise, which is where the static files will be stored. You can find a full explanation of how to install whitenoise [here](http://whitenoise.evans.io/en/stable/)
 
@@ -361,20 +365,20 @@ Using the principles of UX design and the agile development methodology, this pr
 
   13. Next we need to tell Django where to store the media and static files. Towards the bottom of settings.py file we can add:
 
-  ```python
-  STATIC_URL = '/static/'
-  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-  MEDIA_URL = '/media/'
-  ```
+      ```python
+      STATIC_URL = '/static/'
+      STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+      STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+      MEDIA_URL = '/media/'
+      ```
 
-  14. Then we need to tell Django where the templates will be stored. At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll   down to TEMPLATES and add the templates directory variable to 'DIRS': [].
+  14. Then we need to tell Django where the templates will be stored. At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll down to TEMPLATES and add the templates directory variable to 'DIRS': [].
 
   15. Now we have to add our Heroku Host Name into allowed hosts in settings.py file:
 
-  ```python
-  ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
-  ```
+      ```python
+      ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
+      ```
 
   16. Finally, to complete the first deployment set up of the skeleton app, create a Procfile so that Heroku knows how to run the project. Within this file add the following:  web: gunicorn APP-NAME.wsgi Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a  standard that allows Python services to integrate with web servers.
 
@@ -386,8 +390,8 @@ Using the principles of UX design and the agile development methodology, this pr
 
   22. Before deploying the final draft of your project you must:
 
-  - Remove staticcollect=1 from congifvars within Heroku
-  - Ensure DEBUG is set to false in settings.py file or:
+      - Remove staticcollect=1 from congifvars within Heroku
+      - Ensure DEBUG is set to false in settings.py file or:
 
 - ## **Using this project locally**
 
@@ -402,12 +406,12 @@ Using the principles of UX design and the agile development methodology, this pr
   
   7. Press Enter. Your local clone will be created.
  
-  Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+    Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+    
+    [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DioCar84/A-Taste-of-Lisbon)
   
-  [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DioCar84/A-Taste-of-Lisbon)
-
-  You will need to also install all required packages in order to run this application on Heroku, refer to [requirements.txt](./requirements.txt)
-  * Command to install this apps requirements is `pip3 install -r requirements.txt`
+    You will need to also install all required packages in order to run this application on Heroku, refer to [requirements.txt](./requirements.txt)
+    * Command to install this apps requirements is `pip3 install -r requirements.txt`
 
 # **CREDITS**
 
