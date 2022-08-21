@@ -125,7 +125,7 @@ Using the principles of UX design and the agile development methodology, this pr
 
   - ### Wireframes
 
-    - The full wireframes documentation can be found here [wireframes](./wireframes.md). The wireframes were used as a guide for the layouts of the various pages. However, the final project does not always represent an exact replica of the wireframe. This can be attributed to various reasons, such as the final design is more visually appealing, lack of knowledge on my part, better alternative layout discovered, etc..
+    - All wireframe images can be found at [wireframes](./wireframes.md). The wireframes were used as a guide for the layouts of the various pages. However, the final project does not always represent an exact replica of the wireframe. This can be attributed to various reasons, such as the final design is more visually appealing, lack of knowledge on my part, better alternative layout discovered, etc..
 
 - ## **Surface**
 
@@ -407,9 +407,9 @@ Using the principles of UX design and the agile development methodology, this pr
   7. Press Enter. Your local clone will be created.
  
     Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
-    
+
     [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DioCar84/A-Taste-of-Lisbon)
-  
+
     You will need to also install all required packages in order to run this application on Heroku, refer to [requirements.txt](./requirements.txt)
     * Command to install this apps requirements is `pip3 install -r requirements.txt`
 
