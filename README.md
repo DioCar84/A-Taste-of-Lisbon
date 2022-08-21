@@ -2,7 +2,7 @@
 
 ## **Introduction** 
 
-![screenshots of project on responsive devices](./documentation/tests/devices/Am%20I%20Responsive.png)
+![screenshots of project on responsive devices](./documentation/tests/devices//am_i_responsive.png)
 
 A Taste of Lisbon - an online blog/restaurant - was created for educational purposes only as the 4th project in the Code Institute’s full stack development program.
 
@@ -94,20 +94,20 @@ Using the principles of UX design and the agile development methodology, this pr
 - ## **Scope**
 
   - ### Features
-    ![Features](documentation/scope/Features.png)
+    ![Features](documentation/scope/features.png)
 
     This website will released as a minimal viable product with the above features implemented in this release. 
     There will be room for improvement and new features may be added in future releases.
 
   - ### Functionality and Content
-    ![Functions and Content](documentation/scope/Function-Content.png)
+    ![Functions and Content](documentation/scope/function_content.png)
 
     The above functionality and content have been identified as mandatory for this release.
 
 - ## **Structure**
 
   - ### Information Architecture
-  ![Information Architecture](documentation/structure/Information%20Architecture.png)
+  ![Information Architecture](documentation/structure/information_architecture.png)
 
   The navigation for this website was designed to be user-friendly and intuitive. Grouping pages according to relationships and functionality. As can be seen in the mapping image, the user never has to traverse more than 3 layers deep from the home page.
 
@@ -128,9 +128,9 @@ Using the principles of UX design and the agile development methodology, this pr
 
     - The following colour palette were used throughout the project. these were taken from the [mycolor](https://mycolor.space/) website.
 
-      ![colorpalette1](./documentation/surface/Color%20Palette1.png)
+      ![colorpalette1](./documentation/surface/color_palette1.png)
 
-      ![colorpalette2](./documentation/surface/Color%20Palette2.png) 
+      ![colorpalette2](./documentation/surface/color_palette2.png) 
 
   - ### Typography
 
@@ -161,95 +161,95 @@ Using the principles of UX design and the agile development methodology, this pr
     Users can register and create an account. This will create a User instance and trigger a Django signal to 
     automatically create a Profile for this user and link them together. A message will then be displayed to the user so they know the registration was successful.
 
-    ![userregistration](./documentation/features/User%20Registration.png)
+    ![userregistration](./documentation/features/user_registration.png)
 
-    ![messages](./documentation/features/Messages.png)
+    ![messages](./documentation/features/messages.png)
 
   - ### User Login/Logout
 
     Registered users are able to log in and out at will. However, certain features are only available to users that are logged in given the user and incentive to do so. The user is also constantly given feedback through messages that appear at the top of the page below the navbar, so that they know an action has been carried out or not.
 
-    ![login1](./documentation/features/User%20Login1.png)
+    ![login1](./documentation/features/user_login1.png)
 
-    ![login2](./documentation/features/User%20Login2.png)
+    ![login2](./documentation/features/user_login2.png)
 
-    ![logout](./documentation/features/Logout.png)
+    ![logout](./documentation/features/logout.png)
 
   - ### User Profile
 
     Each registered user is given a profile they can choose to supply information and an image for. They are also able to edit all visible fields in this profile or delete the profile if they no longer which to be a registered user.
 
-    ![userprofile](./documentation/features/Profile.png)
+    ![userprofile](./documentation/features/profile.png)
 
   - ### Paginated Menu/Blog
 
     The menu page lists up to 6 different menu items and then will create a link below to the next page. This will continue until either the last 6 or less items are displayed. For the blog up to 4 articles will be displayed per page and then the same logic will be applied as in the menu page. New pages will be created until the last 4 or less posts remain and are displayed.
 
-    ![paginatedmenu](./documentation/features/Paginated%20Menu.png)
+    ![paginatedmenu](./documentation/features/paginated_menu.png)
 
-    ![paginatedblog](./documentation/features/Paginated%20Blog.png)
+    ![paginatedblog](./documentation/features/paginated_blog.png)
 
   - ### Blog Recipe Search
 
     The various blog pages have a search bar which can be used to search for recipes by name. This search functionality will look for recipes that match the user input or that contain those words in their title.
 
-    ![recipesearch](./documentation/features/Blog%20Recipe%20Search.png)
+    ![recipesearch](./documentation/features/blog_recipe_search.png)
 
   - ### Recipe Categories
 
     Each blog post(recipe) has been created with certain identifier fields. Such as if it's a meat dish or salad, etc... These categories are then displayed under the search bar. the user can select a category and this will filter the posts by those that belong in the chosen category.
 
-    ![recipecategory](./documentation/features/Recipe%20Categories.png)
+    ![recipecategory](./documentation/features/recipe_categories.png)
 
   - ### Popular Articles
 
     The 3 blog posts with the most comments will be displayed in the popular articles section so that the user knows which recipes are trendy or have the greatest amount of interaction between the website's community. The 3 articles will be ordered by descending order so that the post with the most comments appears first.
 
-    ![populararticles](./documentation/features/Popular%20Articles.png)
+    ![populararticles](./documentation/features/popular_articles.png)
 
   - ### Tag Cloud/Tags
 
     Each blog post(recipe) will have two identifying fields, dish type and meal type. These fields will auto generate tags which the user can select to filter all posts with the same tag as the selected one.
 
-    ![tagcloud](./documentation/features/Tag%20Cloud.png)
+    ![tagcloud](./documentation/features/tag_cloud.png)
 
   - ### Blog Post/Like
 
     Every post created will have key information displayed to the user. This information includes, who the author of the post is, when it was created and how many likes the post has. If the user is a registered user, they can choose to like or unlike as many posts as they desire.
 
-    ![blogpost](./documentation/features/Blog%20Post.png)
+    ![blogpost](./documentation/features/blog_post.png)
 
   - ### Blog Comments
 
     All registered users can choose to leave a comment on any blog post. The comment will then go to an approval queue to be released by a staff member. Once approved the comment will be displayed. Users who create a comment will also have the option to edit or delete their comments.
 
-    ![blogcomment](./documentation/features/Comments%20Section.png)
+    ![blogcomment](./documentation/features/comments_section.png)
 
   - ### Reservations
 
     All visitors, whether they are a register user or not, will have the option to book a reservation. The user can choose a date, a time slot, how many people will be present and a table. However, in order to be able to edit their reservations a user must be registered and logged in.
 
-    ![reservation](./documentation/features/Make%20Reservations.png)
+    ![reservation](./documentation/features/make_reservations.png)
 
-    ![editreservation](./documentation/features/Edit%20Reservations.png)
+    ![editreservation](./documentation/features/edit_reservations.png)
 
   - ### Admin/Staff
 
     Admin or staff members will be people to access all of their data and perform CRUD actions on the front-end. There is no need to visit the Django admin panel unless they wish to create a new superuser. Staff members will be granted special privileges that regular users do not have access to. Staff members can create, edit or delete blog posts. They can create, edit or delete menu items. A staff profile allows them to approve any pending comments, view the total reservations that have been booked or how many registered users there are and their info.
 
-    ![admin](./documentation/features/Admin%20Profile.png)
+    ![admin](./documentation/features/admin_profile.png)
 
-    ![admin](./documentation/features/Admin%20Blog.png)
+    ![admin](./documentation/features/admin_blog.png)
 
-    ![admin](./documentation/features/Admin%20Post.png)
+    ![admin](./documentation/features/admin_post.png)
 
-    ![admin](./documentation/features/Admin%20Menu.png)
+    ![admin](./documentation/features/admin_menu.png)
 
-    ![admin](./documentation/features/Admin%20Comment%20Approval.png)
+    ![admin](./documentation/features/admin_comment_approval.png)
 
-    ![admin](./documentation/features/Admin%20Reservations.png)
+    ![admin](./documentation/features/admin_reservations.png)
 
-    ![admin](./documentation/features/Admin%20Users.png)
+    ![admin](./documentation/features/admin_users.png)
 
 - ## **Features left to implement**
 
@@ -264,6 +264,10 @@ Using the principles of UX design and the agile development methodology, this pr
   - ### Google Maps API
 
     Instead of using a static image of a map, the Google Maps API would allow users the functionalities associated with using a Google map.
+
+  - ### 404 and 500 error pages
+
+    Display 404 error page if user tries to access a page that does not exist. Display 500 error page when the server is having issues or is unavailable.
 
 # **TECHNOLOGY USED**
 
@@ -335,7 +339,7 @@ Using the principles of UX design and the agile development methodology, this pr
 
   7. Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on  GitPod.
 
-  8. Within the [settings.py](settings.py) file you need to import several libraries:
+  8. Within the [settings.py](./taste_of_lisbon/settings.py) file you need to import several libraries:
       ```python
       import os
       import dj_database_url
@@ -351,7 +355,7 @@ Using the principles of UX design and the agile development methodology, this pr
   DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
   ```
 
-  11. The next step is to connect the project to whitenoise, which is where the static files will be stored. You can find a full explanation of how to install whitenoise [here]  (http://whitenoise.evans.io/en/stable/)
+  11. The next step is to connect the project to whitenoise, which is where the static files will be stored. You can find a full explanation of how to install whitenoise [here](http://whitenoise.evans.io/en/stable/)
 
   12. Then on Heroku add to the Config Vars, DISABLE_COLLECTSTATIC = 1, as a temporary measure to enable deployment without any static files, this will be removed when it is time  to deploy the full project.
 
@@ -402,7 +406,7 @@ Using the principles of UX design and the agile development methodology, this pr
   
   [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DioCar84/A-Taste-of-Lisbon)
 
-  You will need to also install all required packages in order to run this application on Heroku, refer to [requirements.txt](requirements.txt)
+  You will need to also install all required packages in order to run this application on Heroku, refer to [requirements.txt](./requirements.txt)
   * Command to install this apps requirements is `pip3 install -r requirements.txt`
 
 # **CREDITS**
